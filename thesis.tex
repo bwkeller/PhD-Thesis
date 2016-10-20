@@ -5,10 +5,7 @@
 \usepackage{amssymb} %AMS Math Symbols
 \usepackage[all,warning]{onlyamsmath}%Warn about non-ams math useage, suggest improvements
 \usepackage[letterpaper,twoside,top=3.8cm,bottom=2.5cm,inner=2.5cm,outer=3.8cm]{geometry} %Sets up basic page dimensions
-\usepackage[tracking=true,kerning=true,expansion=true,spacing=true]{microtype} %makes type look better
-\microtypecontext{spacing=nonfrench}
 \usepackage{booktabs} %makes tables look better with nicer borders
-\usepackage{siunitx} %provides standard printing for SI units
 \usepackage[breaklinks,hidelinks]{hyperref} %Provides clickable links
 \usepackage[capitalize,noabbrev]{cleveref} %Allows use of \cref, which knows what kind of ref you're making, so you don't have to write EQN and such
 \usepackage{ifpdf} %Conditions for if pdftex is running
@@ -21,16 +18,11 @@
 \usepackage{gensymb} %Provides  \de­gree, \cel­sius, \pert­hou­sand, \mi­cro and \ohm amongst others
 \usepackage{textcomp}
 \usepackage{textgreek} %Provides \textbeta and similar greek letters in text mode
-%\usepackage[section]{placeins} %Fixes placement of figures so they don't cross section boundaries
 \usepackage[section,subsection,subsubsection]{extraplaceins} %Modified version of placeins which works at section, subsection and subsubsection
-\usepackage{verbatim}%Fixes bugs in \verbatim, and provides \begin{comment} and \verbatiminput for including files
-\usepackage{syntonly}%Provides syntax-only latex runs, useful for when the document starts getting big!
 \usepackage{csquotes}
 \usepackage{float} %Fixes up floats (figures) and provides the H placement modifier (place the float RIGHT HERE). with great power...
 \usepackage[style=numeric-comp,backend=biber,sorting=none,backref=true,maxnames=99,alldates=iso8601]{biblatex} %Sets up the referencing system, standard numeric ordering, prints the page numbers refereced as a back reference, prints all names, makes dates iso dates
 \addbibresource{library.bib} %This is how you add your bib files
-\usepackage[english]{isodate}%Convert any date formats to ISO style
-\usepackage{listing}%Package for listing sourcecode with syntax highlighting
 \usepackage{ellipsis}%Fix \ldots and similar commands, bugs with spacing and such
 \usepackage{graphicx} %Standard graphics spackage
 \setkeys{Gin}{width=0.75\textwidth} %Sets default width of \includegraphics{}
@@ -48,7 +40,6 @@
 \usepackage{makeidx} %For generating index files
 \usepackage{lipsum} %Prints junk text with \lipsum
 \usepackage{setspace} %Provides \doublespacing command
-\usepackage{todonotes} %Provides \todo{something} which puts labels in magin and \missingfigure{something} to put in placeholder figures
 
 \widowpenalty=300 %Prevent widows (single sentences at end of page)
 \clubpenalty=300 %Prevent orphans (single sentences on empty pages)
@@ -143,7 +134,6 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
         Here, we abuse the abstract command to create the declaration of academic achievement. The page number of this page will need be abused to number correctly.
     \end{abstract}
     
-    \listoftodos %Uncomment this to generate a list of todos (useful for keeping track of things)
     \pagenumbering{arabic} %Reset page numbering
 
 %Fix all the header/footer according to McMaster Requirements
@@ -161,8 +151,7 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
 
 \chapter{Chapter 1}
 %\include{chapter1}
-This chapter is about \cite{example}.
-\todo{Write a chapter here}
+This chapter is about \cite{Keller2014}.
 
 \chapter{Chapter 2}
 %\include{chapter2}
