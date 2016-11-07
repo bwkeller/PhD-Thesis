@@ -69,7 +69,7 @@
 }
 %\graphicspath{{graphics/}} %Uncomment if you want to hide all figure files in a graphics/ subdirectory
 
-\title{The Effects of Superbubble Feedback on Galaxy Evolution}
+\title{Superbubble Feedback on Galaxy Evolution}
 \author{B.W. Keller}
 \date{\today}
 
@@ -86,7 +86,7 @@
     \topskip0pt
     \vspace*{\fill}
     \begin{center}{\Large
-    \uppercase{Superbubble Feedback in Galaxy Evolution}}
+    \textsc{Superbubble Feedback in Galaxy Evolution}}
     \end{center}
     \vspace*{\fill}
     \setcounter{page}{0} %This page needs to be "unnumbered" so we give it number zero
@@ -98,31 +98,89 @@
 \pagenumbering{roman}
 \centering
 \vspace*{\fill} %This makes text vertically centered
-{\Large \uppercase{Superbubble Feedback in Galaxy Evolution}\\
+{\Large \textsc{Superbubble Feedback in Galaxy Evolution}\\
 \vfill
-By B.W. KELLER, B.\ Sc.\\}
+    By {\sc B.W. Keller}, \\
+    B.\ Sc. University of Calgary 2011}
 \vfill
 A Thesis Submitted to the School of Graduate Studies in Partial Fulfilment of
 the Requirements for the Degree Doctor of Philosophy
 \vfill%This pushes copyright to the bottom
-McMaster University \textcopyright{} Copyright by Benjamin W. Keller, November 2016
+McMaster University \\ \textcopyright{} Copyright by Benjamin Walter Keller, November 2016
 \end{titlepage}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-{\noindent McMaster University DOCTOR OF PHILOSOPHY (2016) Hamilton, Ontario
-(Physics \& Astronomy)\\
+{\noindent {\sc Doctor of Philosophy} (2016) \hfill McMaster University \\
+(Physics \& Astronomy) \hfill Hamilton, Ontario \\
 TITLE: Superbubble Feedback in Galaxy Evolution\\
-AUTHOR: B.W. Keller (McMaster University)\\
+AUTHOR: B.W. Keller\\
 SUPERVISOR: Professor James W. Wadsley\\
 NUMBER OF PAGES: ix,~\pageref{LastPage}}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
     \begin{abstract}
         \thispagestyle{plain}
         \setcounter{page}{3}
-            This is where the abstract proper goes. The page number of this page may need be abused to number correctly.
+            Feedback from massive stars, deposited as the tremendous energy
+            released from their supernovae, can alter a galaxy in many ways.
+            This energy can disrupt the clouds of gas which stars form in,
+            halting nearby star formation.  It can eject metals from the galaxy,
+            polluting the intergalactic medium.  It can even drive wide-scale
+            galactic winds and outflows that rob the entire galaxy of fuel for
+            star formation.  Understanding the effects of this feedback is key
+            to understanding the formation of galaxies, which are the
+            environments in which stars, planets, and ultimately life may form.
+            As the evolution of galaxies involves the complex, non-linear
+            interaction of many different physical processes across timescales
+            comparable to the age of the universe, simple analytic calculations
+            or observations are insufficient to fully understand how galaxies
+            evolve.  These tools must be complemented with simulations of galaxy
+            formation, starting from the smallest linear perturbations revealed
+            in the cosmic microwave background radiation, and ultimately ending
+            with the galaxies we see in the universe today.  Simulations of
+            galaxy formation have will always suffer from insufficient
+            resolution to resolve in complete detail all of the physics
+            involved.  As such, models are required to capture the important
+            effects of phenomena that take place below the resolution scale.  In
+            this thesis, I present a new model for feedback from supernovae.  I
+            then use that new model to study the evolution of Milky Way like
+            galaxies, showing three critical results.  First, I show that
+            outflows at high redshift are key to regulating the formation of
+            stars and the growth of spheroidal bulges.  Second, I show that as
+            galaxies grow beyond a halo mass of $10^{12}\Msun$, supernovae alone
+            are unable to prevent runaway star formation, pointing to the need
+            for feedback from supermassive black holes.  Finally, I will use the
+            simulations I have generated to show how $\Lambda CDM$ can produce
+            the detailed kinematics and resolved baryon ratios seen in observed
+            galaxies, regardless of details in feedback or star formation.
+    \end{abstract}
+
+    \renewcommand{\abstractname}{Co-Authorship}
+    \begin{abstract} \setcounter{page}{4} \thispagestyle{plain}
+        Chapters 2,3,4, and 5 of this thesis contain original scientific
+        research written by myself, B.W. Keller.  Chapters 2-4 have been
+        published as pper-reviewed journal articles in the Monthly Notices of
+        the Royal Astronomical Society (MNRAS).  Chapter 5 has been submitted to
+        The Astrophysical Journal Letters (ApJL). The first work is referenced
+        as: \textit{Keller, B.W., Wadsley, J., Benincasa, S.M., \& Couchman,
+        H.M.P.  2014, MNRAS Volume 442, Issue 4, pp. 3013-3025}.  My supervisor,
+        Dr.  James Wadsley, is the second author.  Samantha Benincasa, the third
+        author, helped test and run the method.  Dr Hugh. Couchman is the fourth
+        author.  The second work is referenced as: \textit{Keller, B.W.,
+        Wadsley, J., Couchman, H.M.P 2015, MNRAS Volume 453, Issue 4, pp.
+        3499-3509}.  Once again, Dr. James Wadsley and Dr. Hugh Couchman are
+        co-authors.  The third publication is referenced as: \textit{Keller,
+        B.W., Wadsley, J., Couchman, H.M.P. 2016, MNRAS Volume 463, Issue 2, pp.
+        1431-1445}.  Again, Dr. James Wadsley and Dr. Hugh Couchman are
+        co-authors.  The final publication has the author list: \textit{Keller,
+        B.W. \& Wadsley, J.W. 2016, ApJL Submitted}.  Dr. James Wadsley is the
+        only co-author for this letter.  All previously published material has
+        been reformatted to conform to the required thesis style.  I hereby
+        grant an irrevocable, non-exclusive license to McMaster University and
+        the National Library of Canada to reproduce this material as part of
+        this thesis.
     \end{abstract}
 
     \renewcommand{\abstractname}{Acknowledgements}
-    \begin{abstract} \setcounter{page}{4} \thispagestyle{plain}
+    \begin{abstract} \setcounter{page}{5} \thispagestyle{plain}
         Here, we abuse the abstract command to create an acknowledgements. The page number of this page may need be abused to number correctly.
     \end{abstract}
     
@@ -156,6 +214,7 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
 \include{paper3}
 \chapter{Chapter 5}
 \include{paper4}
+\chapter{Chapter 6}
 
 \nomenclature{EXPL}{Example Definition of Abbreviation}%
 
