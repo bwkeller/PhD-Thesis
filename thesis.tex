@@ -1,5 +1,6 @@
 \RequirePackage[l2tabu, orthodox]{nag} %Package complains about uses of old functions, make sure you write modern latex
 \documentclass[letterpaper,12pt,twoside,openright]{report} %twoside an openright make the doucment look like a "real textbook" style formatting
+\usepackage{bethmacros} % My macros
 \usepackage[english,canadian]{babel}
 \usepackage{amsmath} %AMS Math Package
 \usepackage{amssymb} %AMS Math Symbols
@@ -21,13 +22,15 @@
 \usepackage[section,subsection,subsubsection]{extraplaceins} %Modified version of placeins which works at section, subsection and subsubsection
 \usepackage{csquotes}
 \usepackage{float} %Fixes up floats (figures) and provides the H placement modifier (place the float RIGHT HERE). with great power...
-\usepackage[style=numeric-comp,backend=biber,sorting=none,backref=true,maxnames=99,alldates=iso8601]{biblatex} %Sets up the referencing system, standard numeric ordering, prints the page numbers refereced as a back reference, prints all names, makes dates iso dates
-\addbibresource{library.bib} %This is how you add your bib files
+%\usepackage[style=numeric-comp,backend=biber,sorting=none,backref=true,maxnames=99,alldates=iso8601]{biblatex} %Sets up the referencing system, standard numeric ordering, prints the page numbers refereced as a back reference, prints all names, makes dates iso dates
+%\addbibresource{references.bib} %This is how you add your bib files
 \usepackage{ellipsis}%Fix \ldots and similar commands, bugs with spacing and such
 \usepackage{graphicx} %Standard graphics spackage
 \setkeys{Gin}{width=0.75\textwidth} %Sets default width of \includegraphics{}
 \usepackage{lastpage} %Used to count the number of pages for the descriptive note
 \usepackage{nomencl} %Used to generate the Abbreviations page
+\usepackage{natbib} 
+\usepackage{chapterbib} 
 \usepackage[raggedright]{titlesec} %This fixes hypenation in long chapter/section titles
 
 \pdfminorversion=5 %This sets the PDF versions allowing better compression
@@ -128,11 +131,6 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
     {\listoffigures \let\cleardoublepage\clearpage %This fixes up an extra blank page
     \printnomenclature} %Print glossary/nomenclature/abbreviations
 
-    \renewcommand{\abstractname}{Declaration of Academic Achievement}
-    \begin{abstract} \thispagestyle{plain} \setcounter{page}{9} %This page number needs to be manually set properly after the tableofcontents is generated
-        Here, we abuse the abstract command to create the declaration of academic achievement. The page number of this page will need be abused to number correctly.
-    \end{abstract}
-    
     \pagenumbering{arabic} %Reset page numbering
 
 %Fix all the header/footer according to McMaster Requirements
@@ -151,12 +149,17 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
 \chapter{Introduction}
 
 \chapter{Chapter 2}
-%\include{chapter2}
+\include{paper1}
+\chapter{Chapter 3}
+\include{paper2}
+\chapter{Chapter 4}
+\include{paper3}
+\chapter{Chapter 5}
+\include{paper4}
 
 \nomenclature{EXPL}{Example Definition of Abbreviation}%
 
-\printbibliography
-%\printindex
+\printindex
 
 \appendix
 \end{document}
