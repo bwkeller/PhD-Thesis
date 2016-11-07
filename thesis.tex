@@ -73,12 +73,6 @@
 \author{B.W. Keller}
 \date{\today}
 
-%This stuff is used to generate a nomenclature section
-\makeindex
-\renewcommand{\nomname}{List of Abbreviations and Symbols}
-\renewcommand{\nomlabel}[1]{\textbf{#1}}
-\makenomenclature
-\raggedbottom
 \begin{document}
 
 \begin{titlepage} %Half-title page for McMaster Formatting, Max 60 Characters
@@ -117,8 +111,8 @@ SUPERVISOR: Professor James W. Wadsley\\
 NUMBER OF PAGES: ix,~\pageref{LastPage}}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
     \begin{abstract}
-        \thispagestyle{plain}
-        \setcounter{page}{3}
+        \addcontentsline{toc}{chapter}{Abstract}
+        \setcounter{page}{3}\thispagestyle{plain}
             Feedback from massive stars, deposited as the tremendous energy
             released from their supernovae, can alter a galaxy in many ways.
             This energy can disrupt the clouds of gas which stars form in,
@@ -154,7 +148,9 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
     \end{abstract}
 
     \renewcommand{\abstractname}{Co-Authorship}
-    \begin{abstract} \setcounter{page}{4} \thispagestyle{plain}
+    \begin{abstract} 
+        \addcontentsline{toc}{chapter}{Co-Authorship}
+        \setcounter{page}{4}\thispagestyle{plain}
         Chapters 2,3,4, and 5 of this thesis contain original scientific
         research written by myself, B.W. Keller.  Chapters 2-4 have been
         published as pper-reviewed journal articles in the Monthly Notices of
@@ -180,16 +176,31 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
     \end{abstract}
 
     \renewcommand{\abstractname}{Acknowledgements}
-    \begin{abstract} \setcounter{page}{5} \thispagestyle{plain}
+    \begin{abstract} .
+        \addcontentsline{toc}{chapter}{Acknowledgements}
+        \setcounter{page}{5}\thispagestyle{plain}
         Here, we abuse the abstract command to create an acknowledgements. The page number of this page may need be abused to number correctly.
     \end{abstract}
-    
+    \renewcommand{\abstractname}{}
+    \begin{abstract} 
+        \addcontentsline{toc}{chapter}{Dedication}
+        \setcounter{page}{6}\thispagestyle{plain}
+        \textit{Dedicated to...}
+    \end{abstract}
+    \renewcommand{\abstractname}{Abstract}
+    \let\cleardoublepage\clearpage
+
     \setcounter{secnumdepth}{3} %Make TOC include subsubsections
     \tableofcontents %Prints table of contents
-    {\listoffigures \let\cleardoublepage\clearpage %This fixes up an extra blank page
-    \printnomenclature} %Print glossary/nomenclature/abbreviations
+    \cleardoublepage
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \listoffigures 
+    \let\cleardoublepage\clearpage %This fixes up an extra blank page
+    \cleardoublepage
+    \addcontentsline{toc}{chapter}{\listtablename}
+    \listoftables 
+    \let\cleardoublepage\clearpage
 
-    \pagenumbering{arabic} %Reset page numbering
 
 %Fix all the header/footer according to McMaster Requirements
     \pagestyle{fancy}
@@ -204,21 +215,21 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
 
 %For large LaTeX documents, it is best practice to separate the material into smaller files so that it is easier to handle, use \include to insert each file into the overall document
 
+
 \chapter{Introduction}
+\pagenumbering{arabic} %Reset page numbering
 
-\chapter{Chapter 2}
+\chapter{A Superbubble Feedback Model for Galaxy Simulations}
 \include{paper1}
-\chapter{Chapter 3}
+\chapter{Cosmological Galaxy Evolution with Superbubble Feedback I: Realistic
+Galaxies with Moderate Feedback}
 \include{paper2}
-\chapter{Chapter 4}
+\chapter{Cosmological Galaxy Evolution with Superbubble Feedback II: The Limits
+of Supernovae}
 \include{paper3}
-\chapter{Chapter 5}
+\chapter{La Fin Du MOND? $\Lambda CDM$ is Fully Consistent with SPARC
+Acceleration Law}
 \include{paper4}
-\chapter{Chapter 6}
+\chapter{Conclusion \& Future Work}
 
-\nomenclature{EXPL}{Example Definition of Abbreviation}%
-
-\printindex
-
-\appendix
 \end{document}
