@@ -206,8 +206,8 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
     \pagestyle{fancy}
     \fancyhead{}
     \fancyfoot{}
-    \fancyhead[RE,LO]{McMaster University --- Physics \& Astronomy}
-    \fancyhead[LE,RO]{PhD Thesis --- B.W. Keller}
+    \fancyhead[LE,RO]{McMaster University --- Physics \& Astronomy}
+    \fancyhead[RE,LO]{PhD Thesis --- B.W. Keller}
     \fancyfoot[CE,CO]{\thepage}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -222,7 +222,7 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
 
 \chapter{A Superbubble Feedback Model for Galaxy Simulations}
 \thispagestyle{fancy}
-\include{paper1}
+%\include{paper1}
 \chapter{Cosmological Galaxy Evolution with Superbubble Feedback I: Realistic
 Galaxies with Moderate Feedback}
 \thispagestyle{fancy}
@@ -234,7 +234,96 @@ of Supernovae}
 \chapter{La Fin Du MOND? $\Lambda CDM$ is Fully Consistent with SPARC
 Acceleration Law}
 \thispagestyle{fancy}
-\include{paper4}
+%\include{paper4}
 \chapter{Conclusion \& Future Work}
+\thispagestyle{fancy}
+In this thesis, we have explored how supernovae, when modeled with a robust,
+physically-motivated method, can impact the growth and evolution of galaxies.
+We introduced a novel model for SN feedback that takes into account the
+important effects of previously ignored physics: the evaporation of cold gas
+driven by thermal conduction.  This model allowed us to see how SN can (and
+cannot!) regulate the flow of gas into and out of galaxies, and ultimately
+forming stars.  We have also showed that the current $\Lambda CDM$ cosmological
+model is consistent with recent observational data.
 
+In Chapter 2, we presented a detailed description of the new superbubble model,
+and implemented it in the SPH code {\sc Gasoline2}.  By relying on the strongly
+self-limiting process of thermal evaporation \citep{Cowie1977}, where cold mass is evaporated into
+a hot bubble with a mass flux given by $ \frac{{\rm d }M_b}{{\rm d}t} =
+\frac{4\,\pi\mu}{25k_B}\kappa_0\,\frac{\Delta T^{5/2}}{\Delta x}\ A$, we are
+able to develop a new model for SN feedback, that allows realistic estimates for
+cooling in unresolved hot bubbles, and accurately calculates the mass loading of
+SN energy.  We demonstrated that this model is insensitive to resolution,
+unresolved ISM structure, and uncertain turbulent magnetic fields.  Finally,
+after investigating the behaviour of individual bubbles, we showed that
+superbubble feedback was both more effective at regulating star formation and at
+driving galactic winds.
+
+Chapter 3 then applied this new model to the cosmological simulation of a Milky
+Way like galaxy.  We compared the same galaxy, simulated four times with
+different feedback models (no feedback, the \citet{Stinson2006} blastwave model,
+and superbubble feedback with $10^{51}\;\rm{erg}$ and
+$2\times10^{51}\;\rm{erg}$).  The results of this comparison found that even
+though the galaxy massively overproduced stars (a result previously seen in
+\citealt{Stinson2010}) when simulated with blastwave feedback (or no feedback),
+the same energy, when simulated using our new superbubble model, was able to
+produce a realistic stellar mass fraction for the entire galaxy's history.  Not
+only did the galaxy simulated using superbubble feedback have the correct
+stellar mass, we showed that it also was effectively bulgeless, with a
+completely flat rotation curve.  These two effects were ultimately caused by the
+same process.  At high redshift, superbubble feedback efficiently drove highly
+mass loaded winds, expelling gas from the ISM of the galaxy.  As the gas that
+forms a stellar bulge was primarily accreted at high redshift, this meant that
+these winds preferentially removed low angular momentum material, while
+preserving the gas with high angular momentum.  This meant that superbubble
+feedback was able to naturally prevent both runaway star formation and the
+formation of a bulge through these winds.
+
+Chapter 4 took these results to the limit to examine whether SN alone are able
+to regulate the formation of stars in galaxies both heavier and lighter than the
+Milky Way.  By simulating and examining a new sample of 18 galaxies (the
+McMaster Unbiased Galaxy Simulations 2), we were able to demonstrate a critical
+mass at which SN feedback breaks down as a regulator of gas accretion and star
+formation.  Galaxies that exceed this mass, $\sim 10^{12}\;\Msun$, will produce
+more stars than real galaxies, and produce much of these stars in a dense
+stellar bulge.  All of this arises due to a fundamental relation between the
+mass loading of superbubble driven winds and the mass of the galaxy (either its
+halo or its disc).  When the escape velocity of the disc exceeds the sound speed
+of superbubble-heated gas (which has a typical mass loading of $\eta=10$), only
+outflows which have entrained less material are able to escape the galaxy,
+leading to decreasing efficiency in ejecting material, and a shutdown of
+SN regulation.  The fact that this shutdown occurs exactly where powerful AGN
+are observed, and that it results in a vigorous transport of gas to the nucleus
+of the galaxy make this result strong evidence that this shutdown acts as a kind
+of ``hand-off'' between SN and AGN feedback.
+
+Chapter 5 applied the new MUGS2 sample of galaxies we produced in
+\citet{Keller2016a} and used them to examine the radial acceleration relation
+that was derived by \citet{McGaugh2016} from observations of the SPARC
+\citep{Lelli2016} catalog.  Contrary to the assertions of some, the tight
+relation seen in the SPARC data does not require new fundamental physics (such
+as self-interacting dark matter, modified gravity, or MOND).  Instead, the
+simply combination of dissipational collapse, together with angular momentum
+conservation, means that even galaxies where SN fails to regulate their star
+formation (or even where SN are omitted altogether) fall on the observed
+relation.  This was the first published demonstration of this in simulation,
+using untuned simulations made prior to the publication of \citet{McGaugh2016}.
+
+This thesis has shown that, with correct modelling, SN feedback can regulate the
+growth of galaxies up to the mass of the Milky Way, but no further.  In galaxies
+up to the mass of our own, SN efficiently drive galactic winds, primarily at
+high redshift, that act to limit the availability of low angular momentum gas,
+slowing the formation of stars and the stellar bulge. Without the
+feedback from SMBHs, galaxies more massive than ours form far too many stars,
+and primarily form those stars in a concentrated central bulge.  This transition
+from SN to AGN feedback occurs due to a rapid drop in the effectiveness of
+SN-driven outflows.  Finally, we showed that independent of the detailed
+internal processes of galaxy evolution, the acceleration relation observed by
+\citet{McGaugh2016} is simply a natural consequence of galaxy formation.
+
+\section{Supernovae Feedback in Galaxies}
+\section{Future Directions}
+
+\bibliographystyle{mnras}
+\bibliography{library}
 \end{document}
