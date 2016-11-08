@@ -1806,6 +1806,7 @@ FUNCTION {begin.bib}
   % DO NOT EDIT THIS TEXT,
   % but instead make mnras-insert.txt, and paste the results in here.
 "\relax" write$ newline$
+"\thispagestyle{fancy}" write$ newline$
 "\def\mn@urlcharsother{\let\do\@makeother \do\$\do\&\do\#\do\^\do\_\do\%\do\~}" write$ newline$
 "\def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@} {\mn@doi@[]}}" write$ newline$
 "\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href {http://dx.doi.org/#2} {doi:#2}\else \href {http://dx.doi.org/#2} {#1}\fi \endgroup}" write$ newline$
