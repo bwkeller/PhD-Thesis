@@ -162,10 +162,11 @@ model is that an explicit physical process sets the amount of hot gas in the ISM
 and in outflows.
 
 In this paper, we begin by explaining the theoretical underpinning and
-numerical implementation of the superbubble-based feedback method in section~\ref{method}. 
-In section~\ref{cluster} we use a single star cluster to illustrate the
+numerical implementation of the superbubble-based feedback method in
+section~\ref{method1}. 
+In section~\ref{cluster1} we use a single star cluster to illustrate the
 effectiveness of our model at capturing the basic behaviour of superbubbles at
-high and low resolution.  In section~\ref{galaxy} we apply the model to
+high and low resolution.  In section~\ref{galaxy1} we apply the model to
 simulations of isolated galaxies to explore the impact on the galaxy
 scale ISM and the production of outflows.  
 
@@ -177,16 +178,16 @@ scale ISM and the production of outflows.
     formed.  The superbubble feedback model (center column) produces bubbles
     with radius and enclosed mass that match well to the direct injection
     simulations (left column).  This is shown quantitatively in
-    figure~\ref{onestar_homogeneous} and figure~\ref{onestar_clumpy}.  The
+    figure~\ref{onestar_homogeneous1} and figure~\ref{onestar_clumpy1}.  The
     simple model (right column), despite injecting the same amount of energy,
     fails to generate enough hot mass inside the bubble, and subsequently
     suppresses the growth of Vishniac instabilities along the bubble edge
     because of the poorly resolved hot interior.}
-    \label{onestar_column}
+    \label{onestar_column1}
 \end{figure*}
 
 
-\section{Thermal Conduction and Feedback Method}\label{method}
+\section{Thermal Conduction and Feedback Method}\label{method1}
 Our new treatment of feedback has three components.  The first is the addition
 of thermal conduction.   Inside resolved hot bubbles, thermal conduction
 maintains uniform temperatures.   In the presence of strong gradients, thermal
@@ -225,7 +226,7 @@ In an ionized gas, thermal conduction, mediated by electrons,
 transports heat down temperature gradients.  This flux, $\mathbf{Q} =
 -\kappa\nabla T$, depends on the temperature gradient and the conduction
 coefficient, as derived by \citet{Cowie1977},
-\begin{equation} \label{coefficient}
+\begin{equation} \label{coefficient1}
     \kappa(T) = 1.8\left(\frac{2}{\pi}\right)^{3/2}\frac{T^{5/2}k_B^{7/2}}{m_e\,e^4\ln\Lambda}.
 \end{equation}
 This coefficient depends only on the Coulomb logarithm $\ln\Lambda$ (which has
@@ -236,7 +237,7 @@ situation to not cause spontaneous currents, a corresponding mass flux,
 {\it in the opposite direction}, must also occur \citep{Cowie1977}.  With
 spherical symmetry, this implies a mass flow rate that depends on the sound
 speed in the hot gas, $c_{\rm s}$, as follows,
-\begin{equation}\label{conservation}
+\begin{equation}\label{conservation1}
     \frac{5}{2}\dot M c_{\rm s}^2 = 4\,\pi^2r^2\kappa(T)\frac{{\rm d}T}{{\rm d}r}.
 \end{equation}
 
@@ -245,7 +246,7 @@ smaller than the scale length of the temperature gradient.  If the gradient
 becomes steep enough, the heat flux (and corresponding mass flux) saturates at a
 value that depends only on the density, temperature, and thermal velocity of the
 electrons in the medium \citep{Cowie1977},
-\begin{equation}\label{heatflux}
+\begin{equation}\label{heatflux1}
     \mathbf{Q} = \nabla\left(\frac{3}{2}n_ek_BT_ev_e\right).
 \end{equation}
 This saturation has the convenient numerical side effect of setting the smallest
@@ -273,7 +274,7 @@ shell surrounding a feedback bubble, thermal conduction causes an evaporative
 mass flux from the cold shell into the hot bubble.  Following
 \citet{MacLow1988}, the mass flux into a bubble with interior temperature $T$
 is,
-\begin{equation}\label{massflux}
+\begin{equation}\label{massflux1}
     \frac{{\rm d }M_b}{{\rm d}t} = \frac{4\,\pi\mu}{25k_B}\kappa_0\,\frac{\Delta T^{5/2}}{\Delta x}\ A,
 \end{equation}
 where $ A$ is the bubble surface area and $\Delta x$ is the thickness of
@@ -299,7 +300,7 @@ below) that should be recalibrated for other codes.
 The mass evaporation rate can be converted into a probability that a resolution
 element with cold mass $m$ converts into a hot one over a time
 period $\Delta t$ as follows, 
-\begin{equation}\label{evaporation_probability}
+\begin{equation}\label{evaporation_probability1}
     P_{evap} = \frac{{\rm d}M_b}{{\rm d}t} \frac{\Delta t}{m}.
 \end{equation}
 This allows us to stochastically choose full particles to evaporate, and prevent
@@ -308,10 +309,10 @@ problem seen in feedback heating).  Each hot particle determines how many
 cold-shell particles $N_{evap}$ will evaporate each timestep, and then chooses
 the $N_{evap}$ nearest cold particles, and averages the thermal energy of itself
 and those particles.  These particles spontaneously join the hot bubble
-(demonstrated in the figures in section~\ref{clumpy}).  The thermal conduction
+(demonstrated in the figures in section~\ref{clumpy1}).  The thermal conduction
 rates calculated are capped using the saturation values derived in
 \citet{Cowie1977}.  Within an SPH framework, this is well approximated using,
-\begin{equation}\label{saturation_rate}
+\begin{equation}\label{saturation_rate1}
     \frac{{\rm d}M_{sat}}{{\rm d}t} = 17\rho\,c_{\rm s} h^2.
 \end{equation}
 
@@ -326,7 +327,7 @@ rates calculated are capped using the saturation values derived in
     simulations run with resolutions of $128^3$ particles, dashed for $64^3$,
     and dotted for $32^3$.  Note that for the $32^3$ run, the simple model
     produces $\sim 2\times 10^5\;M_\odot$ of hot gas.}
-    \label{onestar_homogeneous}
+    \label{onestar_homogeneous1}
 \end{figure*}
 
 \subsection{Multiphase Fluid Elements}
@@ -346,17 +347,17 @@ given energy from feedback, and if their temperature is below $10^5\;\mathrm{K}$
 (the `hot' threshold).  Multiphase elements have two values for their mass and
 energy, related to their total mass $m$ and energy $E$ by:
 
-\begin{equation}\label{multiphase_fractions}
+\begin{equation}\label{multiphase_fractions1}
     m = m_{\rm hot}+m_{\rm cold}\\
     E = u_{\rm hot}m_{\rm hot}+u_{\rm cold}m_{\rm cold}
 \end{equation}
 
 Assuming pressure equilibrium, both phases will have the same pressure $P$, and
 their densities are found using this and the total density $\rho$:
-\begin{equation}\label{multiphase_pressurebalance}
+\begin{equation}\label{multiphase_pressurebalance1}
     \frac{P}{\rho} = \frac{(\gamma-1)E}{m}
 \end{equation}
-\begin{equation}\label{multiphase_densities}
+\begin{equation}\label{multiphase_densities1}
     \rho_{\rm cold} = \frac{P}{(\gamma-1)u_{\rm cold}}\\
     \rho_{\rm hot} = \frac{P}{(\gamma-1)u_{\rm hot}}
 \end{equation}
@@ -365,7 +366,7 @@ Both the cold and hot phases are allowed to radiatively cool using their
 separate temperatures and densities.   When $PdV$ work is done to a multiphase
 particle, it is shared between the two phases weighted by their respective
 fraction of the total energy E,
-\begin{equation}\label{multiphase_PdV}
+\begin{equation}\label{multiphase_PdV1}
     \dot u_{\rm PdV,cold} = m\ \dot u_{\rm PdV}\frac{u_{\rm cold}}{E}\\
 \end{equation}
 \begin{equation}
@@ -378,7 +379,7 @@ Mass flux between the hot and cold phase is calculated in a continuous manner
 consistent with the prior evaporation scheme.  Each timestep, a multi-phase
 element evaporates a fraction of its cold phase into the hot phase,
 
-\begin{equation}\label{multiphase_evaporation}
+\begin{equation}\label{multiphase_evaporation1}
     \frac{{\rm d}M_b}{{\rm d}t} = \frac{16\pi\mu}{25k_B} \kappa_0 (T_{\rm hot}^{5/2})\ h.
 \end{equation}
 
@@ -452,12 +453,12 @@ modified SPH codes \citep[e.g.][]{Hopkins2013}.
     bubble.  Evaporation quickly enters the self-regulating regime, and the
     temperature is roughly constant for the last $15\;\mathrm{Myr}$ of
     feedback.}
-    \label{onestar_hottemp}
+    \label{onestar_hottemp1}
 \end{figure}
 
 
 \section{Simulations}
-\subsection{High-Resolution Star Cluster Test}\label{cluster}
+\subsection{High-Resolution Star Cluster Test}\label{cluster1}
 We began by exploring models of a single, isolated superbubbles at high
 resolution.  For these tests, we employed three physical models.  The {\it
 Direct injection} approach models as much physics as possible from first
@@ -488,7 +489,7 @@ $1\;\mathrm{cm^{-3}}$.   This gives a gas particle mass of $760\; M_\odot$,
 $6080\; M_\odot$, and $48640\; M_\odot$ for resolutions of $128^3$, $64^3$, and
 $32^3$ respectively.  These tests do not include photoheating. 
 
-Figure~\ref{onestar_column} shows the column density projection for the three
+Figure~\ref{onestar_column1} shows the column density projection for the three
 different feedback models in an isotropic medium.  injection model.   The hot
 interior of the bubble produced using the simple feedback model contains less
 mass at $128^3$ than the direct injection model and is subsequently too poorly
@@ -496,7 +497,7 @@ resolved for the instabilities formed in the accelerated shell
 \citep{Vishniac1983} to mix the bubble and shell through turbulence and
 diffusion.
 
-As figure~\ref{onestar_homogeneous} shows, the superbubble feedback model
+As figure~\ref{onestar_homogeneous1} shows, the superbubble feedback model
 performs much better than the simple model in reproducing the hot mass
 production rate from the high-resolution direct injection model, and lacks the
 extreme resolution sensitivity that the simple model exhibits for the amount of
@@ -512,7 +513,7 @@ in the multiphase state.  More massive particles take longer to fully evaporate,
 and thus some mass that would be part of a pressure-driven cold shell at higher
 resolution is tied up in the cold part of multiphase particles.
 
-Figure~\ref{onestar_hottemp}  shows that the actual peak temperature of the
+Figure~\ref{onestar_hottemp1}  shows that the actual peak temperature of the
 feedback-heated bubble in the isolated star cluster run is roughly
 $1\times10^7\mathrm{K}$.
 
@@ -524,7 +525,7 @@ $1\times10^7\mathrm{K}$.
     this figure shows, reducing $\kappa_0$ by a factor of 100 reduces the amount
     of hot mass generated through conduction by only a factor of $\sim2$. All
     $\kappa_0$ values have units of $\mathrm{erg\; s^{-1} K^{-7/2} cm^{-1}}$.}
-    \label{onestar_kappa}
+    \label{onestar_kappa1}
 \end{figure}
 
 \subsubsection{Suppressed conduction}
@@ -534,7 +535,7 @@ reduced by a factor of 10 and a factor of 100.  Since there is some uncertainty
 as to this coefficient in a magnetized ISM, we use this test to show that the
 self-regulating effect of conduction is insensitive to variation in $\kappa_0$.
 
-Figure~\ref{onestar_kappa} shows the hot mass generated in simulations with 3
+Figure~\ref{onestar_kappa1} shows the hot mass generated in simulations with 3
 different values of $\kappa_0$.  The dashed curve shows a reasonable lower limit
 for $\kappa_0$ \citep{Cowie1977}, while the dotted curve shows a much more
 extreme conduction reduction than is expected in nature.  Both curves illustrate
@@ -546,12 +547,12 @@ the bubble to just around a third.
 \begin{figure}
     \includegraphics[width=\textwidth]{figures1/onestar_clumpypoints.eps}
     \caption[Image of superbubbles in a clumpy ISM]{3 kpc wide slices
-    from the same three methods shown in figure~\ref{onestar_column}, also at 50
+    from the same three methods shown in figure~\ref{onestar_column1}, also at 50
     Myr, but applied to a star cluster in an inhomogeneous medium.  Particles
     whose smoothing length intersects z=0~kpc are shown.  Particles above $10^5$
     K are shown in red.  The upper row shows simulations with a single clump,
     while the bottom row shows simulations with 6 clumps.}
-    \label{onestar_clumpyslice}
+    \label{onestar_clumpyslice1}
 \end{figure}
 
 \begin{figure*}
@@ -564,10 +565,10 @@ the bubble to just around a third.
     the green shows the results of the superbubble model.  Solid curves show the
     results for a homogeneous ISM, dashed for a single dense clump, and dotted
     for 6 dense clumps.}
-    \label{onestar_clumpy}
+    \label{onestar_clumpy1}
 \end{figure*}
 
-\subsubsection{Clumpy Medium}\label{clumpy}
+\subsubsection{Clumpy Medium}\label{clumpy1}
 As the real ISM is highly inhomogeneous (and as \citet{Silich1996} showed, cold
 clumps can also be a source of evaporated cold material) , we ran two additional
 simulations with cold, dense clumps with $100\;\mathrm{cm^{-3}}$ density and
@@ -578,11 +579,11 @@ clump with a radius of $0.2\;\mathrm{kpc}$.  The second contains the same amount
 of cold mass spread over 6 clumps arranged at the center of each face of a cube
 $0.2\;\mathrm{kpc}$ surrounding the star.  We use this idealized clumpy medium
 to test the sensitivity of the model to small scale structure that may be
-unresolved in lower resolution simulations. Figure~\ref{onestar_clumpyslice}
+unresolved in lower resolution simulations. Figure~\ref{onestar_clumpyslice1}
 shows a slice showing SPH particles at $50\;\mathrm{Myr}$ for the two clumpy
 cases.  
 
-Figure~\ref{onestar_clumpy} shows that the superbubble model is also capable of
+Figure~\ref{onestar_clumpy1} shows that the superbubble model is also capable of
 handling feedback into a clumpy medium.  With more than an order of magnitude
 difference in the total hot mass compared to the simple model, along with less
 sensitivity to environment or resolution, the superbubble model is better
@@ -607,12 +608,12 @@ suited for probing galactic outflows in simulations.
     the multiphase state show the temperature and density for each state as
     separate points.  The mean properties of multiphase particles would place
     them in regions with short cooling times.}
-    \label{disc_phase}
+    \label{disc_phase1}
 \end{figure*}
 
 
 
-\subsection{Galaxy Simulations}\label{galaxy}
+\subsection{Galaxy Simulations}\label{galaxy1}
 \subsubsection{Initial Conditions and Parameters}
 \begin{figure*}
     \includegraphics[width=\textwidth]{figures1/milkyway_column.eps}
@@ -623,7 +624,7 @@ suited for probing galactic outflows in simulations.
     points in the face-on images show stars formed within the last
     $20\;\mathrm{Myr}$. Note that gas is both leaving the disc near the galactic
     core, and returning in some places near the edge.}
-    \label{milkyway_column}
+    \label{milkyway_column1}
 \end{figure*}
 
 We used the isolated disc galaxy initial condition from the AGORA comparison
@@ -668,14 +669,14 @@ model for galaxy simulations in numerous previous studies.
     softening and $n_{SF}$ is the star formation threshold.}
 \end{table}
 
-\subsubsection{ISM properties and Star Formation Rates}\label{ISM}
+\subsubsection{ISM properties and Star Formation Rates}\label{ISM1}
 \begin{figure*}
     \includegraphics[width=\textwidth]{figures1/milkyway_outflow.eps}
     \caption[Outflow evolution in isolated Milky Way]{Outflow evolution for the
     Milky Way-like simulation.  The left hand plot shows the star formation rate
     and the outflow rate The right hand plot shows the average outflow
     velocity.}
-    \label{milkyway_outflow}
+    \label{milkyway_outflow1}
 \end{figure*}
 
 \begin{figure*}
@@ -686,32 +687,32 @@ model for galaxy simulations in numerous previous studies.
     Temperatures shown are once again averages between the two phases for
     multiphase particles.  Note the much more `puffed up' appearance compared to
     the Milky Way, due to the more mass-loaded winds}
-    \label{dwarf_column}
+    \label{dwarf_column1}
 \end{figure*}
 
 \begin{figure*}
     \includegraphics[width=\textwidth]{figures1/dwarf_outflow.eps}
     \caption[Outflow evolution in isolated dwarf]{Outflow evolution for the
     dwarf galaxy.  Note that the vertical ranges are different than in
-    figure~\ref{milkyway_outflow}}
-    \label{dwarf_outflow}
+    figure~\ref{milkyway_outflow1}}
+    \label{dwarf_outflow1}
 \end{figure*}
 
-Figure~\ref{disc_phase} shows phase diagrams from both Milky Way and dwarf
-galaxies.  Figure~\ref{milkyway_column} shows column density and temperature for
-the Milky Way, and figure~\ref{milkyway_outflow} shows star formation rates and
-outflow properties.  figures~\ref{dwarf_column}~and~\ref{dwarf_outflow} show the
+Figure~\ref{disc_phase1} shows phase diagrams from both Milky Way and dwarf
+galaxies.  Figure~\ref{milkyway_column1} shows column density and temperature for
+the Milky Way, and figure~\ref{milkyway_outflow1} shows star formation rates and
+outflow properties.  figures~\ref{dwarf_column1}~and~\ref{dwarf_outflow1} show the
 same for the dwarf galaxy.  The Kennicutt-Schmidt relation for both galaxies is
-shown in figure~\ref{kennicutt_schmidt}.  The star formation and outflow properties are
-discussed in section~\ref{Morphology}.  Finally, we show some properties of the
-multiphase particles in figure~\ref{multiphase_properties}.
+shown in figure~\ref{kennicutt_schmidt1}.  The star formation and outflow properties are
+discussed in section~\ref{Morphology1}.  Finally, we show some properties of the
+multiphase particles in figure~\ref{multiphase_properties1}.
 
-Figure~\ref{disc_phase} shows that phase diagrams for galaxies using superbubble
+Figure~\ref{disc_phase1} shows that phase diagrams for galaxies using superbubble
 feedback strongly distinguish between pre- and post-feedback gas.  Above $\sim
 10^5\;\mathrm{K}$, we see (especially in the Milky Way), a hot medium of
 including halo gas and low density gas inside superbubbles within the galaxy
 disc (see the temperature slices in
-figures~\ref{milkyway_column}~and~\ref{dwarf_column} for images of the gas
+figures~\ref{milkyway_column1}~and~\ref{dwarf_column1} for images of the gas
 temperature in these bubbles).  The bulk of the gas lies at a roughly $10^4\;
 \mathrm{K}$ equilibrium between cooling and photoheating from the UV background.
 A cold medium of both dense shells surrounding superbubbles and cooling clouds
@@ -739,7 +740,7 @@ much too rapidly).
 
 The roughly fixed amount of gas heated in the superbubble simulations shown
 previously gives a roughly constant feedback-heated gas temperature of $\sim
-2\times10^7\;\mathrm{K}$.  Figure~\ref{onestar_hottemp}  shows that the actual
+2\times10^7\;\mathrm{K}$.  Figure~\ref{onestar_hottemp1}  shows that the actual
 peak temperature of the feedback-heated bubble in the isolated star cluster run
 varies between slightly less than this, to $\sim 1\times10^7\mathrm{K}$,
 due to some cooling in the hot bubble.  This suggests that the model should
@@ -763,7 +764,7 @@ fully-resolved, hot gas.  These winds are released when superbubbles grow large
 enough to break out of the denser disc ISM, and thus should be well within the
 resolved phase for these simulations.
 
-Figure~\ref{multiphase_properties} shows the that all particles stay in
+Figure~\ref{multiphase_properties1} shows the that all particles stay in
 the multiphase state as well as the maximum height reached by multiphase
 particles.  The top figure shows that the vast majority of particles in either
 the dwarf or the Milky Way convert back to single phase within
@@ -785,7 +786,7 @@ the ISM: all of the mass outflowing is fully-resolved hot gas, and its behaviour
 is fully governed by standard hydrodynamics.  The winds driven from both
 galaxies are ejected through nothing more than simple buoyancy.
 
-\subsubsection{Galaxy Morphology and Outflows}\label{Morphology}
+\subsubsection{Galaxy Morphology and Outflows}\label{Morphology1}
 
 \begin{figure}
     \includegraphics[width=0.6\textwidth]{figures1/kennicutt_schmidt.eps}
@@ -794,7 +795,7 @@ galaxies are ejected through nothing more than simple buoyancy.
     $500\;\mathrm{Myr}$. Surface densities were calculated in radial annuli.
     The dashed line shows the Kennicutt-Schmidt Law.  The superbubble model is
     easily able to regulate star formation rates to within this range.}
-    \label{kennicutt_schmidt}
+    \label{kennicutt_schmidt1}
 \end{figure}
 
 \begin{figure}
@@ -809,7 +810,7 @@ galaxies are ejected through nothing more than simple buoyancy.
     multiphase state, the maximum height it reaches {\it while still multiphase}
     is shown above for both galaxy simulations.  Dashed lines show scale heights
     at $10^4\;\mathrm{K}$ for each of the two simulations.}
-    \label{multiphase_properties}
+    \label{multiphase_properties1}
 \end{figure}
 In order to compare superbubble feedback to \citet{DallaVecchia2012}, we selected
 similar galaxies to the ones shown in their paper and calculated the properties
@@ -827,15 +828,15 @@ outflowing particles (particles returning on fountains are excluded) passing
 through this region divided by the thickness of the region.  The average outflow
 velocity $<v_{\rm out}>$ is just the mean velocity of these same particles.
 
-The superbubble feedback method, as shown in figure~\ref{kennicutt_schmidt} (and
-the SFR shown in figures~\ref{milkyway_outflow}~and~\ref{dwarf_outflow}), also
+The superbubble feedback method, as shown in figure~\ref{kennicutt_schmidt1} (and
+the SFR shown in figures~\ref{milkyway_outflow1}~and~\ref{dwarf_outflow1}), also
 passes the most basic requirement for a useful feedback model:  it is capable of
 regulating star formation to match observed global star formation efficiencies.
 This result is a typical outcome for effective feedback models with density-based 
 star formation rates \citep[e.g.][]{Springel2003}.
 Note that the simple star formation prescription used for
 these tests does not have a cut-off at lower surface densities.  It is clear in
-figure~\ref{milkyway_outflow} that the average SFR in the Milky Way is roughly
+figure~\ref{milkyway_outflow1} that the average SFR in the Milky Way is roughly
 twice as high in the simulation using blastwave feedback as compared to the
 simulation with superbubble feedback.  It is also clear from this figure that
 outflows in the Milky Way simulation with superbubble feedback contain
@@ -845,7 +846,7 @@ approximately ten times the mass of outflows driven by blastwave feedback.
 
 It is important to heat the right amount of gas through feedback. This is
 particularly important if one wishes to examine feedback-driven galactic winds.
-As figures~\ref{onestar_homogeneous}~and~\ref{onestar_clumpy} show, the simple
+As figures~\ref{onestar_homogeneous1}~and~\ref{onestar_clumpy1} show, the simple
 cooling-shutoff feedback model produces quite different amounts of hot gas as a
 function of both resolution and ISM homogeneity.  If one underestimates the
 amount of mass heated by feedback, the winds one drives will be hotter, but
@@ -857,7 +858,7 @@ Either error will have  serious implications for predictions of the effects of
 outflows on both host galaxies and the intergalactic medium.  We have
 constructed our model such that both the momentum and the amount of hot gas
 within a superbubble are resolution independent.  This is confirmed in
-figure~\ref{onestar_homogeneous} over a range of mass 
+figure~\ref{onestar_homogeneous1} over a range of mass 
 resolutions from $\sim95M_\odot$ to $5\times10^4M_\odot$.  
 Even in the extreme limit of a one particle superbubble,
 the results are qualitatively correct and vary less than a factor of 2
@@ -866,7 +867,7 @@ from the expected solution.
 In fact, for any feedback model that omits thermal conduction or other mixing
 between the hot interior of a feedback bubble and the surrounding cold shell,
 the amount of hot mass produced will be set by the resolution of the simulation
-alone.  In fact, figure~\ref{onestar_homogeneous} shows this quite clearly.  For
+alone.  In fact, figure~\ref{onestar_homogeneous1} shows this quite clearly.  For
 each resolution, the hot mass produced is roughly constant, simply a product of
 the simulation mass resolution and the number of particles feedback is shared
 with.  Changing either of these will drastically change the amount of hot gas
@@ -884,7 +885,7 @@ $3.3\times10^7\; \mathrm{M_\odot}$ into a fountain above 5 scale heights.  In
 both simulations, this cycling induces periodic bursts of star formation and
 disc outflows.
 
-As figures~\ref{milkyway_outflow}~and~\ref{dwarf_outflow} show, the superbubble
+As figures~\ref{milkyway_outflow1}~and~\ref{dwarf_outflow1} show, the superbubble
 method results in galaxies with stronger star formation regulation, and
 more mass-loaded outflows than the well-established blastwave model.  
 For example, the simulation of the Milky Way analog, the star
