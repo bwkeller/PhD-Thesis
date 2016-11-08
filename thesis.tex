@@ -52,6 +52,10 @@
 %\syntaxonly %Uncomment to only check compile for syntax PRODUCES NO OUTPUT
 \setlength{\headheight}{15pt} %Fixes header height
 
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
+
 \hypersetup{
     unicode=true,
     pdftoolbar=true,
@@ -227,7 +231,7 @@ Couchman 2014,} \\ \textsc{Montly Notices of the Royal Astronomical Society}
 \textit{Volume 442, Issue 4, pp. 3013-3025, DOI: 10.1093/mnras/stu1058.
 Published by Oxford University Press on behalf of the Royal Astronomical
 Society.  All rights reserved}
-\include{paper1}
+%\include{paper1}
 \chapter{Cosmological Galaxy Evolution with Superbubble Feedback I: Realistic
 Galaxies with Moderate Feedback}
 \thispagestyle{fancy}
@@ -236,7 +240,7 @@ Couchman 2015,} \\ \textsc{Montly Notices of the Royal Astronomical Society}
 \textit{Volume 453, Issue 4, pp. 3499-3509, DOI: 10.1093/mnras/stv1789
 Published by Oxford University Press on behalf of the Royal Astronomical
 Society.  All rights reserved}
-\include{paper2}
+%\include{paper2}
 \chapter{Cosmological Galaxy Evolution with Superbubble Feedback II: The Limits
 of Supernovae}
 \thispagestyle{fancy}
@@ -249,9 +253,9 @@ Society.  All rights reserved}
 \chapter{La Fin Du MOND? $\Lambda CDM$ is Fully Consistent with SPARC
 Acceleration Law}
 \thispagestyle{fancy}
-\include{paper4}
+%\include{paper4}
 \chapter{Conclusion \& Future Work}
 \thispagestyle{fancy}
-\include{conclusion}
+%\include{conclusion}
 
 \end{document}

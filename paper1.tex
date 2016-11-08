@@ -316,7 +316,7 @@ rates calculated are capped using the saturation values derived in
 \end{equation}
 
 \begin{figure*}
-    \includegraphics[width=\textwidth]{figures1/onestar_homogeneous.eps}
+    \includegraphics[width=0.8\textwidth]{figures1/onestar_homogeneous.eps}
     \caption[Feedback effects as a function of resolution]{Feedback effects as a
     function of resolution.  The above figure shows on the left the total radial
     momentum imparted to the medium, and on the right the total amount of mass
@@ -446,7 +446,7 @@ on the tests discussed here is similar to the results presented for other modern
 modified SPH codes \citep[e.g.][]{Hopkins2013}. 
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures1/onestar_hottemp.eps}
+    \includegraphics[width=0.5\textwidth]{figures1/onestar_hottemp.eps}
     \caption[Peak temperature of feedback-heated gas in a superbubble]{Peak
     temperature of feedback-heated gas inside the isolated star cluster's hot
     bubble.  Evaporation quickly enters the self-regulating regime, and the
@@ -518,7 +518,7 @@ $1\times10^7\mathrm{K}$.
 
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures1/onestar_kappa.eps}
+    \includegraphics[width=0.6\textwidth]{figures1/onestar_kappa.eps}
     \caption[Dependence of superbubble heated gas on conduction coefficient]{Hot
     mass production as a function of the conduction coefficient $\kappa_0$.  As
     this figure shows, reducing $\kappa_0$ by a factor of 100 reduces the amount
@@ -555,7 +555,7 @@ the bubble to just around a third.
 \end{figure}
 
 \begin{figure*}
-    \includegraphics[width=\textwidth]{figures1/onestar_clumpy.eps}
+    \includegraphics[width=0.8\textwidth]{figures1/onestar_clumpy.eps}
     \caption[Feedback effects as a function of ISM homogeneity]{Feedback effects
     as a function of ISM homogeneity.  The above figure shows on the left the
     total radial momentum imparted to the medium, and on the right the total
@@ -610,6 +610,10 @@ suited for probing galactic outflows in simulations.
     \label{disc_phase}
 \end{figure*}
 
+
+
+\subsection{Galaxy Simulations}\label{galaxy}
+\subsubsection{Initial Conditions and Parameters}
 \begin{figure*}
     \includegraphics[width=\textwidth]{figures1/milkyway_column.eps}
     \caption[Column density and temperature images of isolated Milky Way]{Column
@@ -622,37 +626,6 @@ suited for probing galactic outflows in simulations.
     \label{milkyway_column}
 \end{figure*}
 
-\begin{figure*}
-    \includegraphics[width=\textwidth]{figures1/milkyway_outflow.eps}
-    \caption[Outflow evolution in isolated Milky Way]{Outflow evolution for the
-    Milky Way-like simulation.  The left hand plot shows the star formation rate
-    and the outflow rate The right hand plot shows the average outflow
-    velocity.}
-    \label{milkyway_outflow}
-\end{figure*}
-
-\begin{figure*}
-    \includegraphics[width=\textwidth]{figures1/dwarf_column.eps}
-    \caption[Column density and temperature images of isolated dwarf]{Column
-    Density (upper row) and temperature for the dwarf simulation at
-    $300\;\mathrm{Myr}$.  The vectors in show the in-plane velocity.
-    Temperatures shown are once again averages between the two phases for
-    multiphase particles.  Note the much more `puffed up' appearance compared to
-    the Milky Way, due to the more mass-loaded winds}
-    \label{dwarf_column}
-\end{figure*}
-
-\begin{figure*}
-    \includegraphics[width=\textwidth]{figures1/dwarf_outflow.eps}
-    \caption[Outflow evolution in isolated dwarf]{Outflow evolution for the
-    dwarf galaxy.  Note that the vertical ranges are different than in
-    figure~\ref{milkyway_outflow}}
-    \label{dwarf_outflow}
-\end{figure*}
-
-
-\subsection{Galaxy Simulations}\label{galaxy}
-\subsubsection{Initial Conditions and Parameters}
 We used the isolated disc galaxy initial condition from the AGORA comparison
 project \citep{Kim2013}.  These initial conditions were generated using the
 equilibrium disc generating code of \citet{Springel2005}.
@@ -696,6 +669,33 @@ model for galaxy simulations in numerous previous studies.
 \end{table}
 
 \subsubsection{ISM properties and Star Formation Rates}\label{ISM}
+\begin{figure*}
+    \includegraphics[width=\textwidth]{figures1/milkyway_outflow.eps}
+    \caption[Outflow evolution in isolated Milky Way]{Outflow evolution for the
+    Milky Way-like simulation.  The left hand plot shows the star formation rate
+    and the outflow rate The right hand plot shows the average outflow
+    velocity.}
+    \label{milkyway_outflow}
+\end{figure*}
+
+\begin{figure*}
+    \includegraphics[width=\textwidth]{figures1/dwarf_column.eps}
+    \caption[Column density and temperature images of isolated dwarf]{Column
+    Density (upper row) and temperature for the dwarf simulation at
+    $300\;\mathrm{Myr}$.  The vectors in show the in-plane velocity.
+    Temperatures shown are once again averages between the two phases for
+    multiphase particles.  Note the much more `puffed up' appearance compared to
+    the Milky Way, due to the more mass-loaded winds}
+    \label{dwarf_column}
+\end{figure*}
+
+\begin{figure*}
+    \includegraphics[width=\textwidth]{figures1/dwarf_outflow.eps}
+    \caption[Outflow evolution in isolated dwarf]{Outflow evolution for the
+    dwarf galaxy.  Note that the vertical ranges are different than in
+    figure~\ref{milkyway_outflow}}
+    \label{dwarf_outflow}
+\end{figure*}
 
 Figure~\ref{disc_phase} shows phase diagrams from both Milky Way and dwarf
 galaxies.  Figure~\ref{milkyway_column} shows column density and temperature for
@@ -785,9 +785,10 @@ the ISM: all of the mass outflowing is fully-resolved hot gas, and its behaviour
 is fully governed by standard hydrodynamics.  The winds driven from both
 galaxies are ejected through nothing more than simple buoyancy.
 
+\subsubsection{Galaxy Morphology and Outflows}\label{Morphology}
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures1/kennicutt_schmidt.eps}
+    \includegraphics[width=0.6\textwidth]{figures1/kennicutt_schmidt.eps}
     \caption[Kennicutt-Schmidt law for isolated galaxies]{Kennicutt-Schmidt law
     in the Milky Way-like (blue points) and dwarf (red triangles) galaxies at
     $500\;\mathrm{Myr}$. Surface densities were calculated in radial annuli.
@@ -797,7 +798,7 @@ galaxies are ejected through nothing more than simple buoyancy.
 \end{figure}
 
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures1/multiphase_properties.eps}
+    \includegraphics[width=0.6\textwidth]{figures1/multiphase_properties.eps}
     \caption[Properties of multiphase particles]{Properties of multiphase
     particles in the galaxy simulations.  The top figure shows duration of
     multiphase state for particles in both galaxy simulations.  Particles that
@@ -810,9 +811,6 @@ galaxies are ejected through nothing more than simple buoyancy.
     at $10^4\;\mathrm{K}$ for each of the two simulations.}
     \label{multiphase_properties}
 \end{figure}
-
-\subsubsection{Galaxy Morphology and Outflows}\label{Morphology}
-
 In order to compare superbubble feedback to \citet{DallaVecchia2012}, we selected
 similar galaxies to the ones shown in their paper and calculated the properties
 of their outflows using a similar method.  We adopt their two primary metrics,
@@ -973,7 +971,7 @@ feedback model with several attractive features:
 \end{enumerate}
 
 \section*{Acknowledgements}
-The analysis was performed using the pynbody package
+The analysis was performed using the pynbody package \\
 (\texttt{https://github.com/pynbody/pynbody}, \citep{pynbody})
   We thank Mordecai-Mark Mac Low for useful
 conversations regarding this paper.  The simulations were performed on the

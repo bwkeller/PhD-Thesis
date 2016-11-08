@@ -305,7 +305,7 @@ particles, this is the maximum \textit{mean} density).  These are comparable to
 the parameter choices in another recent re-simulation of the MUGS initial
 conditions, \citet{Stinson2013}.
 
-\begin{figure*}
+\begin{figure}
     
     \includegraphics[width=\textwidth]{figures2/stellar_image.eps}
     \caption[Mock stellar image of galaxy at z=0 with different feedback
@@ -317,8 +317,8 @@ conditions, \citet{Stinson2013}.
     bluer than the blastwave or no-feedback galaxies, evidence of a younger
     stellar population.}
     \label{stellar_image}
-\end{figure*}
-\begin{figure*}
+\end{figure}
+\begin{figure}
     \includegraphics[width=\textwidth]{figures2/column_density.eps}
     \caption[HI column density in a galaxy at z=0 with different feedback models]{HI
     column density for the four test cases at z=0.  The no feedback case has
@@ -329,9 +329,9 @@ conditions, \citet{Stinson2013}.
     are much more flocculent than the blastwave disc, and where the feedback
     energy is doubled, the disc is strongly disrupted.}
     \label{column_density}
-\end{figure*}
+\end{figure}
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures2/rotation_curve.eps}
+    \includegraphics[width=0.6\textwidth]{figures2/rotation_curve.eps}
     \caption[Rotation curves with different feedback models]{Rotation curves for
     each of our test cases.  As is clear, the superbubble cases have much lower
     central concentrations, giving a a rotation curve that rises to a flat
@@ -341,132 +341,11 @@ conditions, \citet{Stinson2013}.
     galaxies.}
     \label{rotation_curve}
 \end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/circularity.eps}
-    \caption[Stellar orbit circularity histogram]{Histogram
-    of stellar orbit circularity.  The bimodal distribution shows the bulge
-    component, with a circularity near 0, and the disc component, with a
-    circularity near 1.  Note that without feedback, this bimodality disappears,
-    as the galaxy morphology becomes spheroidal.  The values here are normalized
-    so that each curve has a total integral of unity.  As is clear, very few
-    stars produced in a galaxy with superbubble feedback have low angular
-    momentum, giving us a disc-dominated galaxy.}
-    \label{circularity}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/mass_growth.eps}
-    \caption[Stellar mass growth for different feedback models]{Stellar mass
-    growth as a function of the total halo mass.  The grey band and black dashed
-    curve show mean values and uncertainties from the abundance matching results
-    of \citet{Behroozi2013}.  The points show values at redshifts 3,2,1,0.5, and
-    0.1.  The stars show the final values at redshift 0.  For essentially the
-    entire evolution of the halo, both the no feedback galaxy and the blastwave
-    galaxy overproduce stars.}
-    \label{mass_growth}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/stellar_fraction.eps}
-    \caption[Stellar mass fraction evolution]{Stellar mass fraction as a
-    function of time/redshift.  As in figure~\ref{mass_growth}, only the
-    fiducial superbubble run produces stellar mass fractions within observed
-    uncertainties for the entire history of the halo. The grey band is as in
-    figure~\ref{mass_growth}, and here we also show, in the hatched region with
-    the dotted curve, values and uncertainties from \citet{Moster2013}.  The dip
-    that can be observed in the no feedback case at high redshift come from the
-    growth of the halo, as it accretes dark matter dominated dwarves.}
-    \label{stellar_fraction}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/sfr.eps}
-    \caption[Star formation rate as a function of feedback model]{Star formation
-    rates for all 4 simulations.  The low star formation rate seen after $z=1$
-    in the no feedback case is due simply to the high z star formation consuming
-    most of the available gas.}
-    \label{sfr}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/burstiness.eps}
-    \caption[Superbubble star formation burstiness]{Star formation rate up to
-    $z=2$ for our superbubble galaxy.  As is clear, when sampled on short ($7\;
-    \rm{Myr}$) timescales, the star formation rate in the superbubble galaxy is
-    characterized by strong bursts, despite its quiescent behavior averaged over
-    longer timescales.}
-    \label{burstiness}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/massloading.eps}
-    \caption[Galactic wind mass loading for different feedback models]{Galactic
-    wind mass-loading and outflow rates for each feedback model.  As is clear,
-    superbubble feedback powers winds with significantly higher mass-loadings,
-    and, despite forming less than half as many stars the blastwave galaxy,
-    results in more total outflowing gas.  This is key to the regulatory power
-    of superbubbles.  Despite the peak in outflow rate in the blastwave case
-    between $z=4-1.5$, the massively increased star formation rate seen in the
-    the smoothed SFR during this time (bottom plot) means that the mass-loadings
-    never go above 5, and baryon expulsion is inefficient.}
-    \label{massloading}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/net_accretion.eps}
-    \caption[Net baryonic accretion for different feedback models]{Net baryonic
-    accretion (stars and gas) for each test case.  It is clear that superbubble
-    feedback expels baryons much more effectively than the blastwave feedback
-    model (although even weak feedback does help somewhat compared to no
-    feedback whatsoever).}
-    \label{net_accretion}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/inflowoutflow.eps}
-    \caption[Inflow and outflow rates for different feedback models]{Inflow and
-    outflow rates for superbubble (red) and blastwave (blue) run.  The solid
-    lines show the total inflow rate, while the dashed and dotted lines show
-    rates for cold and hot gas (above/below $10^5\; \rm{K}$) respectively.  }
-    \label{inflow_outflow}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/angular_momentum_netflux.eps}
-    \caption[Net accretion as a function of angular momentum]{In all four test
-    cases, including the fiducial superbubble run shown above by the solid
-    curve, and the no-feedback case shown by the dotted curve, the vast majority
-    of low angular momentum material, with specific angular momentum $ j_z <
-    500\; \rm {kpc\; km/s}$, is accreted by $z=2$.  The accretion of high
-    angular momentum material, with $j_z > 1500\; \rm{kpc\; km/s}$ rises to peak
-    at $z=2$, and continues to accrete $\sim 2\; \rm{M_\odot/yr}$ at $z=0$.  As
-    can be seen here, the net flux of low angular momentum material at high
-    redshift is suppressed, while the accretion of high angular momentum
-    material at low redshift is actually {\it enhanced} by superbubble
-    feedback.}
-        \label{angular_momentum_netflux}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/angular_momentum_outflow.eps}
-    \caption[High redshift winds remove low angular momentum gas]{High-redshift
-    winds preferentially remove low angular momentum material.  As can be seen
-    here, significantly more low angular momentum material is removed by
-    superbubble feedback than by the weaker blastwave feedback, but the amount
-    of ejected high-angular momentum material is roughly equal.}
-        \label{angular_momentum_outflow}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures2/phase.eps}
-    \caption[Gas phase diagram for g1536]{Phase diagram of gas in the halo at $z=0$.  The hot, coronal gas
-        with temperatures above $10^5\;K$ contains roughly 40\% of the gas mass
-        in the halo.  This gas is a mixture of virial-shocked pristine gas,
-        which has never been within the interior $0.1R_{vir}$, and outflowing
-        material ejected from the galaxy.  This buoyant, high-entropy gas exits
-        the galaxy at high temperature, and cools adiabatically as it rises
-        through the CGM.  The three colored contours show the major components
-        of this hot coronal gas.  Pristine gas, never falling within the
-        interior, is shown in blue.  Young superbubbles, not yet having broken out
-        of the galaxy, are shown in red.  Outflowing material that was once inside the
-        galaxy but is now cooling adiabatically as it rises through the CGM can be seen
-        in orange.  The contours show the 1.5\%, 1\%, and 0.5\% levels for the
-        total mass in each cut.}
-        \label{phase}
-\end{figure}
 
 \section{Results}
-\begin{table*}
+\subsection{Redshift zero Disc Properties}
+\begin{table}
+    \scriptsize
     \begin{tabular}{ c c c c c c c}
         \hline
         Simulation & $M_{vir}$ & $M_{gas}$ &
@@ -490,10 +369,8 @@ conditions, \citet{Stinson2013}.
     angular momentum of the stars (as detailed below).  All masses are in
     $M_\odot$.}
     \label{properties}
-\end{table*}
+\end{table}
 
-
-\subsection{Redshift zero Disc Properties}
 As can be seen in Figure~\ref{stellar_image}, the galaxy produced with
 superbubble feedback is disc-dominated and blue.  The stellar disc in the case
 without feedback is nearly non-existent, with an ellipsoidal morphology.  The
@@ -506,6 +383,71 @@ scale heights of $0.9\;\rm{kpc}$ This may be due to the the disc being disrupted
 at large radii, where the surface densities are lower, allowing superbubbles to
 grow larger and escape more easily.  The increased feedback case is
 interestingly somewhat tilted compared to the rotation of the halo as a whole.  
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{figures2/circularity.eps}
+    \caption[Stellar orbit circularity histogram]{Histogram
+    of stellar orbit circularity.  The bimodal distribution shows the bulge
+    component, with a circularity near 0, and the disc component, with a
+    circularity near 1.  Note that without feedback, this bimodality disappears,
+    as the galaxy morphology becomes spheroidal.  The values here are normalized
+    so that each curve has a total integral of unity.  As is clear, very few
+    stars produced in a galaxy with superbubble feedback have low angular
+    momentum, giving us a disc-dominated galaxy.}
+    \label{circularity}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{figures2/mass_growth.eps}
+    \caption[Stellar mass growth for different feedback models]{Stellar mass
+    growth as a function of the total halo mass.  The grey band and black dashed
+    curve show mean values and uncertainties from the abundance matching results
+    of \citet{Behroozi2013}.  The points show values at redshifts 3,2,1,0.5, and
+    0.1.  The stars show the final values at redshift 0.  For essentially the
+    entire evolution of the halo, both the no feedback galaxy and the blastwave
+    galaxy overproduce stars.}
+    \label{mass_growth}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{figures2/stellar_fraction.eps}
+    \caption[Stellar mass fraction evolution]{Stellar mass fraction as a
+    function of time/redshift.  As in figure~\ref{mass_growth}, only the
+    fiducial superbubble run produces stellar mass fractions within observed
+    uncertainties for the entire history of the halo. The grey band is as in
+    figure~\ref{mass_growth}, and here we also show, in the hatched region with
+    the dotted curve, values and uncertainties from \citet{Moster2013}.  The dip
+    that can be observed in the no feedback case at high redshift come from the
+    growth of the halo, as it accretes dark matter dominated dwarves.}
+    \label{stellar_fraction}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{figures2/sfr.eps}
+    \caption[Star formation rate as a function of feedback model]{Star formation
+    rates for all 4 simulations.  The low star formation rate seen after $z=1$
+    in the no feedback case is due simply to the high z star formation consuming
+    most of the available gas.}
+    \label{sfr}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{figures2/burstiness.eps}
+    \caption[Superbubble star formation burstiness]{Star formation rate up to
+    $z=2$ for our superbubble galaxy.  As is clear, when sampled on short ($7\;
+    \rm{Myr}$) timescales, the star formation rate in the superbubble galaxy is
+    characterized by strong bursts, despite its quiescent behavior averaged over
+    longer timescales.}
+    \label{burstiness}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{figures2/massloading.eps}
+    \caption[Galactic wind mass loading for different feedback models]{Galactic
+    wind mass-loading and outflow rates for each feedback model.  As is clear,
+    superbubble feedback powers winds with significantly higher mass-loadings,
+    and, despite forming less than half as many stars the blastwave galaxy,
+    results in more total outflowing gas.  This is key to the regulatory power
+    of superbubbles.  Despite the peak in outflow rate in the blastwave case
+    between $z=4-1.5$, the massively increased star formation rate seen in the
+    the smoothed SFR during this time (bottom plot) means that the mass-loadings
+    never go above 5, and baryon expulsion is inefficient.}
+    \label{massloading}
+\end{figure}
 
 The gas component of this galaxy can be seen in Figure~\ref{column_density}.
 The superbubble feedback is clearly much more effective at ejecting gas from the
@@ -561,6 +503,38 @@ feedback galaxy.  The basic properties of each halo can be found in
 table~\ref{properties}.
 
 \subsection{Halo Evolution and Star Formation}
+\begin{figure}
+    \includegraphics[width=0.7\textwidth]{figures2/net_accretion.eps}
+    \caption[Net baryonic accretion for different feedback models]{Net baryonic
+    accretion (stars and gas) for each test case.  It is clear that superbubble
+    feedback expels baryons much more effectively than the blastwave feedback
+    model (although even weak feedback does help somewhat compared to no
+    feedback whatsoever).}
+    \label{net_accretion}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{figures2/inflowoutflow.eps}
+    \caption[Inflow and outflow rates for different feedback models]{Inflow and
+    outflow rates for superbubble (red) and blastwave (blue) run.  The solid
+    lines show the total inflow rate, while the dashed and dotted lines show
+    rates for cold and hot gas (above/below $10^5\; \rm{K}$) respectively.  }
+    \label{inflow_outflow}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{figures2/angular_momentum_netflux.eps}
+    \caption[Net accretion as a function of angular momentum]{In all four test
+    cases, including the fiducial superbubble run shown above by the solid
+    curve, and the no-feedback case shown by the dotted curve, the vast majority
+    of low angular momentum material, with specific angular momentum $ j_z <
+    500\; \rm {kpc\; km/s}$, is accreted by $z=2$.  The accretion of high
+    angular momentum material, with $j_z > 1500\; \rm{kpc\; km/s}$ rises to peak
+    at $z=2$, and continues to accrete $\sim 2\; \rm{M_\odot/yr}$ at $z=0$.  As
+    can be seen here, the net flux of low angular momentum material at high
+    redshift is suppressed, while the accretion of high angular momentum
+    material at low redshift is actually {\it enhanced} by superbubble
+    feedback.}
+        \label{angular_momentum_netflux}
+\end{figure}
 Ejecting baryons from the disc is essential to producing galaxies that fit the
 $M_*/M_{halo}$ relationship predicted by \citet{Behroozi2013},
 \citet{Moster2013} and others.  As Figures~\ref{mass_growth}
@@ -603,6 +577,32 @@ of star formation are able to effectively remove baryons from the disc
 ultimately depends on the mass loading of the winds that they drive.
 
 \subsection{Outflow Analysis}
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{figures2/angular_momentum_outflow.eps}
+    \caption[High redshift winds remove low angular momentum gas]{High-redshift
+    winds preferentially remove low angular momentum material.  As can be seen
+    here, significantly more low angular momentum material is removed by
+    superbubble feedback than by the weaker blastwave feedback, but the amount
+    of ejected high-angular momentum material is roughly equal.}
+        \label{angular_momentum_outflow}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.8\textwidth]{figures2/phase.eps}
+    \caption[Gas phase diagram for g1536]{Phase diagram of gas in the halo at $z=0$.  The hot, coronal gas
+        with temperatures above $10^5\;K$ contains roughly 40\% of the gas mass
+        in the halo.  This gas is a mixture of virial-shocked pristine gas,
+        which has never been within the interior $0.1R_{vir}$, and outflowing
+        material ejected from the galaxy.  This buoyant, high-entropy gas exits
+        the galaxy at high temperature, and cools adiabatically as it rises
+        through the CGM.  The three colored contours show the major components
+        of this hot coronal gas.  Pristine gas, never falling within the
+        interior, is shown in blue.  Young superbubbles, not yet having broken out
+        of the galaxy, are shown in red.  Outflowing material that was once inside the
+        galaxy but is now cooling adiabatically as it rises through the CGM can be seen
+        in orange.  The contours show the 1.5\%, 1\%, and 0.5\% levels for the
+        total mass in each cut.}
+        \label{phase}
+\end{figure}
 Star formation in the disc drives hot, fast-moving outflows from the central star
 forming regions.  These outflows have temperatures of $\sim2\times10^7\; \rm{K}$
 as they leave the disc, and also entrain some cold material with them.

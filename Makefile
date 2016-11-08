@@ -1,10 +1,7 @@
-thesis.pdf: thesis.dvi paper1.bbl paper2.bbl paper3.bbl paper4.bbl thesis.bbl
+thesis.pdf: thesis.dvi paper1.bbl paper2.bbl paper3.bbl paper4.bbl thesis.bbl conclusion.bbl
 	latex thesis.tex
 	latex thesis.tex
 	dvipdf thesis.dvi
-
-thesis.bbl: thesis.dvi
-	bibtex thesis.aux
 
 paper1.bbl: thesis.dvi
 	bibtex paper1.aux
@@ -18,7 +15,10 @@ paper3.bbl: thesis.dvi
 paper4.bbl: thesis.dvi
 	bibtex paper4.aux
 
-thesis.dvi: thesis.tex library.bib paper1.tex paper2.tex paper3.tex paper4.tex
+conclusion.bbl: thesis.dvi
+	bibtex conclusion.aux
+
+thesis.dvi: thesis.tex library.bib paper1.tex paper2.tex paper3.tex paper4.tex conclusion.tex
 	latex thesis.tex
 
 clean:

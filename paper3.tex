@@ -415,16 +415,18 @@ whose disruption absorbs their energies is not present in the simulation.
 
 \section{Results}
 
-\begin{figure*}
+
+\subsection{Redshift zero properties}
+\begin{figure}
     \includegraphics[width=\textwidth]{figures3/column_edge.eps}
     \includegraphics[width=\textwidth]{figures3/column_face.eps}
     \caption[HI column density images for MUGS2 galaxies]{{\sc Hi} column
     density in each of the MUGS2 galaxies.  As in Fig.~\ref{stellar_image}, the
     top three rows show the galaxy edge on.}
     \label{gas_column}
-\end{figure*}
+\end{figure}
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/SMHMR.eps}
+    \includegraphics[width=0.7\textwidth]{figures3/SMHMR.eps}
     \caption[MUGS2 stellar mass to halo mass relation]{Stellar mass versus halo
     mass at $z=0$.  The observed stellar mass to halo mass relation is from
     \citet{Hudson2015}'s weak lensing study of galaxies to $z=0.8$.  Galaxies
@@ -435,7 +437,7 @@ whose disruption absorbs their energies is not present in the simulation.
     \label{SMHMR}
 \end{figure}
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/rotcurve.eps}
+    \includegraphics[width=0.7\textwidth]{figures3/rotcurve.eps}
     \caption[MUGS2 rotation curves]{As is clear from the above rotation curves,
     galaxies which overproduce stars (shown in dotted red) also have large
     central concentrations, giving steeply peaked rotation curves inconsistent
@@ -444,7 +446,7 @@ whose disruption absorbs their energies is not present in the simulation.
     \label{rotation_curve}
 \end{figure}
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/stellar_central.eps}
+    \includegraphics[width=0.8\textwidth]{figures3/stellar_central.eps}
     \caption[Stellar mass vs. central baryonic mass in MUGS2 galaxies]{The stellar mass and the central baryonic mass show a tight
         correlation.  For the well-regulated population, roughly $40\%$ of the
         central baryons are stars, while for the unregulated population has
@@ -463,8 +465,6 @@ whose disruption absorbs their energies is not present in the simulation.
     disc.}
     \label{phase}
 \end{figure}
-
-\subsection{Redshift zero properties}
 
 The general properties of each galaxy at $z=0$ can be found in
 Table~\ref{z0_table}.  $\lambda'$ is the dimensionless spin parameter of the
@@ -511,6 +511,16 @@ within the intrinsic scatter found in the recent observational study of
 \citet{Wang2016}.
 
 \subsection{Stellar Mass Runaway}
+\begin{figure}
+    \includegraphics[width=0.7\textwidth]{figures3/stellar_fraction_time.eps}
+    \caption[Stellar mass fraction evolution in MUGS2]{Stellar mass fraction
+    versus time.  As is clear, for the unregulated population the buildup of
+    stellar mass above $\sim3\%$ of the halo mass happens very rapidly, often on
+    time-scales of $\sim1\Gyr$.  The runaway in the unregulated population stops
+    simply when the disc has been sufficiently depleted of gas that little
+    remains to form new stars.}
+    \label{stellar_fraction_time}
+\end{figure}
 As can be seen in Fig.~\ref{SMHMR}, roughly half of these galaxies fall within
 the expected $z=0$ stellar mass to halo mass relation (SMHMR).  The grey band
 shown in the figure is the $2\sigma$ confidence region in the observed SMHMR
@@ -581,17 +591,7 @@ effectiveness, which is set by the depth of the potential well.
 
 \subsection{Time Evolution} 
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/stellar_fraction_time.eps}
-    \caption[Stellar mass fraction evolution in MUGS2]{Stellar mass fraction
-    versus time.  As is clear, for the unregulated population the buildup of
-    stellar mass above $\sim3\%$ of the halo mass happens very rapidly, often on
-    time-scales of $\sim1\Gyr$.  The runaway in the unregulated population stops
-    simply when the disc has been sufficiently depleted of gas that little
-    remains to form new stars.}
-    \label{stellar_fraction_time}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures3/SMHMR_time.eps}
+    \includegraphics[width=0.7\textwidth]{figures3/SMHMR_time.eps}
     \caption[Stellar mass vs. halo mass evolution in MUGS2]{Stellar mass versus
     halo mass, as shown in Fig.~\ref{SMHMR}, but with trails added to show time
     evolution.  For halo masses below $\sim\rm{a\;few}\times10^{11}$, the
@@ -601,7 +601,7 @@ effectiveness, which is set by the depth of the potential well.
     \label{SMHMR_time}
 \end{figure}
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/stellar_central_time.eps}
+    \includegraphics[width=0.8\textwidth]{figures3/stellar_central_time.eps}
     \caption[Stellar mass vs. central baryonic mass evolution in MUGS2]{Stellar
     mass versus central baryon mass. The stellar mass here can be seen to vary
     much more smoothly over the evolution, without the slight `jump' seen in
@@ -651,7 +651,7 @@ Fig.~\ref{rotation_curve}.
 
 \subsection{Galactic Outflows}
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/massloading_time.eps}
+    \includegraphics[width=0.7\textwidth]{figures3/massloading_time.eps}
     \caption[Outflow mass loading evolution in MUGS2]{Outflow mass loading
     decreases as galaxies grow over time, as was previously shown by
     \citet{Keller2015}.  Here we see, when examining the mean mass loadings for
@@ -663,7 +663,7 @@ Fig.~\ref{rotation_curve}.
     \label{massloading_time}
 \end{figure}
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/massloading_halo.eps}
+    \includegraphics[width=0.7\textwidth]{figures3/massloading_halo.eps}
     \caption[Mass loading as a function of halo mass in MUGS2]{Unlike in the
     previous figure, if we look at mass loading as a function of halo mass, we
     instead see no significant difference between the two populations.  Instead,
@@ -748,6 +748,24 @@ defined below, describes both the regulated and unregulated population.
     \end{cases}
     \label{outflow_scaling}
 \end{equation}
+\begin{figure}
+    \includegraphics[width=0.7\textwidth]{figures3/massloading_central.eps}
+    \caption[Mass loadings as a function of disc mass]{The mass loadings of the two populations are even more in agreement
+    if we look at their relation to the central baryonic mass.  As with the mass
+    loading versus halo mass relation, we can fit a broken power law to this relation
+    (shown here as the dashed line).}
+    \label{massloading_central}
+\end{figure}
+\begin{figure}
+    \includegraphics[width=0.7\textwidth]{figures3/coldmassloading.eps}
+    \caption[Outflow mass loading for cold and hot gas]{Mean outflow mass loading for the full sample, as a function of
+    halo mass/virial temperature, and split into cold ($T<10^5\K$) and hot
+    ($T>10^5\K$) components.  For low-mass haloes, outflows are dominated by
+    relatively cold gas (cooler superbubbles, and entrained material), while heavier
+    haloes have primarily hot outflows.  The transition occurs at a halo mass of
+    $M_{\rm halo}\sim10^{11}\;\Msun$, or a virial temperature of $6\times10^5\K$.}
+    \label{coldmassloading}
+\end{figure}
 
 Using a simple non-linear least squares fit in the on the parameters $\alpha$,
 $\beta$, $\gamma$, and $M_0$, we find that the most likely value for these
@@ -779,39 +797,8 @@ energy to eject a larger amount of entrained gas.  As the halo mass grows,
 eventually only the hottest gas is able to escape, and only if it is not weighed
 down by too much entrained material.  Eventually, this effect means that the
 total mass loading begins to drop significantly.
-
-We can see clearly in Fig.~\ref{massloading_escape} that our winds essentially
-have a maximum effective velocity of $\sim250\kms$.  When the escape velocity
-at the edge of the galaxy (where we begin to measure outflows, at $0.1R_{\rm vir}$)
-exceeds this velocity, outflow mass loadings precipitously drop from $\sim10$ to
-$<1$.  As \citet{Keller2014} showed, superbubble-heated gas tends to reach an
-equilibrium temperature of a a few million K, meaning that the
-outflow rates appear to fall significantly when outflowing gas, moving faster
-than the escape velocity from the disc is moving supersonically relative to the
-superbubble-heated gas.  Radiative losses from cooling shocks may be important
-here for causing the drop in outflow efficiency that produces our two
-populations.
-
 \begin{figure}
-    \includegraphics[width=\textwidth]{figures3/massloading_central.eps}
-    \caption[Mass loadings as a function of disc mass]{The mass loadings of the two populations are even more in agreement
-    if we look at their relation to the central baryonic mass.  As with the mass
-    loading versus halo mass relation, we can fit a broken power law to this relation
-    (shown here as the dashed line).}
-    \label{massloading_central}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures3/coldmassloading.eps}
-    \caption[Outflow mass loading for cold and hot gas]{Mean outflow mass loading for the full sample, as a function of
-    halo mass/virial temperature, and split into cold ($T<10^5\K$) and hot
-    ($T>10^5\K$) components.  For low-mass haloes, outflows are dominated by
-    relatively cold gas (cooler superbubbles, and entrained material), while heavier
-    haloes have primarily hot outflows.  The transition occurs at a halo mass of
-    $M_{\rm halo}\sim10^{11}\;\Msun$, or a virial temperature of $6\times10^5\K$.}
-    \label{coldmassloading}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=\textwidth]{figures3/massloading_escape.eps}
+    \includegraphics[width=0.7\textwidth]{figures3/massloading_escape.eps}
     \caption[Mass loading vs. escape velocity of disc]{Mean outflow mass loading for the full sample, as a function of the
         escape velocity on the inner surface of our outflow shell
         ($0.1R_{\rm vir}$).  Each galaxy is sampled 128 times over its evolution,
@@ -825,6 +812,19 @@ populations.
         supersonically, and will drive shocks in the CGM.}
     \label{massloading_escape}
 \end{figure}
+
+We can see clearly in Fig.~\ref{massloading_escape} that our winds essentially
+have a maximum effective velocity of $\sim250\kms$.  When the escape velocity
+at the edge of the galaxy (where we begin to measure outflows, at $0.1R_{\rm vir}$)
+exceeds this velocity, outflow mass loadings precipitously drop from $\sim10$ to
+$<1$.  As \citet{Keller2014} showed, superbubble-heated gas tends to reach an
+equilibrium temperature of a a few million K, meaning that the
+outflow rates appear to fall significantly when outflowing gas, moving faster
+than the escape velocity from the disc is moving supersonically relative to the
+superbubble-heated gas.  Radiative losses from cooling shocks may be important
+here for causing the drop in outflow efficiency that produces our two
+populations.
+
 
 \section{Discussion}
 In \citet{Keller2015}, we showed that galactic outflows, driven by
