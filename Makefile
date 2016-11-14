@@ -1,4 +1,4 @@
-thesis.pdf: thesis.dvi paper1.bbl paper2.bbl paper3.bbl paper4.bbl conclusion.bbl
+thesis.pdf: thesis.dvi paper1.bbl paper2.bbl paper3.bbl paper4.bbl conclusion.bbl intro.bbl
 	latex thesis.tex
 	latex thesis.tex
 	dvipdf thesis.dvi
