@@ -42,7 +42,7 @@ formation of a bulge through these winds.
 
 Chapter 4 took these results to the limit to examine whether SN alone are able
 to regulate the formation of stars in galaxies both heavier and lighter than the
-Milky Way.  By simulating and examining a new sample of 18 galaxies (the
+Milky Way.  By creating a new sample of 18 simulated galaxies (the
 McMaster Unbiased Galaxy Simulations 2), we were able to demonstrate a critical
 mass at which SN feedback breaks down as a regulator of gas accretion and star
 formation.  Galaxies that exceed this mass, $(\sim 10^{12}\;\Msun)$, will produce
@@ -83,36 +83,37 @@ SN-driven outflows.  Finally, we showed that independent of the detailed
 internal processes of galaxy evolution, the acceleration relation observed by
 \citet{McGaugh2016} is simply a natural consequence of galaxy formation.
 
-\section{Results in Context}
+\section{The Impact and Context of these Results}
 Developing a versatile, accurate, resolution insensitve model for feedback has
-been a challenge in galaxy simulations for decades.  While a number of recent
-models have been developed that are able to produce galaxies which match some
-observables, all of these models have relied on purely numerical features to
-enhance the effectiveness of feedback and counter the effects of limited
-resolution.  The \citet{Keller2014} presented in Chapter 2 is the first model of
-its kind that uses a first-principles approach to prevent overcooling.  Beyond
-merely ``sufficient'' feedback, the superbubble model also incorporates physics
-that previously have been omitted.  Thermal evaporation is a key process for
-mixing cold ISM with hot feedback ejecta.  Prior to \citet{Keller2014}, this
-process was completely ignored, and the local mass-loading of feedback was set
-purely as a numerical parameter.  \citet{Rosdahl2016} illustrated this clearly,
-in a recent comparison project.  This paper implemented 5 popular feedback
-algorithms (simple thermal dumps; a delayed cooling model similar to
-\citet{Agertz2013}; a kinetic model similar to \citet{DallaVecchia2008}; a
-stochastic thermal model based on \citet{DallaVecchia2012}; and a hybrid model
-from \citet{Kimm2015}) in the {\sc RAMSES} code.  This allowed for a controlled
-test with isolated dwarf and Milky Way analog galaxies. Each of these models,
-with ``fiducial'' parameter choices, produced star formation rates that varied
-by nearly an order of magnitude in the \citet{Kennicutt1998} star formation
-relation.  On top of that, the galaxies showed marked morphological differences
-and average wind mass loadings that varied by nearly 4 orders of magnitude.  As
-we showed in \citet{Keller2015}, these winds are critical to the formation of
-galaxies like the Milky Way.  On top of the inter-model variation,
-\citet{Rosdahl2016} also found that the numerical free parameters for each model
-had a vast impact on the resulting galaxy star formation rate, morphology, and
-outflow properties.  By building a more conservative, physically motivated
-model where the local mass loading of supernovae feedback is set by thermal
-evaporation, rather than numerically, we can sidestep many of these issues.
+been a challenge in galaxy simulations for decades \citep{Katz1992}.  While a
+number of recent models have been developed that are able to produce galaxies
+which match some observables, all of these models have relied on purely
+numerical features to enhance the effectiveness of feedback and counter the
+lossues due to limited resolution.  The \citet{Keller2014} model presented in Chapter 2 is
+the first model of its kind that uses a first-principles approach to prevent
+overcooling.  Beyond merely providing ``sufficient'' feedback, the superbubble model also
+incorporates physics that previously have been omitted.  Thermal evaporation is
+a key process for mixing cold ISM with hot feedback ejecta.  Prior to
+\citet{Keller2014}, this process was completely ignored, and the local
+mass-loading of feedback was set purely as a numerical parameter.
+\citet{Rosdahl2016} illustrated this clearly, in a recent comparison project.
+This paper implemented 5 popular feedback algorithms (simple thermal dumps; a
+delayed cooling model similar to \citet{Agertz2013}; a kinetic model similar to
+\citet{DallaVecchia2008}; a stochastic thermal model based on
+\citet{DallaVecchia2012}; and a hybrid model from \citet{Kimm2015}) in the {\sc
+RAMSES} code.  This allowed for a controlled test with isolated dwarf and Milky
+Way analog galaxies. Each of these models, with ``fiducial'' parameter choices,
+produced star formation rates that varied by nearly an order of magnitude in the
+\citet{Kennicutt1998} star formation relation.  On top of that, the galaxies
+showed marked morphological differences and average wind mass loadings that
+varied by more than 4 orders of magnitude.  As we showed in \citet{Keller2015},
+these winds are critical to the formation of galaxies like the Milky Way.  
+In addition to the inter-model variation, \citet{Rosdahl2016} also found that the
+numerical free parameters for each model had a vast impact on the resulting
+galaxy's star formation rate, morphology, and outflow properties.  By building a
+more conservative, physically motivated model where the local mass loading of
+supernovae feedback is set by thermal evaporation, rather than numerically, we
+can sidestep many of these issues.
 
 The issue of local mass loading has been explored before in simulation.
 \citet{Thacker2000} showed a survey of methods for depositing feedback energy.
@@ -124,18 +125,17 @@ in \citet{Rosdahl2016} to prevent overcooling when feedback energy was smoothed.
 A more recent study by \citet{DallaVecchia2012} directly looked at the question
 of local mass loading with a model that allowed the temperature of post-feedback
 gas to be a single tunable parameter.  This is effectively the same as choosing
-the amount of mass that each supernovae couples to.  They found that lower mass
+the amount of mass that each supernovae couples to (the local mass loading).  They found that lower mass
 loadings result in hotter post-feedback gas, with longer cooling times, and
 subsequently much more effective supernovae feedback.  The \citet{Keller2014}
 superbubble model is the first model to actually incorporate a physical
-mechanism for determining this mechanism.  Previous feedback models have been
+mechanism for determining this mass loading.  Previous feedback models have been
 designed primarily to avoid the overcooling that can occur when this mass
 loading is too high: superbubble feedback instead attempts to calculate the {\it
 correct} local mass loadings, and allows the feedback-heated gas to cool with
 realistic temperatures and densities.  By building a more physically motivated
-model for supernovae feedback, we can have better confidence that results in
-simulations testing the effects of this feedback arise from physics rather than
-numerics.
+model for supernovae feedback, we can have better confidence in the results of
+simulations testing the effects of this feedback.
 
 As we showed in \citet{Keller2015}, including thermal evaporation in simulations
 of a Milky Way like galaxy will drastically change the effectiveness of
@@ -146,20 +146,19 @@ forming gas (low-angular momentum gas) must be removed from the ISM; because
 SN-driven winds are most effective at high redshift, when this material is
 mostly accreted, the outflows driven from the galaxy preferentially remove
 bulge-forming gas.  A similar result was seen in simulations of dwarf galaxies
-by \citet{Brook2011}, but \citet{Keller2015} is the first work to show that
-bulgeless disc galaxies similar in mass to the Milky Way can be produced through
-the same mechanism, and connect this with the regulation of star formation.  An
-important conclusion of this study is that much of the past work
-\citet{Stinson2013,Agertz2013,Hopkins2014} showing that SN feedback was unable
-regulate star formation without the addition of ``early feedback'' from
+by \citet{Governato2010, Brook2011}, but \citet{Keller2015} is the first work to
+show that bulgeless disc galaxies similar in mass to the Milky Way can be
+produced through the same mechanism, and connect this with the regulation of
+star formation.  An important conclusion of this study is that much of the past
+work \citet{Stinson2013,Agertz2013,Hopkins2014} showing that SN feedback was
+unable regulate star formation without the addition of ``early feedback'' from
 radiation pressure, stellar winds, or photoionization was likely underestimating
 the effectiveness of SN.  Since many of these studies used simpler, more
 numerically-sensitive feedback models that also omitted thermal evaporation,
 they were unable to effectively drive the correct amount of mass into hot, high
 entropy gas that could leave the galaxy.  This study tells us that the
 disc-dominant morphology and low stellar fraction in galaxies like our own all
-arise from the same mechanism:  heavily mass loaded, high redshift
-winds.
+arise from the same mechanism:  heavily mass loaded, high redshift winds.
 
 It has been suggested by numerous studies \citep{Benson2003,Bower2006} that AGN
 feedback is critical to shaping the galaxy luminosity function.  Most
