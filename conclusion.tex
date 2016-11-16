@@ -95,7 +95,47 @@ merely ``sufficient'' feedback, the superbubble model also incorporates physics
 that previously have been omitted.  Thermal evaporation is a key process for
 mixing cold ISM with hot feedback ejecta.  Prior to \citet{Keller2014}, this
 process was completely ignored, and the local mass-loading of feedback was set
-purely as a numerical parameter.  
+purely as a numerical parameter.  \citet{Rosdahl2016} illustrated this clearly,
+in a recent comparison project.  This paper implemented 5 popular feedback
+algorithms (simple thermal dumps; a delayed cooling model similar to
+\citet{Agertz2013}; a kinetic model similar to \citet{DallaVecchia2008}; a
+stochastic thermal model based on \citet{DallaVecchia2012}; and a hybrid model
+from \citet{Kimm2015}) in the {\sc RAMSES} code.  This allowed for a controlled
+test with isolated dwarf and Milky Way analog galaxies. Each of these models,
+with ``fiducial'' parameter choices, produced star formation rates that varied
+by nearly an order of magnitude in the \citet{Kennicutt1998} star formation
+relation.  On top of that, the galaxies showed marked morphological differences
+and average wind mass loadings that varied by nearly 4 orders of magnitude.  As
+we showed in \citet{Keller2015}, these winds are critical to the formation of
+galaxies like the Milky Way.  On top of the inter-model variation,
+\citet{Rosdahl2016} also found that the numerical free parameters for each model
+had a vast impact on the resulting galaxy star formation rate, morphology, and
+outflow properties.  By building a more conservative, physically motivated
+model where the local mass loading of supernovae feedback is set by thermal
+evaporation, rather than numerically, we can sidestep many of these issues.
+
+The issue of local mass loading has been explored before in simulation.
+\citet{Thacker2000} showed a survey of methods for depositing feedback energy.
+This work showed that choosing to deposit feedback energy into single resolution
+elements vs. smoothing it over an SPH kernel had a significant impact on whether
+that feedback energy could couple to the ISM.  \citet{Thacker2000} advocated the
+use of a brief adiabatic period, similar to the delayed cooling model presented
+in \citet{Rosdahl2016} to prevent overcooling when feedback energy was smoothed.
+A more recent study by \citet{DallaVecchia2012} directly looked at the question
+of local mass loading with a model that allowed the temperature of post-feedback
+gas to be a single tunable parameter.  This is effectively the same as choosing
+the amount of mass that each supernovae couples to.  They found that lower mass
+loadings result in hotter post-feedback gas, with longer cooling times, and
+subsequently much more effective supernovae feedback.  The \citet{Keller2014}
+superbubble model is the first model to actually incorporate a physical
+mechanism for determining this mechanism.  Previous feedback models have been
+designed primarily to avoid the overcooling that can occur when this mass
+loading is too high: superbubble feedback instead attempts to calculate the {\it
+correct} local mass loadings, and allows the feedback-heated gas to cool with
+realistic temperatures and densities.  By building a more physically motivated
+model for supernovae feedback, we can have better confidence that results in
+simulations testing the effects of this feedback arise from physics rather than
+numerics.
 
 As we showed in \citet{Keller2015}, including thermal evaporation in simulations
 of a Milky Way like galaxy will drastically change the effectiveness of
@@ -105,16 +145,53 @@ formation of bulges larger than the ones seen in the local universe, bulge
 forming gas (low-angular momentum gas) must be removed from the ISM; because
 SN-driven winds are most effective at high redshift, when this material is
 mostly accreted, the outflows driven from the galaxy preferentially remove
-bulge-forming gas.  An important conclusion of this study is that much of the
-past work showing that SN feedback was unable regulate star formation without
-the addition of ``early feedback'' from radiation pressure, stellar winds, or
-photoionization was likely underestimating the effectiveness of SN.  Since many
-of these studies used simpler, more numerically-sensitive feedback models that
-also omitted thermal evaporation, they were unable to effectively drive the
-correct amount of mass into hot, high entropy gas that could leave the galaxy.
-This study tells us that the disc-dominant morphology and low stellar fraction
-in galaxies like our own all arise from the same mechanism:  heavily mass
-loaded, high redshift winds.
+bulge-forming gas.  A similar result was seen in simulations of dwarf galaxies
+by \citet{Brook2011}, but \citet{Keller2015} is the first work to show that
+bulgeless disc galaxies similar in mass to the Milky Way can be produced through
+the same mechanism, and connect this with the regulation of star formation.  An
+important conclusion of this study is that much of the past work
+\citet{Stinson2013,Agertz2013,Hopkins2014} showing that SN feedback was unable
+regulate star formation without the addition of ``early feedback'' from
+radiation pressure, stellar winds, or photoionization was likely underestimating
+the effectiveness of SN.  Since many of these studies used simpler, more
+numerically-sensitive feedback models that also omitted thermal evaporation,
+they were unable to effectively drive the correct amount of mass into hot, high
+entropy gas that could leave the galaxy.  This study tells us that the
+disc-dominant morphology and low stellar fraction in galaxies like our own all
+arise from the same mechanism:  heavily mass loaded, high redshift
+winds.
+
+It has been suggested by numerous studies \citep{Benson2003,Bower2006} that AGN
+feedback is critical to shaping the galaxy luminosity function.  Most
+observations \citep{Kauffmann2003b} show that strong AGN are hosted in galaxies
+with halo masses slightly greater than $\sim10^{12}\;M_\odot$.  By simulating a
+collection of galaxies that bracket this mass, but omitting the effects of AGN
+feedback, we were able to show that SN alone break down as a mechanism of
+regulating star formation in these massive galaxies.  Importantly, this also
+results in large angular momentum losses for gas within the disc, funneling
+material to the central regions where SMBHs reside.  This, combined with the
+failure of SN-driven galactic winds, suggests that SN are actually the mechanism
+that sets where powerful AGN occur, a mechanism that has begun to be studied in
+\citet{Bower2016}.
+
+Chapter 5 presented the first simulation result to reproduce the
+\citet{McGaugh2016} RAR.  A later study \citep{Ludlow2016} used data from the
+EAGLE \citep{Schaye2015} and APOSTLE \citep{Sawala2016} simulations and
+confirmed both the fit to the RAR, and the insensitivity to feedback that we
+found.  Earlier, a semi-empirical model was used by \citet{DiCintio2016} showed
+that a related observation, the mass-discrepency acceleration relation, could
+be produced simply as a result of other pre-existing scaling relations.  Taken
+together, these results should seriously temper attempts to fit/explain the RAR
+using new, exotic physics.  If conventional baryonic physics produces the same
+relation in a $\Lambda CDM$ cosmology, there is little need to turn to modified
+gravity \citep{Moffat2016,Verlinde2016} or new forces of nature
+\citep{Burrage2016} to explain it.  Precision cosmology has been moving closer
+and closer to scales where the effects of baryonic physics are becoming more and
+more pronounced.  Without well-constrained subgrid models, like the one
+presented here, we will be unable to use the wealth of information available
+from galaxies to test new theories of gravity or alternative cosmologies.  On
+individual galaxy scales, $\Lambda CDM$ predictions {\it must} include the
+details of baryonic effects. Chief among those effects is feedback.
 
 \section{Future Directions}
 These results will be valuable for many new research projects.  The superbubble
