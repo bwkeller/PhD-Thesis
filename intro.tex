@@ -398,5 +398,74 @@ ultimately determine its effectiveness in driving outflows and regulating star
 formation, even with constant feedback energy.  The self-regulating temperature
 of superbubbles suggests that nature has a mechanism for setting
 this temperature: thermal evaporation.
+
+\section{This Work and Organization of Chapters}
+Numerical modeling of galaxies is a difficult problem, as it involves processes
+that take place over scales (both spatial and temporal) that span many orders of
+magnitude.  This means that simulations will always be unable to resolve at
+least some fraction of the physics taking place within the galaxy.  For this,
+carefully designed ``sub-grid'' models are required to include the macroscopic
+effects that unresolvable microscopic processes yield.  In this thesis, I
+present a new sub-grid model for the feedback from massive stars.  I
+use that model to investigate how this feedback can regulate the formation of
+stars within galaxies, and finally show how this same
+feedback is unneeded to produce galaxies that match the observations of
+\citet{McGaugh2016}.  I conclude with a summary of these results,
+their implications, and some potential future directions for study.
+
+Chapter 2 presents a new superbubble feedback model, and describes the
+implementation of this model in the simulation code {\sc GASOLINE2}.  I show a
+series of tests that show the model is robust to resolution changes, insensitive
+to magnetic field structure, and able to handle cases involving unresolved ISM
+structure.  Finally, I show that simulations of isolated dwarf and Milky Way
+like disc galaxies regulate their star formation and drive efficient galactic
+outflows with this new feedback model.
+
+Chapter 3 applies the feedback model described in Chapter 2 to a cosmological
+simulation of a Milky Way like galaxy.  This allows us to see how galaxies like
+the Milky Way assembles itself by regulating the flow of gas into the disc,
+ejecting material to prevent the formation of a central stellar bulge and slow
+the formation of stars.  We compare this to the same simulation run with the
+simpler \citet{Stinson2006} feedback model to reproduce the results of
+\citet{Stinson2010}, which used the same initial conditions as this study.  We
+show that the overproduction of stars seen by \citet{Stinson2010} was not a
+failure of SN feedback in general, but because SN feedback simulated without 
+thermal evaporation fail to drive mass-loaded winds at high redshift.  These
+winds, we demonstrate, remove the fuel for star formation and bulge growth to
+produce a realistic, bulgeless disc galaxy.
+
+Chapter 4 extends the results presented in chapter 3 by simulating an additional
+17 cosmological galaxies, reproducing the full sample presented in
+\citet{Stinson2010} with updated hydrodynamics and the new feebdack model
+described in chapter 2.  This sample spans the peak of the star formation
+efficiency found by abundance matching studies like \citet{Moster2013}, and
+using it we are able to show that supernovae feedback is unable to regulate
+galaxies more massive than the peak halo mass of $10^{12}\;M_\odot$.  By
+analyzing the outflow properties of these galaxies, we are able to determine a
+global relation between the halo mass (or disc mass) and the outflow mass
+loadings.  We show that the decreasing efficiency of SN-driven winds is an
+inevitable consequence of the energy budget available from SN alone.
+
+Chapter 5 uses the sample of galaxies developed in the previous chapter to
+test whether recent observational results presented in \citet{McGaugh2016}
+are consistent with $\Lambda CDM$.  The radial acceleration relation (RAR) seen in
+the SPARC sample \citep{Lelli2016} of observed rotationally supported galaxies
+shows that the true accelerations within these galaxies is tightly correlated 
+with the accelerations due to baryons alone.  We show, using the sample of
+galaxies generated in chapter 4, that this relation simply falls out of the
+dissipative collapse of baryons in a collisionless dark matter halo.  We also
+show that this result is independent of stellar feedback.  Despite the insensitivity
+to feedback processes at $z=0$, we show that feedback does result in evolution
+of the RAR with redshift, and predict that a different RAR would be observed if
+a similar study to \citep{Lelli2016} were done for high-redshift galaxies.
+
+Finally, in chapter 6 we conclude with a discussion of how each of these results
+together improve our understanding of supernovae-regulated star formation
+in the formation of disc galaxies.  We discuss how the results presented here
+fit in with past research and the with the current direction of research in
+galaxy evolution theory.  We conclude with a discussion of the future directions
+that this research points, and a number of open questions related to it that I
+hope to answer in the coming years.
+
 \bibliographystyle{mnras}
 \bibliography{library}
