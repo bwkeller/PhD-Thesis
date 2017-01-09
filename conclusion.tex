@@ -90,9 +90,9 @@ internal processes of galaxy evolution, the acceleration relation observed by
 \citet{McGaugh2016} is simply a natural consequence of galaxy formation.
 
 \section{The Impact and Context of these Results}
-Developing a versatile, accurate, resolution insensitve model for SN feedback has
-been a challenge in galaxy simulations for decades \citep{Katz1992}.  While a
-number of recent models have been developed that are able to produce galaxies
+Developing a versatile, accurate, resolution insensitive model for SN feedback
+has been a challenge in galaxy simulations for decades \citep{Katz1992}.  While
+a number of recent models have been developed that are able to produce galaxies
 which match some observables, all of these models have relied on purely
 numerical features to enhance the effectiveness of feedback and counter the
 losses due to limited resolution.  The \citet{Keller2014} model presented in
@@ -101,15 +101,15 @@ to prevent overcooling.  Beyond merely providing ``sufficient'' feedback, the
 superbubble model also incorporates physics that previously have been omitted.
 Thermal evaporation is a key process for mixing cold ISM with hot feedback
 ejecta.  Prior to \citet{Keller2014}, this process was completely ignored, and
-the local mass-loading of feedback was set purely as a numerical parameter.
+the local mass loading of feedback was set purely as a numerical parameter.
 \citet{Rosdahl2016} illustrated this clearly, in a recent comparison project.
-This paper implemented 5 popular feedback algorithms (simple thermal dumps; a
-delayed cooling model similar to \citet{Agertz2013}; a kinetic model similar to
-\citet{DallaVecchia2008}; a stochastic thermal model based on
-\citet{DallaVecchia2012}; and a hybrid model from \citet{Kimm2015}) in the {\sc
-RAMSES} code.  This allowed for a controlled test with isolated dwarf and Milky
-Way analog galaxies. Each of these models, with ``fiducial'' parameter choices,
-produced star formation rates that varied by nearly an order of magnitude in the
+This paper implemented 5 popular feedback algorithms in the {\sc RAMSES} code:
+simple thermal dumps; a delayed cooling model similar to \citet{Agertz2013}; a
+kinetic model similar to \citet{DallaVecchia2008}; a stochastic thermal model
+based on \citet{DallaVecchia2012}; and a hybrid model from \citet{Kimm2015}.
+This allowed for a controlled test with isolated dwarf and Milky Way analog
+galaxies. Each of these models, with ``fiducial'' parameter choices, produced
+star formation rates that varied by nearly an order of magnitude in the
 \citet{Kennicutt1998} star formation relation.  On top of that, the galaxies
 showed marked morphological differences and average wind mass loadings that
 varied by more than 4 orders of magnitude.  As we showed in \citet{Keller2015},
@@ -139,7 +139,7 @@ these mechanisms can now be re-examined in the context of effective SN feedback.
 
 With previous models for stellar feedback, both the qualitative behaviour as
 well as the precise, quantitative effects have been strongly controlled by
-poorly contrained numerical parameters.  This has made interpreting the results
+poorly constrained numerical parameters.  This has made interpreting the results
 of simulations difficult, as it is unclear what effects are a result of
 the underlying physics and which are simply a result of the choice of parameters
 used for the simulation.  Physics-driven, parameter-free models remove this
@@ -176,16 +176,16 @@ forming gas (low-angular momentum gas) must be removed from the ISM; because
 SN-driven winds are most effective at high redshift, when this material is
 mostly accreted, the outflows driven from the galaxy preferentially remove
 bulge-forming gas.  A similar result was seen in simulations of dwarf galaxies
-by \citet{Governato2010, Brook2011}, but \citet{Keller2015} is the first work to
+\citep{Governato2010, Brook2011}, but \citet{Keller2015} is the first work to
 show that bulgeless disc galaxies similar in mass to the Milky Way can be
 produced through the same mechanism, and connect this with the regulation of
 star formation.  An important conclusion of this study is that much of the past
-work \citet{Stinson2013,Agertz2013,Hopkins2014} showing that SN feedback was
+work \citep{Stinson2013,Agertz2013,Hopkins2014} showing that SN feedback was
 unable regulate star formation without the addition of ``early feedback'' from
 radiation pressure, stellar winds, or photoionization was likely underestimating
 the effectiveness of SN.  Since many of these studies used simpler, more
 numerically-sensitive feedback models that also omitted thermal evaporation,
-they were unable to effectively drive the correct amount of mass into hot, high
+they were unable to effectively drive sufficient mass into hot, high
 entropy gas that could leave the galaxy.  This study tells us that the
 disc-dominant morphology and low stellar fraction in galaxies like our own all
 arise from the same mechanism:  heavily mass loaded, high redshift winds.
@@ -208,32 +208,32 @@ Chapter 5 presented the first simulation result to reproduce the
 EAGLE \citep{Schaye2015} and APOSTLE \citep{Sawala2016} simulations and
 confirmed both the fit to the RAR, and the insensitivity to feedback that we
 found.  Earlier, a semi-empirical model was used by \citet{DiCintio2016} showed
-that a related observation, the mass-discrepency acceleration relation, could
-be produced simply as a result of other pre-existing scaling relations.  Taken
+that a related observation, the mass-discrepancy acceleration relation, could be
+produced simply as a result of other pre-existing scaling relations.  Taken
 together, these results should seriously temper attempts to fit/explain the RAR
 using new, exotic physics.  If conventional baryonic physics produces the same
 relation in a $\Lambda CDM$ cosmology, there is little need to turn to modified
 gravity \citep{Moffat2016,Verlinde2016} or new forces of nature
-\citep{Burrage2016} to explain it.  Precision cosmology has been moving closer
-and closer to scales where the effects of baryonic physics are becoming more and
-more pronounced.  Without well-constrained subgrid models, like the one
-presented here, we will be unable to use the wealth of information available
-from galaxies to test new theories of gravity or alternative cosmologies.  On
-individual galaxy scales, $\Lambda CDM$ predictions {\it must} include the
-details of baryonic effects. Chief among those effects is feedback.
+\citep{Burrage2016} to explain it.  Tests of cosmology have been moving closer
+to scales where the effects of baryonic physics are becoming more pronounced.
+Without well-constrained subgrid models, like the one presented here, we will be
+unable to use the wealth of information available from galaxies to test new
+theories of gravity or alternative cosmologies.  On individual galaxy scales,
+$\Lambda CDM$ predictions {\it must} include the details of baryonic effects.
+Chief among those effects is feedback.
 
 \section{Future Directions}
 The results of this thesis have greatly clarified the effects of SN feedback,
-but also raised some questions.  While we now know how SN regulate the
-growth of stars in galaxies up to the mass of the Milky Way, details about the
-transition to AGN regulation at high mass are still unclear.  The outflows that
-are so key to shaping the galaxy, as we showed in chapter 3 and 4, are detailed,
-mulitphase flows.  How exactly mass is entrained within these outflows and how
-that material is recycled back into the disc will require further study as well.
+but also raised some questions.  While we now know how SN regulate the growth of
+stars in galaxies up to the mass of the Milky Way, details about the transition
+to AGN regulation at high mass are still unclear.  The outflows that are so key
+to shaping the galaxy, as we showed in chapter 3 and 4, are detailed, multiphase
+flows.  How exactly mass is entrained within these outflows and how that
+material is recycled back into the disc will require further study as well.
 Finally, the small sample of 18 galaxies we studied in chapter 4 and 5 are a
-tiny fraction of the variety of galaxies seen in nature.  How does superbubble
-feedback work to shape the scaling relations seen in galaxies both more and less
-massive than the ones we have seen here?
+tiny fraction of the variety of masses, morphologies, and environment of real
+galaxies.  How does superbubble feedback work to shape the scaling relations
+seen in galaxies both more and less massive than the ones we have seen here?
 
 While observational evidence abounds for the existence of SMBHs
 \citep{Kormendy2013}, and the impact of the AGNs they power
@@ -274,8 +274,26 @@ the ISM will be able to tell us if this is indeed the origin of these clouds.
 Understanding the details of the multiphase CGM is key to
 understanding how galaxies accrete and expel gas, as thermal instability in the
 CGM (which depends heavily on its density, temperature, and metallicity) may be
-the mechanism by which spiral galaxies today aquire the gas required to
+the mechanism by which spiral galaxies today acquire the gas required to
 form new stars \citep{Marasco2012}.  
+
+A related question to the detailed, small scale breakout of galactic winds is
+the detailed, small scale breakout of supernovae from their natal environments.
+Studies have already been published examining the destruction of molecular
+clouds by stellar winds and ionizing radiation \citep{Murray2010,Walch2012}.
+Only a handful have focussed on how SN-heated gas can escape from molecular
+clouds \citep{Rogers2013}, and these have looked at very controlled, simple
+initial clouds.  The transition between individual supernovae in a molecular
+cloud and the growth of a new superbubble is likely important to determining the
+maximum efficiency of SN, and how much energy is lost of the $10^{51}\;\rm{erg}$
+released per SN before a superbubble can begin to form.  This, like the
+evolution of cold clumps in galactic winds, will require high-resolution
+simulations of star formation within realistic molecular clouds.  Studies have
+begun \citep{Dobbs2015} to study molecular clouds selected from global disc
+simulations and re-simulated at higher resolution.  Combining these kinds of
+simulations with models for small-scale star formation, feedback from stellar
+winds and massive stars, as well as thermal conduction and evaporation will
+allow us to determine the true budget of energy available from stellar feedback.
 
 While the MUGS2 sample has been simulated with a robust, physically motivated
 model for SN feedback, its sample size is small (only 18 galaxies), and covers a

@@ -56,13 +56,13 @@ Eventually, these regions stop expanding altogether and begin collapsing at the
 turnaround time $t_{turn}$, and virialize at $2\;t_{turn}$ \citep{Peebles1980}.
 The first galaxies likely began to form around $z\sim20-50$.  Without the
 earlier growth of dark matter perturbations, structure formation would have
-occured much later, and the number of galaxies and distribution of their masses
+occurred much later, and the number of galaxies and distribution of their masses
 would be different than those we see today \citep{Davis1985}.
 
 The perturbation spectrum that forms the structure in which galaxies begins to
 form is essentially a Gaussian random field, which \citet{Press1974} were able
 to show produces a halo mass spectrum at a given time with a form that matched
-the matched the functional form for the observed galaxy luminosity function
+the functional form for the observed galaxy luminosity function
 \citet{Schechter1976}:
 \begin{equation}
     \frac{dn}{dM}(M,t) =
@@ -141,7 +141,7 @@ observed mass function for galaxies does not match what would be expected from
 total baryon budget for each halo, implying that at least some of these
 processes must change the galactic star formation efficiency as a function of
 halo mass, establishing the population of galaxies we see today.  Numerical
-simulations have therfore become a keystone for galaxy formation research.
+simulations have therefore become a keystone for galaxy formation research.
 
 
 \section{Numerical Simulations of Galaxies}
@@ -263,7 +263,7 @@ do this, as a denser region definitionally must contain more fluid elements.
 Beyond the choice of algorithms, the choice of what type of simulation to set
 up in the initial conditions is also important.  To study large populations of
 galaxies, along with large-scale structure, large-volume cosmological boxes
-with volumes $>10^6;\rm{Mpc^3}$, but with spatial resolutions $\sim \rm{kpc}$
+with volumes $\gtrsim 10^6;\rm{Mpc^3}$, but with spatial resolutions $\sim \rm{kpc}$
 are used.  Studying how individual galaxies form is typically done with
 cosmological zoom simulations, where a comparatively cheap dark-matter only
 simulation is first run to select a region of interest, which is then
@@ -280,15 +280,14 @@ context with the effects of star formation and feedback included was by
 \citet{Katz1992}.  This simulation used the Lagrangian TREESPH method
 \citep{Hernquist1989} to evolve a parcel of gas and dark matter from an initial
 linear perturbation, including small-scale power derived from CDM predictions
-\citep{Zeldovich1970,Peebles1982}.
-Gas was allowed to cool radiatively using rates calculated for primordial gas.
-This study introduced a model for star formation that is still the standard for
-most simulations of galaxy formation.  Observations \citep{Kennicutt1998} have
-suggested that the star formation rate is a power law of the gas density:
-$\dot\rho_*\propto\rho_{gas}^\alpha$, with $\alpha=1-2$.  If it is assumed that
-gas collapses to form stars in some multiple $c_*$ of its freefall time
-\citep{Schmidt1959},
-$t_{ff}$, a simple star formation model can be built with the form:
+\citep{Zeldovich1970,Peebles1982}.  Gas was allowed to cool radiatively using
+rates calculated for primordial gas.  This study introduced a model for star
+formation that is still the standard for most simulations of galaxy formation.
+Observations \citep{Kennicutt1998} have suggested that the star formation rate
+is a power law of the gas density: $\dot\Sigma*\propto\Sigma_{gas}^\alpha$, with
+$\alpha=1-2$.  If it is assumed that gas collapses to form stars in some
+multiple $c_*$ of its freefall time \citep{Schmidt1959}, $t_{ff}$, a simple
+3-dimensional star formation model can be built with the form:
 \begin{equation}
     \dot\rho_* = \frac{c_*\rho_{gas}}{t_{ff}} = c_*\sqrt{\frac{\rho^3_{gas}}{4\pi G}}
 \end{equation}
@@ -498,7 +497,7 @@ stellar winds.  The \citet{Weaver1977} results were extended to clustered SN by
 \citet{MacLow1988}.  They calculated that the typical cooling time for the hot
 bubble was $\sim15\;\rm{Myr}$, with a weak dependence on the total luminosity
 and ambient density.  Before significant cooling can occur in the hot interior,
-$27/77$ of the total feedback luminosity is lost too cooling of the swept-up
+$\sim35\%$ of the total feedback luminosity is lost too cooling of the swept-up
 shell, which cools in $\sim10^4\;\rm{yr}$.  \citet{MacLow1988} also demonstrated
 that, as superbubbles do not have surface tension, they are not depressurized by
 cold clouds, and instead simply deform around them while continuing to expand.
@@ -506,7 +505,7 @@ cold clouds, and instead simply deform around them while continuing to expand.
 greater detail, finding that the general behaviour discussed in
 \citet{MacLow1988} held even in the case of an inhomogeneous ISM.  Even with
 $50\%$ of the ISM mass trapped in cold clouds (which penetrate the cold shell of
-the superbbule), the total hot mass within the superbubble will only vary by $\sim20\%$.
+the superbubble), the total hot mass within the superbubble will only vary by $\sim20\%$.
 
 A key insight in these studies was that hot bubbles would evaporate their cold
 shell through thermal conduction.  In a hot ionized plasma, electrons are able
@@ -539,12 +538,13 @@ unimportant to produce galaxies that match the observations of
 implications, and some potential future directions for study.
 
 Chapter 2 presents the new superbubble feedback model, and describes the
-implementation of this model in the simulation code {\sc GASOLINE2}.  I show a
-series of tests that demonstrate the model is robust to resolution changes, insensitive
-to magnetic field strength, and able to handle cases involving unresolved ISM
-structure.  Finally, I show that simulations of isolated dwarf and Milky Way
-like disc galaxies regulate their star formation and drive efficient galactic
-outflows with this new feedback model.
+implementation of this model in the simulation code {\sc GASOLINE2} (Wadsley et
+al. 2016, submitted).  I show a series of tests that demonstrate the model is
+robust to resolution changes, insensitive to magnetic field strength, and able
+to handle cases involving unresolved ISM structure.  Finally, I show that
+simulations of isolated dwarf and Milky Way like disc galaxies regulate their
+star formation and drive efficient galactic outflows with this new feedback
+model.
 
 Chapter 3 applies the feedback model described in chapter 2 to a cosmological
 simulation of a Milky Way like galaxy.  This allows us to see how galaxies like
@@ -590,7 +590,7 @@ formation of disc galaxies.  We discuss how the results presented here improve
 the understanding developed in past research and its impact on the direction of
 research in galaxy evolution theory.  We conclude with a discussion of the
 future directions that this research points, and a number of open questions
-related to it that I hope to answer in the coming years.
+raised by this research.
 
 \bibliographystyle{mnras}
 \bibliography{library}
