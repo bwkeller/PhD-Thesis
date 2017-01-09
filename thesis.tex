@@ -28,7 +28,7 @@
 \usepackage{graphicx} %Standard graphics spackage
 \setkeys{Gin}{width=0.75\textwidth} %Sets default width of \includegraphics{}
 \usepackage{lastpage} %Used to count the number of pages for the descriptive note
-\usepackage{nomencl} %Used to generate the Abbreviations page
+\usepackage[intoc]{nomencl} %Used to generate the Abbreviations page
 \usepackage{natbib} 
 \usepackage{chapterbib} 
 \usepackage[raggedright]{titlesec} %This fixes hypenation in long chapter/section titles
@@ -77,7 +77,54 @@
 \author{B.W. Keller}
 \date{\today}
 
+\renewcommand{\nomname}{List of Acronyms}
+\renewcommand{\nomlabel}[1]{\textbf{#1}}
+\makenomenclature
+\raggedbottom
+
 \begin{document}
+
+\nomenclature{AGN}{Active Galactic Nucleus}%
+\nomenclature{AGORA}{Assembling Galaxies of Resolved Anatomy}
+\nomenclature{AHF}{AMIGA's Halo Finder}
+\nomenclature{APOSTLE}{A Project of Simulations of the Local Environment}
+\nomenclature{B/T}{Bulge/Total}
+\nomenclature{COS}{Cosmic Origins Spectrograph}
+\nomenclature{CDM}{Cold Dark Matter Cosmology}
+\nomenclature{CFHT}{Canada-France-Hawaii Telescope}
+\nomenclature{CGM}{Circumgalactic Medium}
+\nomenclature{CMB}{Cosmic Microwave Background Radiation}
+\nomenclature{CR}{Cosmic Ray}
+\nomenclature{DM}{Dark Matter}
+\nomenclature{EAGLE}{Evolution and Assembly of Galaxies and their Environments}
+\nomenclature{FB}{Feedback}
+\nomenclature{FIRE}{Feedback in Realistic Environments}
+\nomenclature{GIMIC}{Galaxies Intergalactic Medium Interaction Calculation}
+\nomenclature{HI}{Neutral Hydrogen}
+\nomenclature{IC}{Initial Conditions}
+\nomenclature{IGM}{Intergalactic Medium}
+\nomenclature{IMF}{Initial Mass Function}
+\nomenclature{IR}{Infrared}
+\nomenclature{ISM}{Interstellar Medium}
+\nomenclature{$\Lambda$ CDM}{Cosmological Constant and Cold Dark Matter
+Cosmology}
+\nomenclature{MAGICC}{Making Galaxies in a Cosmological Context}
+\nomenclature{MOND}{Modified Newtonian Dynamics}
+\nomenclature{MUGS}{McMaster Unbiased Galaxy Simulations}
+\nomenclature{MW}{Milky Way}
+\nomenclature{NIHAO}{Numerical Investigation of a Hundred Astrophysical Objects}
+\nomenclature{RAR}{Radial Acceleration Relation}
+\nomenclature{SDSS}{Sloan Digital Sky Survey}
+\nomenclature{SF}{Star Formation}
+\nomenclature{SFR}{Star Formation Rate}
+\nomenclature{SMBH}{Super Massive Black Hole}
+\nomenclature{SMHMR}{Stellar Mass Halo Mass Relation}
+\nomenclature{SN}{Supernova}
+\nomenclature{SNII}{Type II Core Collapse Supernova}
+\nomenclature{SPARC}{Spitzer Photometry and Accurate Rotation Curves}
+\nomenclature{SPH}{Smoothed Particle Hydrodynamics}
+\nomenclature{UV}{Ultraviolet}
+\nomenclature{WMAP}{Wilkinson Microwave Anisotropy Probe}
 
 \begin{titlepage} %Half-title page for McMaster Formatting, Max 60 Characters
     \thispagestyle{empty}
@@ -218,6 +265,8 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
     \cleardoublepage
     \addcontentsline{toc}{chapter}{\listtablename}
     \listoftables 
+    \let\cleardoublepage\clearpage %This fixes up an extra blank page
+    \printnomenclature
     \let\cleardoublepage\clearpage
 
 

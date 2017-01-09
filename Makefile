@@ -1,4 +1,4 @@
-thesis.pdf: thesis.dvi paper1.bbl paper2.bbl paper3.bbl paper4.bbl conclusion.bbl intro.bbl
+thesis.pdf: thesis.dvi paper1.bbl paper2.bbl paper3.bbl paper4.bbl conclusion.bbl intro.bbl thesis.nls
 	latex thesis.tex
 	latex thesis.tex
 	dvipdf thesis.dvi
@@ -20,6 +20,9 @@ conclusion.bbl: thesis.dvi
 
 intro.bbl: thesis.dvi
 	bibtex intro.aux
+
+thesis.nls: thesis.dvi
+	makeindex thesis.nlo -s nomencl.ist -o thesis.nls
 
 thesis.dvi: thesis.tex library.bib paper1.tex paper2.tex paper3.tex paper4.tex conclusion.tex intro.tex
 	latex thesis.tex
