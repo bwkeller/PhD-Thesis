@@ -92,7 +92,7 @@ Another approach has been to explicitly model the multiphase ISM
 below the resolution limit.  \citet{Springel2003} described a multiphase
 model based on the theoretical framework of \citet{McKee1977}.  Each
 particle was composed of an isobaric mix of cold clouds and ambient warm
-to hot gas.  Radiative cooling coverts warmer gas into cold.  The cold
+to hot gas.  Radiative cooling converts warmer gas into cold.  The cold
 phase forms stars on a characteristic timescale chosen to yield a
 Schmidt-type star formation law.  An empirical model of stellar feedback
 evaporates the cold phase.  \citet{Springel2003} recognized that while
@@ -210,7 +210,7 @@ assume all fluid elements are multiphase, but only those in which a partial
 feedback region exists.  This allows the model to follow winds and outflows
 without continuing to rely on sub-grid machinery.  
 
-Young stellar population steadily release energy in the form of winds and SNe at
+Young stellar populations steadily release energy in the form of winds and SNe at
 a rate of $3\times 10^{38}\;\mathrm{erg\; s^{-1} M_\odot^{-1}}$ for around 40
 Myr~\citep{Leitherer1999}. We deposit this energy into the gas particle nearest
 to the star particle.  In following with past work, we use the feedback rates
@@ -232,11 +232,10 @@ coefficient, as derived by \citet{Cowie1977},
 This coefficient depends only on the Coulomb logarithm $\ln\Lambda$ (which has
 an extremely weak dependence on density), and is well approximated by $\kappa(T)
 = \kappa_0\,T^{5/2}$, where $\kappa_0$ is $6.1\times10^{-7}\;\mathrm{erg\;s^{-1}
-K^{-7/2}cm^{-1}}$ in the absence of magnetic fields.  In order for this
-situation to not cause spontaneous currents, a corresponding mass flux,
-{\it in the opposite direction}, must also occur \citep{Cowie1977}.  With
-spherical symmetry, this implies a mass flow rate that depends on the sound
-speed in the hot gas, $c_{\rm s}$, as follows,
+K^{-7/2}cm^{-1}}$ in the absence of magnetic fields.  This drives a
+corresponding mass flux, {\it in the opposite direction}.  With spherical
+symmetry, this implies a mass flow rate that depends on the sound speed in the
+hot gas, $c_{\rm s}$, as follows,
 \begin{equation}\label{conservation1}
     \frac{5}{2}\dot M c_{\rm s}^2 = 4\,\pi^2r^2\kappa(T)\frac{{\rm d}T}{{\rm d}r}.
 \end{equation}
@@ -251,7 +250,7 @@ electrons in the medium \citep{Cowie1977},
 \end{equation}
 This saturation has the convenient numerical side effect of setting the smallest
 timestep required to resolve this mass flux to $\sim 1/17$ the standard Courant
-time.
+time, $t_C = \Delta x /c_s$.
 
 In situations where the temperature gradient is embedded in a strong magnetic
 field, the value of $\kappa_0$  can be reduced by factors approaching an order
@@ -277,25 +276,25 @@ is,
 \begin{equation}\label{massflux1}
     \frac{{\rm d }M_b}{{\rm d}t} = \frac{4\,\pi\mu}{25k_B}\kappa_0\,\frac{\Delta T^{5/2}}{\Delta x}\ A,
 \end{equation}
-where $ A$ is the bubble surface area and $\Delta x$ is the thickness of
-the hot layer.  For the Smoothed Particle Hydrodynamics (SPH) method used for
-our tests, we calculate evaporation using the outer layer of hot particles
-bordering the cold gas.  The members of this layer are those with no other hot
-particles within $45^o$ of the vector to the centre of mass of their cold
-neighbours.  As we cannot directly determine the radius of a well-resolved
-superbubble without expensive non-local calculations, we need a way to allow
-each particle to estimate the radius and thus its fractional contribution of the
-shell surface area.  The total area estimated by all hot particles in a bubble
-should approach $\sim 4\pi R^2$ where $R$ is the bubble radius.  For a poorly
-resolved bubble $R \sim 1-2\,h$, where $h$ is a hot particle's SPH smoothing
-length.  For larger bubbles each hot particle contributes an area of $\sim h^2$
-and each particle sees a nearly plane-parallel section of the cold shell.  We
-examined a number of bubbles at different stages of growth, as well as a
-plane-parallel slab, and empirically found that a good per-particle area
-estimate was $A = \frac{6\,\pi\,h^2}{N_{\rm hot}}$, where $N_{\rm
-hot}$ is the number of hot neighbours for that particle and $\Delta x = h$.  We
-stress that this is a fit for our specific SPH neighbour approach (described
-below) that should be recalibrated for other codes.
+where $A$ is the bubble surface area and $\Delta x$ is the thickness of the hot
+layer ($\Delta x = R$ for spherical symmetry).  For the Smoothed Particle
+Hydrodynamics (SPH) method used for our tests, we calculate evaporation using
+the outer layer of hot particles bordering the cold gas.  The members of this
+layer are those with no other hot particles within $45^o$ of the vector to the
+centre of mass of their cold neighbours.  As we cannot directly determine the
+radius of a well-resolved superbubble without expensive non-local calculations,
+we need a way to allow each particle to estimate the radius and thus its
+fractional contribution of the shell surface area.  The total area estimated by
+all hot particles in a bubble should approach $\sim 4\pi R^2$ where $R$ is the
+bubble radius.  For a poorly resolved bubble $R \sim 1-2\,h$, where $h$ is a hot
+particle's SPH smoothing length.  For larger bubbles each hot particle
+contributes an area of $\sim h^2$ and each particle sees a nearly plane-parallel
+section of the cold shell.  We examined a number of bubbles at different stages
+of growth, as well as a plane-parallel slab, and empirically found that a good
+per-particle area estimate was $A = \frac{6\,\pi\,h^2}{N_{\rm hot}}$, where
+$N_{\rm hot}$ is the number of hot neighbours for that particle and $\Delta x =
+h$.  We stress that this is a fit for our specific SPH neighbour approach
+(described below) that should be recalibrated for other codes.
 
 The mass evaporation rate can be converted into a probability that a resolution
 element with cold mass $m$ converts into a hot one over a time
@@ -348,7 +347,9 @@ given energy from feedback, and if their temperature is below $10^5\;\mathrm{K}$
 energy, related to their total mass $m$ and energy $E$ by:
 
 \begin{equation}\label{multiphase_fractions1}
-    m = m_{\rm hot}+m_{\rm cold}\\
+    m = m_{\rm hot}+m_{\rm cold}
+\end{equation}
+\begin{equation}
     E = u_{\rm hot}m_{\rm hot}+u_{\rm cold}m_{\rm cold}
 \end{equation}
 
@@ -358,7 +359,9 @@ their densities are found using this and the total density $\rho$:
     \frac{P}{\rho} = \frac{(\gamma-1)E}{m}
 \end{equation}
 \begin{equation}\label{multiphase_densities1}
-    \rho_{\rm cold} = \frac{P}{(\gamma-1)u_{\rm cold}}\\
+    \rho_{\rm cold} = \frac{P}{(\gamma-1)u_{\rm cold}}
+\end{equation}
+\begin{equation}
     \rho_{\rm hot} = \frac{P}{(\gamma-1)u_{\rm hot}}
 \end{equation}
 
@@ -482,7 +485,7 @@ $5\;\mathrm{Myr}$.
 
 \subsubsection{Basic Superbubble}
 
-We placed a star cluster with mass $3\times10^4\;\mathrm{M_\odot}$ in an uniform
+We placed a star cluster with mass $3\times10^4\;\mathrm{M_\odot}$ in a uniform
 periodic box $2\times2\times2\;\mathrm{kpc}$ in size, containing
 $10^3\;\mathrm{K}$ gas with solar metallicity at a density of
 $1\;\mathrm{cm^{-3}}$.   This gives a gas particle mass of $760\; M_\odot$,
@@ -490,12 +493,11 @@ $6080\; M_\odot$, and $48640\; M_\odot$ for resolutions of $128^3$, $64^3$, and
 $32^3$ respectively.  These tests do not include photoheating. 
 
 Figure~\ref{onestar_column1} shows the column density projection for the three
-different feedback models in an isotropic medium.  injection model.   The hot
-interior of the bubble produced using the simple feedback model contains less
-mass at $128^3$ than the direct injection model and is subsequently too poorly
-resolved for the instabilities formed in the accelerated shell
-\citep{Vishniac1983} to mix the bubble and shell through turbulence and
-diffusion.
+different feedback models in an isotropic medium.  The hot interior of the
+bubble produced using the simple feedback model contains less mass at $128^3$
+than the direct injection model and is subsequently too poorly resolved for the
+instabilities formed in the accelerated shell \citep{Vishniac1983} to mix the
+bubble and shell through turbulence and diffusion.
 
 As figure~\ref{onestar_homogeneous1} shows, the superbubble feedback model
 performs much better than the simple model in reproducing the hot mass
@@ -570,7 +572,7 @@ the bubble to just around a third.
 
 \subsubsection{Clumpy Medium}\label{clumpy1}
 As the real ISM is highly inhomogeneous (and as \citet{Silich1996} showed, cold
-clumps can also be a source of evaporated cold material) , we ran two additional
+clumps can also be a source of evaporated cold material), we ran two additional
 simulations with cold, dense clumps with $100\;\mathrm{cm^{-3}}$ density and
 $10\;\mathrm{K}$ gas in an ambient medium of $0.5\;\mathrm{cm^{-3}}$ at
 $1000\:\mathrm{K}$.  This gives roughly the same amount of mass enclosed within
@@ -645,16 +647,16 @@ We used the standard {\sc GASOLINE} star-formation recipe, based on the
 algorithm proposed by \citet{Katz1992} and detailed further in
 \citet{Stinson2006}.  We use a density threshold for star formation $n_{SF}$
 shown in table 1 along with a temperature threshold of $T < 10^4\;\mathrm{K}$.
-Thus, for a given eligible gas particle, the probability of forming a star each
-timestep $P_{SF} = 1-\exp{-0.05\ \Delta t\over t_{\rm ff}}$, depends only on the
-free-fall time $t_{\rm ff}$.  This corresponds to the effective star formation
-density rate of $\dot \rho_* = 0.05\ \frac{\rho_{gas}}{t_{\rm ff}}$.  We also
-include UV heating for $z=0$ \citep[as in][]{Shen2010} and a pressure floor that
-ensures gas does not collapse beyond the resolvable Jeans length
-\citep{Machacek2001}.  
+Thus, for a given eligible gas particle($n>n_{SF}$ and $T<T_{SF}$, the
+probability of forming a star each timestep $P_{SF} = 1-\exp{-0.05\ \Delta
+t\over t_{\rm ff}}$, depends only on the free-fall time $t_{\rm ff}$.  This
+corresponds to the effective star formation density rate of $\dot \rho_* = 0.05\
+\frac{\rho_{gas}}{t_{\rm ff}}$.  We also include UV heating for $z=0$ \citep[as
+in][]{Shen2010} and a pressure floor that ensures gas does not collapse beyond
+the resolvable Jeans length \citep{Machacek2001}.  
 
 We also simulated these initial conditions using the established `blastwave'
-feedback model from \citep{Stinson2006}, which has been a standard feedback
+feedback model from \citet{Stinson2006}, which has been a standard feedback
 model for galaxy simulations in numerous previous studies.
 \begin{table}
     \begin{tabular}{ c c c c c}
@@ -666,7 +668,8 @@ model for galaxy simulations in numerous previous studies.
         Dwarf & $1.3\times10^{10}$ &  $8.6\times10^7$ & 4.3 & $>50$\\
     \end{tabular}
     \caption[Isolated Disc Initial Conditions]{Disc galaxy initial conditions.  $\epsilon$ is the gravitational
-    softening and $n_{SF}$ is the star formation threshold.}
+    softening and $n_{SF}$ is the star formation density threshold, above which
+    stars are allowed to form.}
 \end{table}
 
 \subsubsection{ISM properties and Star Formation Rates}\label{ISM1}
@@ -674,7 +677,7 @@ model for galaxy simulations in numerous previous studies.
     \includegraphics[width=\textwidth]{figures1/milkyway_outflow.eps}
     \caption[Outflow evolution in isolated Milky Way]{Outflow evolution for the
     Milky Way-like simulation.  The left hand plot shows the star formation rate
-    and the outflow rate The right hand plot shows the average outflow
+    and the outflow rate. The right hand plot shows the average outflow
     velocity.}
     \label{milkyway_outflow1}
 \end{figure*}
@@ -701,7 +704,7 @@ model for galaxy simulations in numerous previous studies.
 Figure~\ref{disc_phase1} shows phase diagrams from both Milky Way and dwarf
 galaxies.  Figure~\ref{milkyway_column1} shows column density and temperature for
 the Milky Way, and figure~\ref{milkyway_outflow1} shows star formation rates and
-outflow properties.  figures~\ref{dwarf_column1}~and~\ref{dwarf_outflow1} show the
+outflow properties.  Figures~\ref{dwarf_column1}~and~\ref{dwarf_outflow1} show the
 same for the dwarf galaxy.  The Kennicutt-Schmidt relation for both galaxies is
 shown in figure~\ref{kennicutt_schmidt1}.  The star formation and outflow properties are
 discussed in section~\ref{Morphology1}.  Finally, we show some properties of the
@@ -764,7 +767,7 @@ fully-resolved, hot gas.  These winds are released when superbubbles grow large
 enough to break out of the denser disc ISM, and thus should be well within the
 resolved phase for these simulations.
 
-Figure~\ref{multiphase_properties1} shows the that all particles stay in
+Figure~\ref{multiphase_properties1} shows the duration that all particles stay in
 the multiphase state as well as the maximum height reached by multiphase
 particles.  The top figure shows that the vast majority of particles in either
 the dwarf or the Milky Way convert back to single phase within

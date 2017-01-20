@@ -19,11 +19,11 @@ hydrogen, and the remainder in helium, was established just a few minutes after
 the big bang, during a brief period of ``Big Bang Nucleosynthesis''
 \citep{Alpher1948}.  The remaining heavier elements have been formed via stellar
 nucleosynthesis, through fusion in the cores of stars and in energetic processes
-that take place during supernovae (SN) \citep{Wagoner1967}, or through
-interactions between cosmic rays and nucleii in the interstellar medium (ISM)
-\citep{Reeves1970}.  The chemical composition of the universe establishes the
-kinds of stars that form within galaxies and the rates at which gas within the
-ISM and beyond cools.
+that take place during supernovae (SN) \citep{Wagoner1967}, or through the
+capture of high energy cosmic ray protons and $\alpha$ particles by carbon, nitrogen, or
+oxygen nucleii \citep{Reeves1970}.  The chemical composition of the universe
+establishes the kinds of stars that form within galaxies and the rates at which
+gas within the ISM and beyond cools.
 
 Much of what we know about the cosmology of our universe comes from observations
 of the first light to escape the universe's surface of last scattering as it
@@ -62,7 +62,7 @@ would be different than those we see today \citep{Davis1985}.
 The perturbation spectrum that forms the structure in which galaxies begins to
 form is essentially a Gaussian random field, which \citet{Press1974} were able
 to show produces a halo mass spectrum at a given time with a form that matched
-the functional form for the observed galaxy luminosity function
+the functional form for the observed galaxy mass function
 \citet{Schechter1976}:
 \begin{equation}
     \frac{dn}{dM}(M,t) =
@@ -95,11 +95,11 @@ temperature to the virial temperature:
 This means that more massive halos have larger virial temperatures, and,
 depending on the mode of radiative cooling (atomic cooling from primordial
 hydrogen, molecular hydrogen cooling, or cooling through metal lines), this may
-give cooling times shorter than the current age of the universe.  These halos 
-are the ones in which galaxy formation may begin, as their hot gaseous halos may
-can collapse to form a central concentration where star formation can occur.  In some halos,
-these virial shocks may be unstable to cooling, allowing the direct collapse of
-cold gas onto the disc \citep{Birnboim2003}.  
+give cooling times shorter than the current age of the universe.  These halos
+are the ones in which galaxy formation may begin, as their hot gaseous halos can
+collapse to form a central concentration where star formation can occur.  In
+some halos, these virial shocks may be unstable to cooling, allowing the direct
+collapse of cold gas onto the disc \citep{Birnboim2003}.  
 
 
 As gas does begin to cool within these halos, it will lose pressure support (by
@@ -110,7 +110,7 @@ exponential disc as they cool \citep{Fall1980,Mo1998}.  Streams of gas
 accreting along the cosmic web may also provide angular momentum to the forming
 disc \citep{Dekel2006}.  Within this disc, an ISM will form.  This ISM is
 multiphase, containing both hot ($T\sim10^4\;\rm{K}$) and cold
-($T\sim10-100\;\rm{K}$) in quasistatic equilibrium \citep{McKee1977}.  This
+($T\sim10-100\;\rm{K}$) gas in quasistatic equilibrium \citep{McKee1977}.  This
 multiphase state is highly dependent on both the ISM metallicity and the local
 heating rates (which themselves can vary with redshift)
 \citep{Field1969,Wolfire1995,Norman1997}.
@@ -138,7 +138,7 @@ hydrodynamics, magnetic fields, and gravity on length scales as much as
 $10^{11}$ times smaller than the virial radius.  None of this physics is simple
 enough to be fully captured by analytic models. As figure 1.1 shows, the
 observed mass function for galaxies does not match what would be expected from
-total baryon budget for each halo, implying that at least some of these
+the total baryon budget for each halo, implying that at least some of these
 processes must change the galactic star formation efficiency as a function of
 halo mass, establishing the population of galaxies we see today.  Numerical
 simulations have therefore become a keystone for galaxy formation research.
@@ -148,12 +148,12 @@ simulations have therefore become a keystone for galaxy formation research.
 N-body Simulations of galaxies actually predate {\it digital} simulations of
 galaxies.  \citet{Holmberg1941} presented, as the author termed it, a ``new
 integration procedure'' that was the first attempt to simulate the
-evolution of galaxy.  By relying on the fact that light flux, just as gravity,
+evolution of a galaxy.  By relying on the fact that light flux, just as gravity,
 scales as $r^{-2}$, Holmberg was able to construct a simulated galaxy disc out
 of light bulbs, and then using photocells to measure the flux at each bulb's
 position, repositioned the bulbs using the forces ``simulated'' by the
 light-measuring process.  This allowed him to painstakingly trace the tidal
-interactions of passing galaxies as merged with each other.
+interactions of passing galaxies as they merged with each other.
 
 In the intervening 75 years, we have migrated to much less labor-intensive
 simulations, relying on the constantly growing power of digital computers.  As
@@ -260,10 +260,10 @@ commonly use \textit{Adaptive Mesh Refinement} to increase resolution in regions
 of interest (typically where gas is densest).  Lagrangian methods automatically
 do this, as a denser region definitionally must contain more fluid elements.  
 
-Beyond the choice of algorithms, the choice of what type of simulation to set
-up in the initial conditions is also important.  To study large populations of
-galaxies, along with large-scale structure, large-volume cosmological boxes
-with volumes $\gtrsim 10^6;\rm{Mpc^3}$, but with spatial resolutions $\sim \rm{kpc}$
+Beyond the choice of algorithms, the choice of what type of simulation to set up
+in the initial conditions is also important.  To study large populations of
+galaxies, along with large-scale structure, large-volume cosmological boxes with
+volumes $\gtrsim 10^6\;rm{Mpc^3}$, but with spatial resolutions $\sim \rm{kpc}$
 are used.  Studying how individual galaxies form is typically done with
 cosmological zoom simulations, where a comparatively cheap dark-matter only
 simulation is first run to select a region of interest, which is then
@@ -272,8 +272,8 @@ resimulated with higher resolution and baryonic physics included
 magnitude or better resolution than full cosmological boxes.  Isolated galaxy
 disc simulations cannot show how galaxies form in a cosmological environment,
 but can be run with $\sim \rm{pc}$ resolution to study closely how internal
-processes within a galaxy take place \citep{Hopkins2011,Benincasa2016}.  
-These details of these internal processes are discussed in section 1.3.
+processes within a galaxy take place \citep{Hopkins2011,Benincasa2016}.  These
+details of these internal processes are discussed in section 1.3.
 
 The earliest attempt to track the formation of a galaxy in a cosmological
 context with the effects of star formation and feedback included was by
@@ -284,7 +284,7 @@ linear perturbation, including small-scale power derived from CDM predictions
 rates calculated for primordial gas.  This study introduced a model for star
 formation that is still the standard for most simulations of galaxy formation.
 Observations \citep{Kennicutt1998} have suggested that the star formation rate
-is a power law of the gas density: $\dot\Sigma*\propto\Sigma_{gas}^\alpha$, with
+is a power law of the gas density: $\dot\Sigma_*\propto\Sigma_{gas}^\alpha$, with
 $\alpha=1-2$.  If it is assumed that gas collapses to form stars in some
 multiple $c_*$ of its freefall time \citep{Schmidt1959}, $t_{ff}$, a simple
 3-dimensional star formation model can be built with the form:
@@ -298,7 +298,7 @@ subgrid model:  $10^{51}\;\rm{erg/SN}$ worth of energy was injected back into
 the ISM by smoothing it over a number of resolution elements.  One of the key
 findings of \citet{Katz1992} was that the vast majority of SN energy was
 radiated away, making them very ineffective at regulating star formation within
-the galaxy.  In the end, \citet{Katz1992} found that the peak starformation in
+the galaxy.  In the end, \citet{Katz1992} found that the peak star formation in
 the simulated galaxy was nearly 10 times greater than in observed galaxies.
 \citet{Thacker2000} later showed that the smoothing of energy used by
 \citet{Katz1992} resulted in a large overestimation of the cooling rates in
@@ -320,7 +320,7 @@ gravitational collapse.  A number of internal processes (``feedback'') within
 galaxies can liberate energy greater than the gravitational binding energy of
 molecular clouds (and indeed even comparable to the binding energy of the entire
 halo).  Analytic calculations that omit feedback processes found that gas should
-rapidly collapse into the smallest halos at high redshift, wildy overproducing
+rapidly collapse into the smallest halos at high redshift, overproducing
 stars in small galaxies at high redshift (the ``cooling catastrophe'')
 \citep{Cole2001,Benson2003}.  Simulations of galaxies like our own develop unrealistically
 compact morphologies without feedback \citep{Stinson2006}.  Without feedback, simulations of
@@ -370,8 +370,8 @@ to choke off the accretion of gas onto the galaxy, shutting off star formation.
 The coupling of feedback energy to the ISM is what determines the effectiveness
 of that feedback.  In the lowest mass galaxies, UV photoheating may be the
 primary regulator of star formation \citep{Efstathiou1992}.    However, UV
-radiation has characteristic temperatures and too low to drive galactic winds.
-Large {\sc Hi} regions, such as 30 Doradus, have observed expansion rates of
+radiation has characteristic temperatures too low to drive galactic winds.
+Large {\sc Hii} regions, such as 30 Doradus, have observed expansion rates of
 only $25\;\rm{km/s}$ \citep{Chu1994}, far below the velocities needed to drive
 galaxy-scale outflows.  Radiation pressure on dust grains has been suggested as
 a driving mechanism for outflows \citep{Murray2011}.  Simulations of
@@ -390,7 +390,7 @@ that escapes the ISM completely.  Simulations of molecular clouds with feedback
 from star clusters \citep{Gendelev2012,Rogers2013} have found that most stellar
 wind energy is expended disrupting the molecular clouds the clusters live in.
 While these winds do not significantly escape the cluster, the channels they
-open within the cloud allows $\sim99\%$ of SN energy to escape the dense
+open within the cloud allow $\sim99\%$ of SN energy to escape the dense
 molecular environment.
 
 On the galactic scale, feedback regulates star formation in two primary ways.
@@ -432,9 +432,10 @@ feedback-heated gas becomes resolvable.  Alternatively, energy may be injected
 not as heat, but as momentum, which naturally does not cool
 \citep{Scannapieco2006,DallaVecchia2008,Dubois2008}.  Unfortunately, this adds
 the additional complexity of momentum cancellation (how to treat neighbouring
-stars/clusters), and if this momentum results in strong shocks, these shocks
-will convert the momentum right back into thermal energy that can radiate away
-the feedback energy the model is designed to preserve \citep{Durier2012}.  This
+stars/clusters, where two stars are depositing momentum with opposing
+directions), and if this momentum results in strong shocks, these shocks will
+convert the momentum right back into thermal energy that can radiate away the
+feedback energy the model is designed to preserve \citep{Durier2012}.  This
 often means kinetic/momentum feedback models must be combined with hydrodynamic
 decoupling that renders feedback-heated gas into a form that does not interact
 with the surrounding ISM \citep{Springel2003,Vogelsberger2013}.  Naturally, this
@@ -442,8 +443,8 @@ makes outflow properties strongly influenced by numerical choices
 \citep{DallaVecchia2008}.  A third choice is to stochastically deposit feedback
 energy only when enough energy is available to produce gas temperatures high
 enough for cooling times to be short \citep{DallaVecchia2012,Crain2015}.  In
-these models, SN events are effectively grouped together, somewhat
-decoupling feedback spatially from star formation.  The choice of temperature to heat gas
+these models, SN events are effectively grouped together, somewhat decoupling
+feedback spatially from star formation.  The choice of temperature to heat gas
 to is a purely numerical parameter, and can dramatically change the
 effectiveness of these models.  Finally, some \citep{Springel2003,Murante2015}
 attempt to directly address the unphysical numerical mixing of hot and cold gas
@@ -451,13 +452,12 @@ by separating the two phases and tracking each component separately.  This
 completely solves the overcooling problem, and allows the two components to cool
 radiatively.   Unfortunately, it also means that cold star-forming gas is
 permanently coupled to hot feedback-heated gas: preventing the simulation of  a
-resolved multiphase ISM, and effectively making the ISM an
-anchor holding down potential hot outflows.  This means these multiphase models
-have to be coupled with parameterized models to capture outflows
-\citep{Springel2003}.  Often, these
-simple models simply choose a fraction of feedback energy to be deposited as
-kinetic ``kicks'' to a some gas particles.  Like other kinetic feedback models,
-this is frequently combined with hydrodynamical decouplings
+resolved multiphase ISM, and effectively making the ISM an anchor holding down
+potential hot outflows.  This means these multiphase models have to be coupled
+with parameterized models to capture outflows \citep{Springel2003}.  Often,
+these simple models simply choose a fraction of feedback energy to be deposited
+as kinetic ``kicks'' to a some gas particles.  Like other kinetic feedback
+models, this is frequently combined with hydrodynamical decouplings
 \citep{Vogelsberger2013}.
 
 All of these models attempt to solve the problem of overcooling with unphysical
@@ -497,7 +497,7 @@ stellar winds.  The \citet{Weaver1977} results were extended to clustered SN by
 \citet{MacLow1988}.  They calculated that the typical cooling time for the hot
 bubble was $\sim15\;\rm{Myr}$, with a weak dependence on the total luminosity
 and ambient density.  Before significant cooling can occur in the hot interior,
-$\sim35\%$ of the total feedback luminosity is lost too cooling of the swept-up
+$\sim35\%$ of the total feedback luminosity is lost to cooling of the swept-up
 shell, which cools in $\sim10^4\;\rm{yr}$.  \citet{MacLow1988} also demonstrated
 that, as superbubbles do not have surface tension, they are not depressurized by
 cold clouds, and instead simply deform around them while continuing to expand.
@@ -533,7 +533,7 @@ thermal evaporation.
 In this thesis, I present a new sub-grid model for the feedback from massive
 stars.  I use that model to investigate how this feedback can regulate the
 formation of stars within galaxies, and finally show how this same feedback is
-unimportant to produce galaxies that match the observations of
+unnecessary to produce galaxies that match the observations of
 \citet{McGaugh2016}.  I conclude with a summary of these results, their
 implications, and some potential future directions for study.
 
@@ -548,7 +548,7 @@ model.
 
 Chapter 3 applies the feedback model described in chapter 2 to a cosmological
 simulation of a Milky Way like galaxy.  This allows us to see how galaxies like
-the Milky Way assembles themselves by regulating the flow of gas into the disc,
+the Milky Way assemble themselves by regulating the flow of gas into the disc,
 ejecting material to prevent the formation of a central stellar bulge and slow
 the formation of stars.  We compare this to the same simulation run with the
 simpler \citet{Stinson2006} feedback model to reproduce the results of
@@ -575,7 +575,7 @@ Chapter 5 uses the sample of galaxies developed in the previous chapter to
 test whether recent observational results presented in \citet{McGaugh2016}
 are consistent with $\Lambda CDM$.  The radial acceleration relation (RAR) seen in
 the SPARC sample \citep{Lelli2016} of observed rotationally supported galaxies
-shows that the accelerations within these galaxies is tightly correlated 
+shows that the accelerations within these galaxies are tightly correlated 
 with the accelerations due to baryons alone.  We show, using the sample of
 galaxies generated in chapter 4, that this relation simply falls out of the
 dissipative collapse of baryons in a collisionless dark matter halo.  We also
