@@ -164,42 +164,55 @@ NUMBER OF PAGES: ix,~\pageref{LastPage}}
     \begin{abstract}
         \addcontentsline{toc}{chapter}{Abstract}
         \setcounter{page}{3}\thispagestyle{plain}
-            In this thesis, I have explored how supernovae, when modeled with a
-            robust, physically-motivated method, can impact the growth and
-            evolution of galaxies.  This model is based on the previously
-            ignored physics of thermal conduction, and is robust in the face of
-            varying resolution and unresolved ISM and magnetic field structure.
-            I show that it results in effective star formation regulation and
-            highly mass loaded galactic winds in simulations of isolated Milky
-            Way and dwarf galaxies.  I use this new model to study the
-            evolution of Milky Way like galaxies, showing three critical
-            results.  First, outflows at high redshift are key to regulating the
-            formation of stars and the growth of spheroidal bulges.  Second, as
-            galaxies grow beyond a halo mass of $10^{12}\Msun$, supernovae alone
-            are unable to prevent runaway star formation, pointing to the need
-            for feedback from supermassive black holes.  All of this arises due
-            to fundamental features of supernovae-driven outflows.  These
-            outflows produce mass loadings that are large ($\eta\sim 10$) at
-            high redshift, allowing the galaxy to expel much of its star forming
-            gas, and the majority of the gas that would have formed a stellar
-            bulge.  However, because these outflows become less efficient in
-            higher mass galaxies, they become unable to eject significant
-            amounts of gas once the escape velocity of the galactic disk exceeds
-            $\sim 250\;\rm{km/s}$, resulting in the runaway growth of stars and
-            the formation of a massive stellar bulge.  This runaway bulge growth
-            is predicated on the transport of large amounts of gas mass to the
-            central $\sim kpc$ of the galaxy, transport that would likely
-            increase the accretion rate of the central supermassive black hole,
-            potentially triggering an active galactic nucleus.  Finally, I use
-            the simulations I have generated to show how $\Lambda CDM$ is
-            consistend with recently observed galaxy kinematics.  This
-            demonstrates that the relation between baryonic accelerations and
-            the accelerations due to dark matter requires no physics beyond
-            standard dissipational collapse in a $\Lambda CDM$ universe.  This
-            thesis helps to solidify our understanding of the essential role
-            that supernovae play in galaxy formation: regulating star
-            formation, preventing runaway bulge growth, and setting the peak of
-            the stellar mass to halo mass relation.
+            Galaxy formation is a complex, nonlinear process that occurs over
+            scales that span many orders of magnitude in both space and time.
+            Simulations of this process must necessarily truncate at some
+            minimum resolution scale, which requires the use of sub-grid models
+            to capture the effects of phenomena that occur below the resolution
+            scale.  Of these phenomena, supernovae from massive stars is among
+            the most important.  Supernovae heat and eject gas from the
+            star-forming interstellar medium, driving outflows that regulate
+            both the morphology and star formation history of the galaxy.  For
+            decades, simulations have failed to reproduce these properties in
+            galaxies like our own Milky Way.  Simulations have consistently
+            produced too many stars too close to the centre of the galaxy.
+            In this thesis, we have developed a new model for supernovae
+            feedback that captures the effects of previously ignored physics:
+            thermal conduction in superbubbles.  As massive stars form in
+            clusters, the feedback from these stars also clusters, overlapping
+            to form a superbubble, which can vent from the disc to drive a
+            galactic outflow. Thermal conduction acts to mix mass and energy
+            between hot and cool gas, regulating how much gas is heated by
+            supernovae.  We show that this new model is robust to varying
+            resolution and unresolved structure, allowing it to be used without
+            expensive and potentially biasing parameter tuning.
+
+            We use this new model to study the formation of galaxies like our
+            own, and come to four major conclusions. First, we find that the
+            inclusion of superbubble physics results in significantly stronger
+            galactic outflows of gas early in the history of the universe.
+            Second, we have found that these outflows are key to both preventing
+            the overproduction of stars and the formation of overly massive
+            central bulges.  This comes about by the ejection of starforming
+            gas, as well as the preferential removal of bulge forming gas in
+            outflows that occur at high redshift.  Third, we show that
+            supernovae are unable to prevent runaway star formation in galaxies
+            more massive than our own $(M_{halo}>10^{12}\;\rm{M_\odot})$.  This
+            occurs hand in hand with funnelling of gas towards the centre of the
+            galaxy, where supermassive black holes have been observed to grow.
+            Together, this provides a strong theoretical argument that a
+            transition between regulation from stars to regulation from
+            supermassive black holes at roughly the mass of our own galaxy.
+            Finally, we use our simulated galaxies to show that recent
+            observations of the radial acceleration relation are consistent with
+            standard $\Lambda$CDM cosmology.  The radial acceleration relation
+            connects galaxy kinematics to baryonic mass, and recent observations
+            have suggested that a tight, universal radial acceleration relation
+            exists.  While this has been claimed by some to be evidence of
+            exotic new physics, our simulations show that this same tight
+            relation occurs for galaxies formed with the concordance model of
+            cosmolgy as well.
+
     \end{abstract}
 
     \renewcommand{\abstractname}{Co-Authorship}
