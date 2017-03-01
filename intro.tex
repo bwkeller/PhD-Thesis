@@ -119,6 +119,30 @@ dependent on both the metallicity and the local heating rates (which
 themselves can vary with redshift) \citep{Field1969,Wolfire1995,Norman1997}.  In
 the disc of the galaxy, this dense multiphase gas forms the ISM from which stars
 collapse and are born.
+
+The formation of stars has a dramatic impact on the galaxy.  As molecular clouds
+begin to construct O/B stars with masses $>5\Msun$, these stars immediately
+begin to obliterate the clouds from which they form.  A typical $10^5\Msun$
+cluster will have an ionizing UV luminosity of $\sim10^5\Lsun$ during its first
+few Myr of life.  This UV flux ionizes the surrounding gas, heating it to
+$\sim10^4\;\rm{K}$ \citep{Dale2005,Murray2011}.  Along with ionizing radiation,
+massive stars drive fast $v>10^3\kms$ stellar winds, further shocking and
+destroying the cold, dense gas which stars form from.  By the time the most
+massive stars reach the end of their short lives, $\sim4$ Myr later, they
+detonate as core-collapse supernovae not in dense ($n>100\hcc$) clouds, but in
+their significantly more diffuse remnants \citep{Rogers2013}.  The longer
+cooling times this results in allows supernovae to expand through the ISM,
+driving turbulance \citep{Ostriker2010} and filling most of the volume with hot,
+diffuse gas.  Much of this hot gas is in fact able to leave the ISM, driven out
+as hot, buoyant, high-entropy gas.  These feedback-driven outflows remove gas
+from the disc, slowing the rate of star formation, and polluting the
+intergalactic medium with metals from stellar ejecta.  In the most massive
+galaxies ($M>10^{12}\Msun$), these outflows can be driven by the accretion
+luminosity of the central supermassive black hole (SMBH).  These Active Galactic
+Nuclei (AGN) are observed in giant elliptical galaxies, and can be seen blowing
+hot bubbles within the intracluster medium of nearby galaxy clusters.  Further
+discussion on feedback can be found in section~\ref{intro:fb}.
+
 \begin{figure}
     \includegraphics[width=0.7\textwidth]{mass_function.eps}
     \caption[Galaxy mass function]{The observed mass function for galaxies in
@@ -194,7 +218,7 @@ like NGC 4676 (``The Mice'') or NGC4038/4039 (``The Antennae Galaxies'') are the
 results of major mergers between two disc galaxies, as is clear from figure 1.2.
 These simulations used discs composed of a mere 120 test particles, and ignored
 the effects of self-gravity between these particles.  Despite their crudeness,
-these simulations definitively showed that the morphologies of galactic bridges and tails could be
+these simulations showed that the morphologies of galactic bridges and tails could be
 formed by the tidal interactions of two passing/merging galaxies.  The IBM
 360/95 that \citet{Toomre1972} (with an inflation-adjusted purchase price in the
 millions of dollars) used for their simulations was capable of 5.5 million
@@ -252,23 +276,29 @@ Lagrangian.  Eulerian methods discretize space into fixed volume elements with
 fixed boundaries.  By breaking a simulation volume into a grid of cells that
 each contains scalar and vector quantities those quantities can be advected
 between cells according to the solver scheme.  Eulerian schemes typically allow
-for higher-order solvers, lower intrinsic noise, and better resolved
-discontinuities \citep{Teyssier2002,Stone2008,Bryan2014}.  They suffer from
-intrinsic mixing and diffusion that scales with the flow velocity relative to
-the grid, poor integration of circular orbits, and costly timestep limits
-\citep{Agertz2007,Tasker2008}.  Lagrangian methods instead discretize mass,
-breaking the gaseous volume into discrete points, each of which moves at the
-fluid velocity to advect the quantities it contains, with smoothing functions
-used to interpolate values in between particles; hence the name for the most
-common Lagrangian method, Smoothed Particle Hydrodynamics (SPH).  Lagrangian
-methods couple easily to tree and particle-mesh codes for gravity calculation,
-are Galilean invariant, and intrinsically conserve mass, energy, and momentum
+for higher-order solvers, lower intrinsic noise, and better resolved shocks
+(when at rest relative to the grid) \citep{Teyssier2002,Stone2008,Bryan2014}.
+They suffer from intrinsic mixing and diffusion that scales with the flow
+velocity relative to the grid, poor integration of circular orbits, and costly
+timestep limits \citep{Agertz2007,Tasker2008}.  A variety of Eulerian solvers
+exist, ranging from the staggered mesh, high-order upwind \& artificial
+viscosity scheme ZEUS, used in codes such as {\sc ENZO}
+\citep{Stone1999,Bryan2014}, to the 2nd order Godunov method MUSCL used by {\sc
+ramses} \citep{vanLeer1976,Teyssier2002}, or the 3rd order PPM scheme of {\sc
+Athena} \citep{Stone2008}.  Lagrangian methods instead discretize mass, breaking
+the volume into discrete points, each of which moves at the fluid
+velocity to advect the quantities it contains, with smoothing functions used to
+interpolate values in between particles; hence the name for the most common
+Lagrangian method, Smoothed Particle Hydrodynamics (SPH).  Lagrangian methods
+couple easily to tree and particle-mesh codes for gravity calculation, are
+Galilean invariant, and intrinsically conserve mass, energy, and momentum
 (linear and angular) \citep{Katz1996,Wadsley2004,Springel2005}.  The perfect
 conservation of angular momentum is critical for accurately tracking orbits. SPH
-requires the use of artificial viscosity to handle shocks, and as such have
-difficulty in capturing subsonic turbulence \citep{Bauer2012}. Recently, new
-methods have begin to hybridize features of each of these classes as well
-\citep{Springel2010,Hopkins2015}. 
+methods typically use artificial viscosity to handle shocks, and as such have
+difficulty in capturing subsonic turbulence \citep{Bauer2012}.  Recently, new
+methods have begin to extend the basic SPH method using higher order gradient
+estimates that are allowing accuracy on subsonic tests that rival the best
+Eulerian schemes \citep{Springel2010,Hopkins2015,Valdarnini2016}. 
 
 Modern galaxy simulations also now use a variety of strategies for judiciously
 applying computational power where it is most needed.  Eulerian methods will
@@ -287,9 +317,11 @@ form is typically done with cosmological zoom simulations, where a comparatively
 cheap dark-matter only simulation is first run to select a region of interest,
 which is then resimulated with higher resolution and baryonic physics included
 \citep{Navarro1993}. Zoom-in simulations can typically achieve an order of
-magnitude or better resolution than full cosmological boxes.  Isolated galaxy
-disc simulations use a constructed disc profiles containing gas and stars,
-embedded within a dark halo. These cannot show how galaxies form in a
+magnitude or better resolution than full cosmological boxes.  A number of groups
+today are using these zoom-in simulations to study the impact of feedback
+processes over cosmic time \citep{Stinson2013,Hopkins2014,Agertz2015}.  Isolated
+galaxy disc simulations use a constructed disc profiles containing gas and
+stars, embedded within a dark halo. These cannot show how galaxies form in a
 cosmological environment, but can be run with $\sim \rm{pc}$ resolution to study
 closely how internal processes within a galaxy take place
 \citep{Hopkins2011,Benincasa2016}.  Details of these internal processes are
@@ -324,9 +356,10 @@ the simulated galaxy was nearly 10 times greater than in observed galaxies.
 \citet{Katz1992} resulted in a large overestimation of the cooling rates in
 feedback-heated gas. Since then, much work has gone into developing models for
 feedback that address the issue of overcooling that was present in these
-earlier simulations.
+earlier simulations.  These efforts will be described in detail in the next
+section.
 
-\section{The Importance of Feedback}
+\section{The Importance of Feedback}\label{intro:fb}
 \begin{figure}
     \includegraphics[width=\textwidth]{M82.eps}
 	\caption[Massive outflows in M82]{The evidence for feedback is no clearer
@@ -335,48 +368,52 @@ earlier simulations.
 	blasted out of the galaxy in a bipolar flow. \textit{Image credit: NASA, ESA
 	and the Hubble Heritage Team STScI/AURA}}
 \end{figure}
-We now have strong evidence that galaxy and star formation is not a one way process of
-gravitational collapse.  A number of internal processes (``feedback'') within
-galaxies can liberate energy greater than the gravitational binding energy of
-molecular clouds (and indeed even comparable to the binding energy of the entire
-halo).  Analytic calculations that omit feedback processes found that gas should
-rapidly collapse into the smallest halos at high redshift, overproducing
-stars in small galaxies at high redshift (the ``cooling catastrophe'')
-\citep{Cole2001,Benson2003}.  Simulations of galaxies like our own develop unrealistically
-compact morphologies without feedback \citep{Stinson2006}.  Without feedback, simulations of
-individual molecular clouds have star formation rates an order of magnitude
-too high \citep{Agertz2013}.  Aside from regulating star formation and the
-growth of galaxies, there are also observations of the large-scale impact of
-feedback. Lyman $\alpha$ forest observations probing the intergalactic medium
-(IGM) have found that the IGM is polluted with metal ions at great distances
-from any galaxies \citep{Sargent1988,Songaila1996,Dave1998}.  These metals must have
-been ejected by galactic outflows from the ISM of galaxies where they formed.
-As figure 1.3 shows, fast, massive outflows have been observed leaving the ISM of
-starburst galaxies and quasar host galaxies \citep{Veilleux2005,Werk2014}.
+Evidence has been building for decades that galaxy and star formation is not a
+one way process of gravitational collapse.  A number of internal processes
+(feedback) within galaxies can liberate energy greater than the gravitational
+binding energy of molecular clouds (and indeed even comparable to the binding
+energy of the entire halo).  Analytic calculations that omit feedback processes
+found that gas should rapidly collapse into the smallest halos at high redshift,
+overproducing stars in small galaxies at high redshift (the ``cooling
+catastrophe'') \citep{Cole2001,Benson2003}.  
+Simulated galaxies develop unrealistically compact morphologies without feedback
+\citep{Stinson2006}.  Without feedback, simulations of individual molecular
+clouds have star formation rates an order of magnitude too high
+\citep{Agertz2013}.  Aside from regulating star formation and the growth of
+galaxies, there are also observations of the large-scale impact of feedback.
+Lyman $\alpha$ forest observations probing the intergalactic medium (IGM) have
+found that the IGM is polluted with metal ions at great distances from any
+galaxies \citep{Sargent1988,Songaila1996,Dave1998}.  These metals must have been
+ejected by galactic outflows from the ISM of galaxies where they formed. Figure
+1.3 shows a composite image of the dwarf starburst M82, where fast, massive
+outflows have been seen leaving the ISM.  These outflows have been observed as a
+ubiquitous feature of starburst galaxies and quasar host galaxies
+\citep{Veilleux2005,Werk2014}.
 
-The two primary sources of feedback energy are massive stars and supermassive
-black holes (SMBHs).  Massive stars ($M>5M_\odot$) experience short, violent
-lives.  During their lives, they will drive fast $v>1000\;\rm{km/s}$ stellar
-winds \citep{Weaver1977}, and heat their surrounding gas with UV radiation
-\citep{Krumholz2009}.  At the end of their lives, $4-30\;\rm{Myr}$ later, these
-stars die in energetic core-collapse SN, liberating $\sim10^{51}\;\rm{erg}$
+The two primary sources of feedback energy are massive stars and SMBHs.  Massive
+stars ($M>5M_\odot$) experience short, violent lives.  Prior to their death,
+they will drive fast $v>1000\;\rm{km/s}$ stellar winds \citep{Weaver1977}, and
+ionize their surrounding gas with UV radiation \citep{Krumholz2009}.  At the end
+of their lives, $4-30\;\rm{Myr}$ later, these stars die in energetic
+core-collapse SN, liberating $\sim10^{51}\;\rm{erg}$
 \citep{Wilson1985,Bethe1990}.  Figure 1.4 shows the total budget of available
-energy liberated by a population of stars.  The energy released by a population
-of stars with solar metallicity is $\sim 2\times10^{51}\;\rm{erg/M_\odot}$.
-Most of this energy is released as photons, over the lifetime of each star.
-These will couple poorly to the surrounding ISM, and so have little impact on
-disrupting all but the densest gas.  While stellar winds typically have
-comparable luminosity to supernovae, they occur for an order of magnitude less
-time ($\sim4$ Myr vs. $\sim40$ Myr).  This means that supernovae, despite only
-contributing $\sim1\%$ of the total energy released by a stellar population, may
-have the greatest impact on galactic scales.  This energy imparts heat and
-momentum to the surrounding ISM, and can accelerate cosmic rays in the shocks
-that result \citep{Bell1978}.  In galaxies with actively growing SMBHs, the
-accretion disc that forms as gas funnels into the black hole can reach
-temperatures exceeding $10^9\;\rm{K}$ through viscous heating
-\citep{Antonucci1993}.  This makes these accretion discs some of the most
-luminous objects in the universe, and can heat the gas that surrounds the galaxy
-to choke off the accretion of gas onto the galaxy, shutting off star formation.
+energy liberated by a population of stars with a standard \citet{Chabrier2003}
+IMF.  The total energy released by a population of stars with solar metallicity is
+$\sim 2\times10^{51}\;\rm{erg/M_\odot}$.  Most of this energy is released as
+photons, over the lifetime of each star.  These will couple poorly to the
+surrounding ISM, and so have little impact on disrupting all but the densest
+gas.  While stellar winds typically have comparable luminosity to supernovae,
+they occur for an order of magnitude less time ($\sim4$ Myr vs. $\sim40$ Myr).
+This means that supernovae, despite only contributing $\sim1\%$ of the total
+energy released by a stellar population, may have the greatest impact on
+galactic scales.  This energy imparts heat and momentum to the surrounding ISM,
+and can accelerate cosmic rays in the shocks that result \citep{Bell1978}.  In
+galaxies with actively growing SMBHs, the accretion disc that forms as gas
+funnels into the black hole can reach temperatures exceeding $10^9\;\rm{K}$
+through viscous heating \citep{Antonucci1993}.  This makes these accretion discs
+some of the most luminous objects in the universe, and can heat the gas that
+surrounds the galaxy to choke off the accretion of gas onto the galaxy, shutting
+off star formation.
 
 \begin{figure}
     \includegraphics[width=0.8\textwidth]{FB_budget.ps}
@@ -394,12 +431,12 @@ radiation has characteristic temperatures too low to drive galactic winds.
 Large {\sc Hii} regions, such as 30 Doradus, have observed expansion rates of
 only $25\;\rm{km/s}$ \citep{Chu1994}, far below the velocities needed to drive
 galaxy-scale outflows.  Radiation pressure on dust grains has been suggested as
-a driving mechanism for outflows \citep{Murray2011}.  Simulations of
-radiation-driven galactic winds have thus far relied on major approximations
+a driving mechanism for outflows \citep{Murray2011}.  Simulations that see a
+large effect from radiation-driven galactic winds have thus far relied on major approximations
 \citep{Roskar2014,Agertz2015} and questionably large infrared optical depths
-\citep{Hopkins2014}.  The porosity of the ISM likely means that the vast
-majority of UV photons are able to escape without imparting significant energy
-or momentum \citep{Dale2005,Walch2012,Krumholz2013}.
+\citep{Hopkins2014}.  Without high optical depths and multiple scattering, UV
+photons will be reprocessed to IR that escape before imparting significant
+energy or momentum to the surrounding gas \citep{Dale2005,Walch2012,Krumholz2013}.
 
 On top of releasing just $10\%$ of the energy released by supernovae, stellar
 winds are active during the early stages of a massive star's life.  This means
@@ -409,21 +446,23 @@ efficiently, leading to much of the stellar wind energy being lost to radiation
 that escapes the ISM completely.  Simulations of molecular clouds with feedback
 from star clusters \citep{Gendelev2012,Rogers2013} have found that most stellar
 wind energy is expended disrupting the molecular clouds the clusters live in.
-While these winds do not significantly escape the cluster, the channels they
-open within the cloud allow $\sim99\%$ of SN energy to escape the dense
-molecular environment.
+While these winds (along with radiation pressure and UV-heated gas) do not
+significantly escape the cluster, the channels they open within the cloud allow
+a large fraction of SN energy to escape the dense molecular environment, while
+the energy from winds and radiation are expended in disrupting the cloud.
 
 On the galactic scale, feedback regulates star formation in two primary ways.
 Energy and momentum deposited into the ISM can heat and disrupt the cool clouds
 of gas which form stars \citep{Rogers2013}, and increase the ISM scale height to
 limit the formation of cool clouds out of the warm ISM
-\citep{Ostriker2010,Benincasa2016}.  If that feedback is vigorous enough, this
-gas can actually be ejected from the disc into the circum-galactic medium (CGM)
-\citep{Larson1974,Heckman1987,Hopkins2012b}.  This limits star formation by
-simply removing the fuel for the process.  These outflows are needed to explain
-observations of low star formation efficiencies in massive galaxies
-\citep{Behroozi2013,Moster2013}, observations of outflowing gas
-\citep{Lynds1963,Heckman1987}, a metal-polluted intergalactic medium
+\citep{Ostriker2010,Benincasa2016}.  If that feedback is vigorous enough, gas
+can actually be ejected from the disc into the circumgalactic medium (CGM)
+\citep{Larson1974,Heckman1987,Hopkins2012b}.  Even if this material is still
+bound to the halo, it can take $\sim\;\rm{Gyr}$ to return to the ISM.  This
+limits star formation by simply removing the fuel for the process.  These
+outflows are needed to explain observations of low star formation efficiencies
+in massive galaxies \citep{Behroozi2013,Moster2013}, observations of outflowing
+gas \citep{Lynds1963,Heckman1987}, a metal-polluted intergalactic medium
 \citep{Shen2010}, and the low bulge fraction in star forming galaxies
 \citep{Brook2012}.  In order to see how the local deposition of feedback energy
 drives these winds, simulations with realistic models for hot stellar feedback
@@ -431,15 +470,16 @@ are required.
 
 \subsection{Numerical Challenges for Hot Feedback}
 The greatest difficulty with including the effects of feedback in simulations of
-galaxy evolution is the combination of extreme energy gradients in a relatively
-small mass/volume.  Without overwhelmingly high resolution, hot feedback gas
-will be numerically mixed with cold ISM, often resulting in gas with
-temperatures of $\sim10^5\;\rm{K}$, at the peak of the ISM cooling curve where
-cooling times are extremely short.  This results in feedback energy being
-completely lost due to radiative cooling, as was first seen by \citet{Katz1992}.
-Indeed, as \citet{Thacker2000} showed, how feedback energy is deposited into the
-ISM has a huge impact on whether that feedback has any effect.  This problem has
-been tackled using a few different strategies.  
+galaxy evolution is the combination of extreme gradients of temperature,
+density, and velocity all in a relatively small mass/volume.  Without
+overwhelmingly high resolution, hot feedback gas will be numerically mixed with
+cold ISM, often resulting in gas with temperatures of $\sim10^5\;\rm{K}$, at the
+peak of the ISM cooling curve where cooling times are extremely short.  This
+results in feedback energy being completely lost due to radiative cooling, as
+was first seen by \citet{Katz1992}.  Indeed, as \citet{Thacker2000} showed, how
+feedback energy is deposited into the ISM has a huge impact on whether that
+feedback has any effect.  This problem has been tackled using a few different
+strategies.  
 
 Since overcooling is the problem, many models have attacked this directly by
 either temporarily disabling cooling \citep{Thacker2000,Stinson2006} or
@@ -450,20 +490,20 @@ have the correct entropy to escape buoyantly.  It also has the potential to
 introduce an \textit{undercooling} problem as resolution becomes higher and
 feedback-heated gas becomes resolvable.  Alternatively, energy may be injected
 not as heat, but as momentum, which naturally does not cool
-\citep{Scannapieco2006,DallaVecchia2008,Dubois2008}.  Unfortunately, this adds
-the additional complexity of momentum cancellation (how to treat neighbouring
-stars/clusters, where two stars are depositing momentum with opposing
-directions), and if this momentum results in strong shocks, these shocks will
-convert the momentum right back into thermal energy that can radiate away the
-feedback energy the model is designed to preserve \citep{Durier2012}.  This
-often means kinetic/momentum feedback models must be combined with hydrodynamic
-decoupling that renders feedback-heated gas into a form that does not interact
-with the surrounding ISM \citep{Springel2003,Vogelsberger2013}.  Naturally, this
-makes outflow properties strongly influenced by numerical choices
-\citep{DallaVecchia2008}.  A third choice is to stochastically deposit feedback
-energy only when enough energy is available to produce gas temperatures high
-enough for cooling times to be short \citep{DallaVecchia2012,Crain2015}.  In
-these models, SN events are effectively grouped together, somewhat decoupling
+\citep{Navarro1993,Mihos1994,Scannapieco2006,DallaVecchia2008,Dubois2008}.
+Unfortunately, this adds the additional complexity of momentum cancellation (how
+to treat neighbouring stars/clusters, where two stars are depositing momentum
+with opposing directions), and if this momentum results in strong shocks, these
+shocks will convert the momentum right back into thermal energy that can radiate
+away the feedback energy the model is designed to preserve \citep{Durier2012}.
+This often means kinetic/momentum feedback models must be combined with
+hydrodynamic decoupling that renders feedback-heated gas into a form that does
+not interact with the surrounding ISM \citep{Springel2003,Vogelsberger2013}.
+Naturally, this makes outflow properties strongly influenced by numerical
+choices \citep{DallaVecchia2008}.  A third choice is to stochastically deposit
+feedback energy only when enough energy is available to produce gas temperatures
+high enough for cooling times to be short \citep{DallaVecchia2012,Crain2015}.
+In these models, SN events are effectively grouped together, somewhat decoupling
 feedback spatially from star formation.  The choice of temperature to heat gas
 to is a purely numerical parameter, and can dramatically change the
 effectiveness of these models.  Finally, some \citep{Springel2003,Murante2015}
@@ -472,12 +512,12 @@ by separating the two phases and tracking each component separately.  This
 completely solves the overcooling problem, and allows the two components to cool
 radiatively.   Unfortunately, it also means that cold star-forming gas is
 permanently coupled to hot feedback-heated gas: preventing the simulation of  a
-resolved multiphase ISM, and effectively making the ISM an anchor holding down
-potential hot outflows.  This means these multiphase models have to be coupled
-with parameterized models to capture outflows \citep{Springel2003}.  Often,
-these simple models simply choose a fraction of feedback energy to be deposited
-as kinetic ``kicks'' to a some gas particles.  Like other kinetic feedback
-models, this is frequently combined with hydrodynamical decouplings
+resolved multiphase ISM, and effectively making the cold/warm ISM an anchor
+holding down potential hot outflows.  This means these multiphase models have to
+be coupled with parameterized models to capture outflows \citep{Springel2003}.
+Often, these simple models simply choose a fraction of feedback energy to be
+deposited as kinetic ``kicks'' to a some gas particles.  Like other kinetic
+feedback models, this is frequently combined with hydrodynamical decouplings
 \citep{Vogelsberger2013}.
 
 All of these models attempt to solve the problem of overcooling with unphysical
@@ -485,9 +525,16 @@ approximations: disabled cooling, hydrodynamic decoupling, stochastic deposition
 of feedback energy, and imposed multiphase ISM models.  These choices make it
 difficult to understand what details of simulated galaxy evolution are a result
 of these numerical free parameters, as opposed to the actual physics of
-self-regulated star formation and SN-driven outflows.  What is needed is a model that
-captures the effects of feedback while matching as closely as possible the
-actual physical processes involved below the resolution scale.
+self-regulated star formation and SN-driven outflows.  What is needed is a model
+that captures the effects of feedback while matching as closely as possible the
+actual physical processes involved below the resolution scale.  Simulations that
+rely on numerically-motivated, complex subgrid models are devoid of serious
+predictive power.  When the results obtained depend heavily of the tuning of
+multiple free parameters, those results can at best probe one point in the space
+of the possible, rather than hew away at that space to discover the region of
+the probable, and ultimately, the truth.  As Von Neumann famously quipped to
+Fermi, ``With four parameters I can fit an elephant, and with five I can make
+him wiggle his trunk.''
 
 \subsection{Superbubbles: The Natural Scale for Feedback}
 The formation of massive stars takes place mostly in clusters of $10^4$ or more
@@ -562,11 +609,15 @@ thermal evaporation.
 
 \section{This Work and Organization of Chapters}
 In this thesis, I present a new sub-grid model for the feedback from massive
-stars.  I use that model to investigate how this feedback can regulate the
-formation of stars within galaxies, and finally show how this same feedback is
-unnecessary to produce galaxies that match the observations of
-\citet{McGaugh2016} at $z=0$.  I conclude with a summary of these results, their
-implications, and some potential future directions for study.
+stars.  I use this new model to study the importance of well-modelled SN
+feedback in the cosmological evolution of MW galaxies, and how that feedback can
+drive the outflows that are key to forming physically realistic galaxies.  I
+then turn to the question of SN-regulation at the peak of the star formation
+efficiency, and examine whether the turnover in this efficiency seen by studies
+such as \citet{Behroozi2013,Moster2013} can be attributed to SN feedback alone.
+Finally, I apply the simulations generated during these investigations to
+see whether SN-regulated galaxies formed in a $\Lambda CDM$ cosmological context
+can match observed scaling relations of nearby disc galaxies.
 
 Chapter 2 presents the new superbubble feedback model, and describes the
 implementation of this model in the simulation code {\sc GASOLINE2} (Wadsley et
@@ -584,10 +635,9 @@ ejecting material to prevent the formation of a central stellar bulge and slow
 the formation of stars.  We compare this to the same simulation run with the
 simpler \citet{Stinson2006} feedback model to reproduce the results of
 \citet{Stinson2010}, which used the same initial conditions as this study.  We
-show that the overproduction of stars seen by \citet{Stinson2010} was not a
-failure of SN feedback in general, but that SN feedback simulated without 
-thermal evaporation fail to drive mass-loaded winds at high redshift.  These
-winds, we demonstrate, remove the fuel for star formation and bulge growth to
+use this to study how this new, physically motivated feedback model change prior
+assumptions about the effectiveness of SN feedback.  We also examine how
+SN-driven outflows remove the fuel for star formation and bulge growth to
 produce a realistic, bulgeless disc galaxy.
 
 Chapter 4 extends the results presented in chapter 3 by simulating an additional
@@ -599,8 +649,9 @@ star formation efficiency found by abundance matching studies like
 to regulate galaxies more massive than the peak halo mass of $10^{12}\;M_\odot$.
 By analyzing the outflow properties of these galaxies, we are able to determine
 a global relation between the halo mass (or disc mass) and the outflow mass
-loadings.  We show that the decreasing efficiency of SN-driven winds is an
-inevitable consequence of the energy budget available from SN alone.
+loadings.  We examine how the mass loading of galactic outflows is set through
+evaporation, and how the effective temperature determines the effectiveness of
+these outflows at regulating the formation of the galaxies in the MUGS2 sample.
 
 Chapter 5 uses the sample of galaxies developed in the previous chapter to
 test whether recent observational results presented in \citet{McGaugh2016}
