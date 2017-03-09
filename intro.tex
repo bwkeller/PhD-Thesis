@@ -369,26 +369,29 @@ section.
 	and the Hubble Heritage Team STScI/AURA}}
 \end{figure}
 Evidence has been building for decades that galaxy and star formation is not a
-one way process of gravitational collapse.  A number of internal processes
-(feedback) within galaxies can liberate energy greater than the gravitational
-binding energy of molecular clouds (and indeed even comparable to the binding
-energy of the entire halo).  Analytic calculations that omit feedback processes
-found that gas should rapidly collapse into the smallest halos at high redshift,
-overproducing stars in small galaxies at high redshift (the ``cooling
-catastrophe'') \citep{Cole2001,Benson2003}.  
-Simulated galaxies develop unrealistically compact morphologies without feedback
-\citep{Stinson2006}.  Without feedback, simulations of individual molecular
-clouds have star formation rates an order of magnitude too high
-\citep{Agertz2013}.  Aside from regulating star formation and the growth of
-galaxies, there are also observations of the large-scale impact of feedback.
-Lyman $\alpha$ forest observations probing the intergalactic medium (IGM) have
-found that the IGM is polluted with metal ions at great distances from any
-galaxies \citep{Sargent1988,Songaila1996,Dave1998}.  These metals must have been
-ejected by galactic outflows from the ISM of galaxies where they formed. Figure
-1.3 shows a composite image of the dwarf starburst M82, where fast, massive
-outflows have been seen leaving the ISM.  These outflows have been observed as a
+one way process of gravitational collapse.  A number of internal processes can
+release a tremendous amount of energy back into the ISM of the galaxy, stirring
+or even ejecting that gas.  Analytic calculations that omit feedback processes
+found that gas should rapidly collapse into the smallest halos that can cool
+radiatively (halos with a virial temperature of $\sim 10^4\;K$, or a mass of
+$\sim10^8\Msun$).  This leads to an overproduction of stars in small galaxies at
+high redshift (the ``cooling catastrophe'') \citep{Cole2001,Benson2003}.  The
+observational signatures of feedback are abundant.  Lyman $\alpha$ forest
+observations probing the intergalactic medium (IGM) have found that the IGM is
+polluted with metal ions at great distances from any galaxies
+\citep{Sargent1988,Songaila1996,Dave1998}.  These metals must have been ejected
+by galactic outflows from the ISM of galaxies where they formed. Figure 1.3
+shows a composite image of the dwarf starburst M82, where fast, massive outflows
+have been seen leaving the ISM.  These outflows have been observed as a
 ubiquitous feature of starburst galaxies and quasar host galaxies
-\citep{Veilleux2005,Werk2014}.
+\citep{Veilleux2005,Werk2014}.  Numerical models also have pointed towards
+feedback as an essential ingrediant in forming both realistic galaxies and the
+structures within them. Simulated galaxies develop unrealistically compact
+morphologies without feedback \citep{Stinson2006}.  Inside of the galaxy,
+simulations of individual molecular clouds have star formation rates an order of
+magnitude too high \citep{Agertz2013} when feedback is omitted.  Clearly,
+if we wish to accurately simulate galaxies, we must also accurately model the
+feedback processes that shape those galaxies.
 
 The two primary sources of feedback energy are massive stars and SMBHs.  Massive
 stars ($M>5M_\odot$) experience short, violent lives.  Prior to their death,
@@ -400,10 +403,17 @@ core-collapse SN, liberating $\sim10^{51}\;\rm{erg}$
 energy liberated by a population of stars with a standard \citet{Chabrier2003}
 IMF.  The total energy released by a population of stars with solar metallicity is
 $\sim 2\times10^{51}\;\rm{erg/M_\odot}$.  Most of this energy is released as
-photons, over the lifetime of each star.  These will couple poorly to the
-surrounding ISM, and so have little impact on disrupting all but the densest
-gas.  While stellar winds typically have comparable luminosity to supernovae,
-they occur for an order of magnitude less time ($\sim4$ Myr vs. $\sim40$ Myr).
+photons, over the lifetime of each star.  These will both couple weakly with the
+ISM, depositing little energy, and only heat gas to a relatively modest
+temperature, much cooler than the virial temperature for galaxies like our own.
+While stellar winds from a cluster will have comparable luminosity to
+supernovae, two factors limit the effectiveness of these winds at driving
+galaxy-scale outflows.  First, because these stellar winds are produced early,
+they couple to the dense environment of the cluster's natal cloud, resulting in
+orders of magnitude shorter cooling times for the hot bubbles they drive.
+Second, the vast majority of the energy liberated in stellar winds comes from
+the most massive stars, that die within $4\Myr$, giving stellar winds a total
+energy budget of $10\%$ of the supernovae budget \citet{Leitherer1999}.
 This means that supernovae, despite only contributing $\sim1\%$ of the total
 energy released by a stellar population, may have the greatest impact on
 galactic scales.  This energy imparts heat and momentum to the surrounding ISM,
@@ -439,17 +449,17 @@ photons will be reprocessed to IR that escape before imparting significant
 energy or momentum to the surrounding gas \citep{Dale2005,Walch2012,Krumholz2013}.
 
 On top of releasing just $10\%$ of the energy released by supernovae, stellar
-winds are active during the early stages of a massive star's life.  This means
-that these winds are released into the dense natal gas that massive star
-clusters form in.  Stellar wind shocks within this dense molecular gas cool
-efficiently, leading to much of the stellar wind energy being lost to radiation
-that escapes the ISM completely.  Simulations of molecular clouds with feedback
-from star clusters \citep{Gendelev2012,Rogers2013} have found that most stellar
-wind energy is expended disrupting the molecular clouds the clusters live in.
-While these winds (along with radiation pressure and UV-heated gas) do not
-significantly escape the cluster, the channels they open within the cloud allow
-a large fraction of SN energy to escape the dense molecular environment, while
-the energy from winds and radiation are expended in disrupting the cloud.
+winds are active during the early stages of a massive star's life.   Simulations
+of molecular clouds with feedback from star clusters
+\citep{Gendelev2012,Rogers2013} have found that most stellar wind energy is
+expended disrupting the molecular clouds the clusters live in.  While these
+winds (along with radiation pressure and UV-heated gas) do not significantly
+escape the cluster, the channels they open within the cloud allow a large
+fraction of SN energy to escape the dense molecular environment, while the
+energy from winds and radiation are expended in disrupting the cloud.  Thus, for
+galaxy-scale simulations that do not resolve the internal structure of
+individual molecular clouds, the effects of UV radiation and stellar winds can
+be safely omitted.
 
 On the galactic scale, feedback regulates star formation in two primary ways.
 Energy and momentum deposited into the ISM can heat and disrupt the cool clouds
@@ -473,8 +483,8 @@ The greatest difficulty with including the effects of feedback in simulations of
 galaxy evolution is the combination of extreme gradients of temperature,
 density, and velocity all in a relatively small mass/volume.  Without
 overwhelmingly high resolution, hot feedback gas will be numerically mixed with
-cold ISM, often resulting in gas with temperatures of $\sim10^5\;\rm{K}$, at the
-peak of the ISM cooling curve where cooling times are extremely short.  This
+cold ISM, often resulting in gas with relatively high density and temperatures
+of $\sim10^5\;\rm{K}$, where radiative cooling times are extremely short.  This
 results in feedback energy being completely lost due to radiative cooling, as
 was first seen by \citet{Katz1992}.  Indeed, as \citet{Thacker2000} showed, how
 feedback energy is deposited into the ISM has a huge impact on whether that
@@ -485,17 +495,18 @@ Since overcooling is the problem, many models have attacked this directly by
 either temporarily disabling cooling \citep{Thacker2000,Stinson2006} or
 depositing feedback energy into a second, nonthermal energy component
 \citep{Agertz2013}.  While this does limit radiative losses, it produces gas
-that exists in an unphysical region of the $\rho-T$ phase diagram, which may not
-have the correct entropy to escape buoyantly.  It also has the potential to
-introduce an \textit{undercooling} problem as resolution becomes higher and
-feedback-heated gas becomes resolvable.  Alternatively, energy may be injected
-not as heat, but as momentum, which naturally does not cool
+that exists in an unphysical region of the $\rho-T$ phase diagram.  This gas may
+lack the high temperatures and velocities required to actually escape the disc.
+It also has the potential to introduce an \textit{undercooling} problem as
+resolution becomes higher and feedback-heated gas becomes resolvable.
+Alternatively, energy may be injected not as heat, but as momentum, which
+naturally does not cool
 \citep{Navarro1993,Mihos1994,Scannapieco2006,DallaVecchia2008,Dubois2008}.
 Unfortunately, this adds the additional complexity of momentum cancellation (how
 to treat neighbouring stars/clusters, where two stars are depositing momentum
 with opposing directions), and if this momentum results in strong shocks, these
-shocks will convert the momentum right back into thermal energy that can radiate
-away the feedback energy the model is designed to preserve \citep{Durier2012}.
+shocks will convert the momentum back into thermal energy that can radiate
+away the very energy the model is designed to preserve \citep{Durier2012}.
 This often means kinetic/momentum feedback models must be combined with
 hydrodynamic decoupling that renders feedback-heated gas into a form that does
 not interact with the surrounding ISM \citep{Springel2003,Vogelsberger2013}.
@@ -528,13 +539,11 @@ of these numerical free parameters, as opposed to the actual physics of
 self-regulated star formation and SN-driven outflows.  What is needed is a model
 that captures the effects of feedback while matching as closely as possible the
 actual physical processes involved below the resolution scale.  Simulations that
-rely on numerically-motivated, complex subgrid models are devoid of serious
+rely on complex, numerically-motivated subgrid models are devoid of serious
 predictive power.  When the results obtained depend heavily of the tuning of
 multiple free parameters, those results can at best probe one point in the space
 of the possible, rather than hew away at that space to discover the region of
-the probable, and ultimately, the truth.  As Von Neumann famously quipped to
-Fermi, ``With four parameters I can fit an elephant, and with five I can make
-him wiggle his trunk.''
+the probable, and ultimately, the truth.  
 
 \subsection{Superbubbles: The Natural Scale for Feedback}
 The formation of massive stars takes place mostly in clusters of $10^4$ or more
@@ -550,8 +559,8 @@ cold shell surrounding a hot, diffuse bubble.
 
 The structure and evolution of superbubbles have been the subject of a great
 deal of analytic study.  \citet{Castor1975} found that the time evolution of
-superbubbles has a similarity solution, the \citet{Sedov1959} adiabatic blast
-wave solution: 
+superbubbles has a similarity solution, similar to the \citet{Sedov1959}
+adiabatic blast wave solution: 
 \begin{equation}
     R(t)=27n_0^{-1/5}L_{36}^{1/5}t_6^{3/5}\;\rm{pc} 
 \end{equation}
@@ -561,22 +570,18 @@ wave solution:
 $n_0$ is the ambient density in $\rm{cm^{-3}}$, $L_{36}$ is the luminosity of
 the star cluster in $10^{36}\;\rm{erg/s}$, and $t_6$ is the time in
 $10^6\;\rm{yr}$.  The evolution of hot mass in the bubble, and the effects of
-cooling in the swept-up shell, were examined in \citet{Weaver1977}.  A major
-result of this study was the realization that thermal conduction between the hot
-bubble and cold shell will result in an evaporative mass flux, pulling material
-into the hot bubble.  This evaporated mass will quickly dominate over the small
-amount of ejecta from stellar winds (and later SN).  The \citet{Weaver1977}
-results were extended to clustered SN by \citet{MacLow1988}.  They calculated
-that the typical cooling time for the hot bubble was $\sim15\;\rm{Myr}$, with a
-weak dependence on the total luminosity and ambient density.  Before significant
-cooling can occur in the hot interior, $\sim35\%$ of the total feedback
-luminosity is lost to cooling of the swept-up shell, which cools in
-$\sim10^4\;\rm{yr}$.  This means that, rather than the $1-10\%$ of energy 
-preserved from a single supernova blast \citep{Chevalier1974}, $\sim65\%$ of the
-initial energy budget is retained in the kinetic energy of the cold shell and
-thermal energy of the hot interior.  \citet{MacLow1988} also demonstrated that,
-as superbubbles do not have surface tension, they are not depressurized by cold
-clouds, and instead simply deform around them while continuing to expand.
+cooling in the swept-up shell, were examined in \citet{Weaver1977}.  The
+\citet{Weaver1977} results were extended to clustered SN by \citet{MacLow1988}.
+They calculated that the typical cooling time for the hot bubble was
+$\sim15\;\rm{Myr}$, with a weak dependence on the total luminosity and ambient
+density.  Before significant cooling can occur in the hot interior, $\sim35\%$
+of the total feedback luminosity is lost to cooling of the swept-up shell, which
+cools in $\sim10^4\;\rm{yr}$.  This means that, rather than the $1-10\%$ of
+energy preserved from a single supernova blast \citep{Chevalier1974}, $\sim65\%$
+of the initial energy budget is retained in the kinetic energy of the cold shell
+and thermal energy of the hot interior.  \citet{MacLow1988} also demonstrated
+that, as superbubbles do not have surface tension, they are not depressurized by
+cold clouds, and instead simply deform around them while continuing to expand.
 \citet{Silich1996} studied the effects of an ISM permeated with cold clumps in
 greater detail, finding that the general behaviour discussed in
 \citet{MacLow1988} held even in the case of an inhomogeneous ISM.  Even with
@@ -605,7 +610,12 @@ This acts to push interior bubble temperatures to $10^6-10^7\;\rm{K}$.
 ultimately determine its effectiveness in driving outflows and regulating star
 formation, even with constant feedback energy.  The self-regulating temperature
 of superbubbles provides the natural mechanism for setting this temperature:
-thermal evaporation.
+thermal evaporation.  By including the effects of thermal evaporation between
+unresolved hot bubbles and the surrounding cool ISM, feedback energy can be
+deposited into the correct amount of ISM mass, giving realistic temperatures,
+densities, and cooling times for feedback-heated gas.  This superbubble feedback
+model is described in detail, and applied to the problem of Milky Way-like
+galaxy formation in the chapters that follow.
 
 \section{This Work and Organization of Chapters}
 In this thesis, I present a new sub-grid model for the feedback from massive
