@@ -1,11 +1,28 @@
-In this thesis we have explored the effects of SN feedback in the formation of 
-galaxies like our own.  We introduced a novel model for SN feedback that
-takes into account the important effects of previously ignored physics: the
-evaporation of cold gas driven by thermal conduction.  This model allowed us to
-see when SN can (and cannot!) regulate the flow of gas into and out of galaxies,
-where it may forms stars.  We have also shown that the current $\Lambda
-CDM$ cosmological model is consistent with recent observations of galaxy
-kinematics.
+In this thesis we have explored the effects of SN feedback in the formation of
+galaxies like our own.  Supernovae produce extremely hot ejecta
+($T>10^8\;\mathrm{K}$) that rapidly shocks and expands against the significantly
+under-pressured surroundings.  As massive stars form in clusters, these
+individual SN remnants merge together, forming a superbubble.  These
+superbubbles are much more effective at pushing and heating the ISM than an
+equivalent amount of energy distributed as individual supernovae.  The primary
+mechanism that sets the temperature of these superbubbles is the evaporation of
+cold gas, driven by thermal conduction.  Thermal conduction becomes effective
+above $10^5\;\mathrm{K}$, and strongly self-limits the temperature of
+superbubbles to $\sim2-5\tims10^6\;\mathrm{K}$.  In this thesis, we have
+developed a new model for SN feedback that takes into account these previously
+ignored superbubble processes, and used that model to study the growth and
+evolution of starforming galaxies.  This model allowed us to see when SN can
+(and cannot!) regulate the flow of gas into and out of galaxies, where it may
+forms stars.  Previous work \citep{Stinson2013,Hopkins2014} has suggested that
+starforming galaxies could only regulate their growth if supernovae feedback was
+heavily aided through early feedback from radiation pressure, stellar winds, and
+UV heating.  With careful, physically motivated feedback models, we have now
+shown that this is not the case:  the additional free parameters provided by
+complex, numerically motivated early feedback are not necessary.  The primary
+insight that this thesis provides is that the processes that mix feedback-heated
+gas with the ISM (thermal evaporation in this case) are just as important as the
+amount of energy provided by feedback.  Neither can be omitted if one wishes to
+construct an accurate simulation of galaxy formation.  
 
 In Chapter 2, we presented a detailed description of the new superbubble model,
 implemented in the SPH code {\sc Gasoline2}.  We rely on the strongly
@@ -41,7 +58,9 @@ that forms a stellar bulge is accreted at high redshift, meaning that these
 winds preferentially remove low angular momentum material, while preserving the
 gas with high angular momentum.  Thus, superbubble feedback is able to naturally
 prevent both runaway star formation and the formation of a bulge through these
-winds.
+winds.  Higher-resolution simulations of wind venting will help to determine if
+these mass loadings are realistic, and to remove additional uncertainty that
+arises from a marginally-resolved ISM.  
 
 While a single galaxy can be a useful case study, multiple objects must be
 studied in order to look at population-scale effects.  Chapter 4 extends the
@@ -88,6 +107,80 @@ internal processes of galaxy evolution, the acceleration relation observed by
 \citet{McGaugh2016} is simply a natural consequence of galaxy formation.
 
 \section{The Impact and Context of these Results}
+\subsection{How Clustered Supernovae Heat The ISM}
+Supernovae provide an enormous source of energy.  Simple accounting shows that
+the energy released from a stellar population can eject more gas from a galaxy
+disc than the mass of the population itself, if that energy couples to enough
+mass before radiating away \citep{Larson1974}.  Radiative losses may be
+significant if that energy is released into a sufficiently dense environment,
+with cooling times as short as a few thousand years \citep{Chevalier1974}.
+However, when massive stars form in clusters, bubbles of shocked stellar wind
+and SN ejecta merge to form a superbubble.  These superbubbles have
+significantly longer cooling times \citep{MacLow1988}, and can deposit an order
+of magnitude more energy and momentum into the ISM before cooling
+\citet{Gentry2017}.  How these superbubbles act to drive the 
+outflows that regulate the formation of stars within the galactic disc depends
+on the mass loading of the outflows they drive.  This global mass loading
+depends heavily on the local mass loading: how much mass is mixed into a
+superbubble before it vents from the galaxy.
+
+The issue of local mass loading has been explored before in simulation.
+\citet{Thacker2000} presented a survey of methods for depositing feedback
+energy.  This work showed that choosing to deposit feedback energy into single
+resolution elements vs. smoothing it over multiple elements had a significant
+impact on whether that feedback energy could couple to the ISM without radiating
+away.  \citet{Thacker2000} advocated the use of a brief adiabatic period,
+similar to the delayed cooling model used in \citet{Stinson2006} and
+\citet{Rosdahl2016} to prevent overcooling when feedback energy was smoothed.  A
+more recent study by \citet{DallaVecchia2012} directly examined the question of
+local mass loading with a model that used the temperature of post-feedback
+gas as a single tunable parameter.  This is effectively the same as choosing
+the amount of mass that each supernovae heats (the local mass loading).
+They found that lower mass loadings result in hotter post-feedback gas, with
+longer cooling times, and subsequently much more effective supernovae feedback.
+The \citet{Keller2014} superbubble model is the first model to actually
+incorporate a physical mechanism for determining this mass loading.  Previous
+feedback models have been designed primarily to avoid the overcooling that can
+occur when this mass loading is too high: superbubble feedback instead attempts
+to calculate the {\it correct} local mass loadings, and allows the
+feedback-heated gas to cool with realistic temperatures and densities.  The
+amount of material heated by feedback is nearly as important as the energy
+available from feedback.  On a global scale, higher mass loadings may mean that
+more material is ejected from the disc, but at lower overall temperatures and
+velocities.  This material will re-accrete on shorter timescales than hotter
+ejecta, increasing the star formation rate.  Conversely, a very low mass loading
+will give hot, high-entropy outflows that leave the disc efficiently and
+re-accrete much later (if at all).  If these outflows do not contain enough
+mass, the ISM that remains will still be able to form stars effectively, also
+increasing the star formation rate.  The results we presented here show that
+thermal evaporation mixes gives a mass-loading rate between these two extremes,
+allowing effective outflows for galaxies up to $M_{vir}\sim10^{12}\Msun$.
+
+As we showed in \citet{Keller2015}, including thermal evaporation in simulations
+of a Milky Way-like galaxy will drastically change the effectiveness of
+SN-driven galactic winds.  Starving the galaxy of gas (either through ejection
+of accreted gas, or prevention of accretion) is the only effective mechanism for
+regulating star formation on cosmic timescales \citet{Keres2009}.  To prevent
+the formation of bulges larger than the ones seen in the local universe, bulge
+forming gas (low-angular momentum gas) must be removed from the ISM; because
+SN-driven winds are most effective at high redshift, when this material is
+mostly accreted, the outflows driven from the galaxy preferentially remove
+bulge-forming gas.  A similar result was seen in simulations of dwarf galaxies
+\citep{Governato2010, Brook2011}, but \citet{Keller2015} is the first work to
+show that bulgeless disc galaxies similar to the Milky Way can be
+produced through the same mechanism, and connect this with the regulation of
+star formation.  An important conclusion of this study is that much of the past
+work \citep{Stinson2013,Agertz2013,Hopkins2014} showing that SN feedback was
+unable regulate star formation without the addition of ``early feedback'' from
+radiation pressure, stellar winds, or photoionization was likely underestimating
+the effectiveness of SN.  Since many of these studies used simpler, more
+numerically-sensitive feedback models that also omitted thermal evaporation,
+they were unable to effectively drive sufficient mass into hot, high entropy gas
+that could leave the galaxy.  This study tells us that the disc-dominant
+morphology and low stellar fraction in galaxies like our own all arise from the
+same mechanism:  heavily mass loaded, high redshift winds.
+
+\subsection{The Challenge of Modelling Feedback}
 Developing a versatile, accurate, resolution insensitive model for SN feedback
 has been a challenge in galaxy simulations for decades \citep{Katz1992}.  While
 a number of recent models have been developed that are able to produce galaxies
@@ -127,51 +220,8 @@ the underlying physics and which are simply a result of the choice of parameters
 used for the simulation.  Physics-driven, parameter-free models remove this
 ambiguity, and allow us to produce results with greater confidence.  
 
-The issue of local mass loading has been explored before in simulation.
-\citet{Thacker2000} presented a survey of methods for depositing feedback
-energy.  This work showed that choosing to deposit feedback energy into single
-resolution elements vs. smoothing it over multiple elements had a significant
-impact on whether that feedback energy could couple to the ISM without radiating
-away.  \citet{Thacker2000} advocated the use of a brief adiabatic period,
-similar to the delayed cooling model used in \citet{Stinson2006} and
-\citet{Rosdahl2016} to prevent overcooling when feedback energy was smoothed.  A
-more recent study by \citet{DallaVecchia2012} directly examined the question of
-local mass loading with a model that used the temperature of post-feedback
-gas as a single tunable parameter.  This is effectively the same as choosing
-the amount of mass that each supernovae heats (the local mass loading).
-They found that lower mass loadings result in hotter post-feedback gas, with
-longer cooling times, and subsequently much more effective supernovae feedback.
-The \citet{Keller2014} superbubble model is the first model to actually
-incorporate a physical mechanism for determining this mass loading.  Previous
-feedback models have been designed primarily to avoid the overcooling that can
-occur when this mass loading is too high: superbubble feedback instead attempts
-to calculate the {\it correct} local mass loadings, and allows the
-feedback-heated gas to cool with realistic temperatures and densities.  
 
-As we showed in \citet{Keller2015}, including thermal evaporation in simulations
-of a Milky Way-like galaxy will drastically change the effectiveness of
-SN-driven galactic winds.  Starving the galaxy of gas (either through ejection
-of accreted gas, or prevention of accretion) is the only effective mechanism for
-regulating star formation on cosmic timescales \citet{Keres2009}.  To prevent
-the formation of bulges larger than the ones seen in the local universe, bulge
-forming gas (low-angular momentum gas) must be removed from the ISM; because
-SN-driven winds are most effective at high redshift, when this material is
-mostly accreted, the outflows driven from the galaxy preferentially remove
-bulge-forming gas.  A similar result was seen in simulations of dwarf galaxies
-\citep{Governato2010, Brook2011}, but \citet{Keller2015} is the first work to
-show that bulgeless disc galaxies similar to the Milky Way can be
-produced through the same mechanism, and connect this with the regulation of
-star formation.  An important conclusion of this study is that much of the past
-work \citep{Stinson2013,Agertz2013,Hopkins2014} showing that SN feedback was
-unable regulate star formation without the addition of ``early feedback'' from
-radiation pressure, stellar winds, or photoionization was likely underestimating
-the effectiveness of SN.  Since many of these studies used simpler, more
-numerically-sensitive feedback models that also omitted thermal evaporation,
-they were unable to effectively drive sufficient mass into hot, high entropy gas
-that could leave the galaxy.  This study tells us that the disc-dominant
-morphology and low stellar fraction in galaxies like our own all arise from the
-same mechanism:  heavily mass loaded, high redshift winds.
-
+\subsection{Feedback Beyond Supernovae}
 Subgrid models are essential for including feedback from other sources as well.
 Non-supernovae mechanisms for launching outflows and regulating star formation
 are now being studied with numerical simulations.  Radiation pressure has been
@@ -202,8 +252,13 @@ results in large angular momentum losses for gas within the disc, funneling
 material to the central regions where SMBHs reside.  This, combined with the
 failure of SN-driven galactic winds, suggests that SN are actually the mechanism
 that determines where powerful AGN occur, a mechanism that has begun to be studied in
-\citet{Bower2016}.
+\citet{Bower2016}.  Uncertainties in the unresolved ISM are unlikely to
+significantly change the characteristic mass that ``needs'' AGN for regulation.
+As we showed in Chapter 2, the strongly self-limiting nature of thermal
+conduction makes the temperature of feedback-heated gas insensitve to unresolved
+structure in both gas density and magnetic fields.
 
+\subsection{Baryonic Physics \& Feedback in Tests of Cosmology}
 Chapter 5 presented the first simulation result to reproduce the
 \citet{McGaugh2016} RAR.  A later study \citep{Ludlow2016} used data from the
 EAGLE \citep{Schaye2015} and APOSTLE \citep{Sawala2016} simulations and
@@ -238,20 +293,25 @@ seen in galaxies both more and less massive than the ones we have seen here?
 The results of chapter 4 suggest that feedback from AGN is a critical process
 for more massive galaxies.
 
+\subsection{Feedback from AGN}
 While observational evidence abounds for the existence of SMBHs
 \citep{Kormendy2013}, and the impact of the AGNs they power
 \citep{Veilleux2005}, there is still great uncertainty as to the details of how
 they regulate their own growth, and the growth of the galaxies they live in.
 \citet{Keller2016a} showed evidence that a transition must occur between
 galaxies regulated by SN feedback to AGN feedback as they grow heavier than the
-Milky Way.  How this handoff occurs remains widely unexplored.  Using the
-superbubble feedback, along with new models for SMBH growth \citep{Hopkins2010}
-and migration \citep{Tremmel2015}, we will be able to simulate the growth of
-SMBHs in galaxies with greater confidence, using physically motivated feedback
-and accretion models.  This will allow us to study the full gamut of galaxies
-that exist, and study how the tight scaling relations between stellar bulges and
-SMBHs might arise.
+Milky Way.  How this handoff occurs remains widely unexplored.  The superbubble
+feedback model is agnostic to the source of heating: it simply captures the
+effect of evaporation between unresolved hot and cold gas.  It's therefore
+equally well-suited to model the effect of heating from AGN as it is for heating
+from SN.  Using superbubble feedback, along with new models for SMBH growth
+\citep{Hopkins2010} and migration \citep{Tremmel2015}, we will be able to
+simulate the growth of SMBHs in galaxies with greater confidence, using
+physically motivated feedback and accretion models.  This will allow us to study
+the full gamut of galaxies that exist, and study how the tight scaling relations
+between stellar bulges and SMBHs might arise.
 
+\subsection{Launching Multiphase Galactic Winds}
 One of the biggest questions raised in chapter 4 was the origin of the scaling
 relation between outflow mass loadings and disc mass.  Observations of galactic
 winds tell us that they are multiphase \citep{Stark1984,Wakker1997}, containing
@@ -296,6 +356,7 @@ from stellar winds and massive stars, as well as thermal conduction and
 evaporation will allow us to determine the true budget of energy available from
 stellar feedback.
 
+\subsection{Scaling Relations in Galaxy Populations}
 While the MUGS2 sample has been simulated with a robust, physically motivated
 model for SN feedback, its sample size is small (only 18 galaxies), and covers a
 limited range of halo masses ($\sim 4\times10^{11}-2\times10^{12}\;M_\odot$).
@@ -316,5 +377,7 @@ us to build a statistically significant sample of physically realistic galaxies.
 With first-principles, physically motivated models for the unresolved physics in
 our simulations, we will be able to study the actual physics involved in shaping
 both individual galaxies and the populations that we observe. 
+
+\section{Final Thoughts}
 \bibliographystyle{mnras}
 \bibliography{library}
